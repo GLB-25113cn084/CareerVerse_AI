@@ -1,0 +1,10 @@
+package com.careerverse.service;
+import com.careerverse.model.CareerData; import java.util.*;
+public class CareerEngine {
+ public static List<Map<String,Object>> recommend(Map<String,Integer> aptitude,Map<String,Integer> userSkills){
+  List<Map<String,Object>> out=new ArrayList<>();
+  for(var c:CareerData.ALL){double weighted=0,max=0;for(var e:c.skillWeights().entrySet()){max+=e.getValue();int level=userSkills.getOrDefault(e.getKey().toLowerCase(),0);weighted+=e.getValue()*(level/5.0);}double skillScore=max==0?0:(weighted/max)*50;double aptitudeScore=aptitude.values().stream().mapToInt(i->i).average().orElse(50)*.40;double fit=Math.min(99,skillScore+aptitudeScore+10);Map<String,Object>m=new LinkedHashMap<>();m.put("id",c.id());m.put("name",c.name());m.put("icon",c.icon());m.put("description",c.description());m.put("match",Math.round(fit));m.put("skills",c.skills());out.add(m);}out.sort((a,b)->Integer.compare((Integer)b.get("match"),(Integer)a.get("match")));return out;
+ }
+ public static List<Map<String,Object>> gap(CareerData.Career c,Map<String,Integer> userSkills){List<Map<String,Object>>out=new ArrayList<>();int max=c.skillWeights().values().stream().mapToInt(x->x).sum();for(var e:c.skillWeights().entrySet()){int level=userSkills.getOrDefault(e.getKey().toLowerCase(),0);int current=level==0?0:level*20;Map<String,Object>m=new LinkedHashMap<>();m.put("skill",e.getKey());m.put("importance",Math.round(e.getValue()*100.0/max));m.put("current",current);m.put("gap",100-current);m.put("status",level>=4?"Strong":level>0?"Develop further":"Priority gap");out.add(m);}out.sort((a,b)->Integer.compare((Integer)b.get("gap"),(Integer)a.get("gap")));return out;}
+ public static List<Map<String,Object>> roadmap(CareerData.Career c){List<Map<String,Object>>r=new ArrayList<>();for(var s:c.stages()){Map<String,Object>m=new LinkedHashMap<>();m.put("title",s.title());m.put("duration",s.duration());m.put("goal",s.goal());m.put("tasks",s.tasks());m.put("checkpoint",s.checkpoint());m.put("languages",c.languages());m.put("projects",c.projects());r.add(m);}return r;}
+}

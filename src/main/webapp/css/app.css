@@ -1,0 +1,662 @@
+:root {
+    --navy: #11152b;
+    --indigo: #5b5ce2;
+    --line: #e7e9f0;
+    --muted: #7b8598;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f6f8fc;
+    color: #172033;
+}
+
+/* =========================
+   MAIN APP LAYOUT
+   ========================= */
+
+#shell {
+    min-height: 100vh;
+    width: 100%;
+}
+
+/*
+ * Keep the sidebar at a fixed width.
+ * Long selected interests/skills must never
+ * make the sidebar shrink.
+ */
+.sidebar {
+    width: 255px;
+    min-width: 255px;
+    max-width: 255px;
+    flex: 0 0 255px;
+
+    min-height: 100vh;
+
+    background: var(--navy);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+
+    overflow-x: hidden;
+}
+
+main {
+    min-width: 0;
+    width: 0;
+    flex: 1 1 auto;
+}
+
+/* =========================
+   BRAND
+   ========================= */
+
+.brand {
+    font-size: 20px;
+    font-weight: 900;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brand span {
+    color: #a5b4fc;
+}
+
+/* =========================
+   SIDEBAR NAVIGATION
+   ========================= */
+
+.navbtn {
+    border: 0;
+    background: transparent;
+    color: #b7bfd4;
+
+    text-align: left;
+
+    padding: 12px;
+    border-radius: 10px;
+    margin: 2px 0;
+
+    font-weight: 650;
+    width: 100%;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbtn:hover,
+.navbtn.active {
+    background: #242846;
+    color: #fff;
+}
+
+/* =========================
+   TOP BAR
+   ========================= */
+
+.topbar {
+    height: 70px;
+
+    background: #fff;
+    border-bottom: 1px solid var(--line);
+
+    padding: 10px 22px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 20;
+}
+
+.searchbox {
+    display: flex;
+
+    max-width: 600px;
+    flex: 1;
+
+    margin: 0 20px;
+
+    border: 1px solid var(--line);
+    border-radius: 11px;
+
+    overflow: hidden;
+
+    background: #fafbfe;
+
+    min-width: 0;
+}
+
+.searchbox input {
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    flex: 1;
+    min-width: 0;
+
+    padding: 11px;
+}
+
+.searchbox button {
+    border: 0;
+
+    background: #eeeeff;
+    color: #4d4fcf;
+
+    padding: 0 18px;
+
+    font-weight: 800;
+
+    flex-shrink: 0;
+}
+
+.profile-btn {
+    border: 0;
+    background: transparent;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+}
+
+.profile-btn span:last-child {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        #5b5ce2,
+        #22c55e
+    );
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+
+    flex-shrink: 0;
+}
+
+/* =========================
+   PAGE SYSTEM
+   ========================= */
+
+.page {
+    display: none;
+
+    min-width: 0;
+}
+
+.page.active {
+    display: block;
+}
+
+/*
+ * Prevent long text/content inside the page
+ * from affecting the sidebar width.
+ */
+.container-fluid {
+    min-width: 0;
+}
+
+.row {
+    min-width: 0;
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    background: linear-gradient(
+        125deg,
+        #171b38,
+        #383a80 68%,
+        #714bc7
+    );
+
+    color: #fff;
+}
+
+.hero p {
+    max-width: 760px;
+    color: #dfe3ff;
+}
+
+/* =========================
+   STAT CARDS
+   ========================= */
+
+.stat,
+.card {
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px #1f29460b;
+
+    min-width: 0;
+}
+
+.stat {
+    padding: 18px;
+}
+
+.stat small,
+.stat span {
+    display: block;
+
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.stat b {
+    display: block;
+
+    margin: 6px 0;
+
+    font-size: 18px;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   MULTI SELECT
+   ========================= */
+
+.multi-select {
+    position: relative;
+    width: 100%;
+
+    min-width: 0;
+}
+
+.multi-select > button {
+    width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    padding-right: 40px;
+
+    cursor: pointer;
+}
+
+.multi-menu {
+    display: none;
+
+    position: absolute;
+
+    z-index: 1000;
+
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    padding: 10px;
+
+    box-shadow: 0 15px 40px #0002;
+
+    max-height: 300px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.multi-select.open .multi-menu {
+    display: block;
+}
+
+.multi-menu label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    width: 100%;
+
+    min-width: 0;
+}
+
+.multi-menu label:hover {
+    background: #f2f3ff;
+}
+
+.multi-menu input[type="checkbox"] {
+    flex-shrink: 0;
+}
+
+.multi-menu label span {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   SKILL LEVEL SELECTOR
+   ========================= */
+
+.skill-level {
+    width: 145px;
+
+    flex-shrink: 0;
+
+    border: 1px solid var(--line);
+    border-radius: 7px;
+
+    padding: 5px 7px;
+
+    font-size: 12px;
+
+    background: #fff;
+
+    cursor: pointer;
+}
+
+.skill-level:focus {
+    outline: none;
+
+    border-color: var(--indigo);
+
+    box-shadow: 0 0 0 2px #5b5ce220;
+}
+
+/*
+ * Explanation shown above the skills list.
+ */
+.skill-level-info {
+    background: #f7f8ff;
+
+    border: 1px solid #e1e3ff;
+
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    font-size: 13px;
+
+    color: #4b5563;
+
+    margin-bottom: 10px;
+}
+
+.skill-level-info strong {
+    color: #24264d;
+}
+
+.skill-level-info ul {
+    margin: 8px 0 0 18px;
+    padding: 0;
+}
+
+.skill-level-info li {
+    margin: 3px 0;
+}
+
+/*
+ * Small label shown beside the 1–5 selector.
+ */
+.skill-level-label {
+    flex-shrink: 0;
+
+    font-size: 11px;
+
+    color: var(--muted);
+
+    white-space: nowrap;
+}
+
+/* =========================
+   CAREER CARDS
+   ========================= */
+
+.career-card {
+    height: 100%;
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+.career-card p,
+.career-card div {
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+   SKILL GAP
+   ========================= */
+
+.gapbar {
+    height: 10px;
+
+    background: #edf0f6;
+
+    border-radius: 99px;
+
+    overflow: hidden;
+}
+
+.gapbar i {
+    display: block;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #22c55e,
+        #6366f1
+    );
+}
+
+/* =========================
+   ROADMAP
+   ========================= */
+
+.road,
+.sim-stage {
+    background: #fff;
+
+    border: 1px solid var(--line);
+    border-radius: 14px;
+
+    padding: 18px;
+
+    margin: 12px 0;
+
+    min-width: 0;
+
+    overflow-wrap: anywhere;
+}
+
+.sim-stage {
+    border-left: 4px solid #6366df;
+}
+
+/* =========================
+   AI CHAT
+   ========================= */
+
+.chat {
+    height: 420px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    background: #f7f8fd;
+
+    border-radius: 12px;
+
+    padding: 15px;
+}
+
+.msg {
+    padding: 10px 13px;
+
+    border-radius: 12px;
+
+    margin: 8px 0;
+
+    max-width: 85%;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+.user-msg {
+    background: #5b5ce2;
+
+    color: white;
+
+    margin-left: auto;
+}
+
+.ai-msg {
+    background: white;
+
+    border: 1px solid var(--line);
+}
+
+/* =========================
+   PROGRESS
+   ========================= */
+
+.progress {
+    height: 10px;
+
+    border-radius: 99px;
+
+    overflow: hidden;
+}
+
+/* =========================
+   BUTTONS
+   ========================= */
+
+button {
+    font-family: inherit;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 991px) {
+
+    .sidebar {
+        position: fixed;
+
+        z-index: 100;
+
+        width: 255px;
+        min-width: 255px;
+        max-width: 255px;
+
+        flex: 0 0 255px;
+
+        transform: translateX(-100%);
+
+        transition: transform 0.2s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .searchbox {
+        margin: 0 8px;
+    }
+
+    .topbar {
+        padding: 10px;
+    }
+
+    .container-fluid {
+        padding: 16px !important;
+    }
+
+    .skill-level {
+        width: 125px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 575px) {
+
+    .skill-level {
+        width: 115px;
+    }
+
+    .multi-menu label {
+        font-size: 12px;
+    }
+
+    .searchbox input {
+        font-size: 13px;
+    }
+
+    .searchbox button {
+        padding: 0 12px;
+    }
+
+    .profile-btn span:first-child {
+        display: none;
+    }
+
+    .multi-menu {
+        max-height: 260px;
+    }
+
+    .skill-level-info {
+        font-size: 12px;
+    }
+}

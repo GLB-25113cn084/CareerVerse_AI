@@ -1,0 +1,3 @@
+package com.careerverse.servlet;
+import com.careerverse.dao.ProfileDAO; import com.careerverse.dao.UserDAO; import com.google.gson.Gson; import jakarta.servlet.annotation.WebServlet; import jakarta.servlet.http.*; import java.io.*; import java.util.*;
+@WebServlet("/api/me") public class MeServlet extends HttpServlet{protected void doGet(HttpServletRequest r,HttpServletResponse s)throws IOException{try{int id=(int)r.getSession().getAttribute("userId");String name=(String)r.getSession().getAttribute("userName");s.setContentType("application/json");s.getWriter().print(new Gson().toJson(Map.of("id",id,"name",name)));}catch(Exception e){s.sendError(401);}}}
