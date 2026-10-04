@@ -9,20 +9,15 @@ RUN mvn -q -DskipTests dependency:go-offline
 COPY src ./src
 RUN mvn -q -DskipTests clean package
 
+
+# Run CareerVerse on Tomcat
 FROM tomcat:10.1.59-jdk17-temurin
 
-ENV CATALINA_BASE=/tmp/tomcat
-
-RUN mkdir -p /tmp/tomcat \
-    && cp -a /usr/local/tomcat/conf /tmp/tomcat/ \
-    && mkdir -p /tmp/tomcat/logs \
-    && mkdir -p /tmp/tomcat/temp \
-    && mkdir -p /tmp/tomcat/work \
-    && mkdir -p /tmp/tomcat/webapps
-
+# Remove default Tomcat applications
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY --from=build /build/target/careerverse.war /tmp/tomcat/webapps/ROOT.war
+# Copy CareerVerse WAR
+COPY --from=build /build/target/careerverse.war /usr/local/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
 
