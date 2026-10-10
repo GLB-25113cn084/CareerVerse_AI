@@ -2,6 +2,7 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>CareerVerse AI</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +15,14 @@
     <link rel="stylesheet" href="../css/app.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        Chart.defaults.font.family = "Inter, system-ui, sans-serif";
+        Chart.defaults.color = "#7b8598";
+        Chart.defaults.backgroundColor = "rgba(99, 102, 241, 0.8)";
+        Chart.defaults.elements.bar.borderRadius = 8;
+        Chart.defaults.elements.bar.borderSkipped = false;
+        Chart.defaults.plugins.legend.display = false;
+    </script>
 </head>
 
 <body>
@@ -60,9 +69,10 @@
         </button>
 
         <div class="mt-auto pt-3">
-            <a class="btn btn-outline-light w-100" href="../logout">
-                Log out
-            </a>
+            <button type="button" class="btn btn-outline-light w-100 logout-btn"
+                    data-bs-toggle="modal" data-bs-target="#logoutModal">
+                🚪 Log out
+            </button>
         </div>
 
     </aside>
@@ -147,12 +157,14 @@
                     </li>
 
                     <li>
-                        <a
-                            class="dropdown-item"
-                            href="../logout"
+                        <button
+                            type="button"
+                            class="dropdown-item text-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#logoutModal"
                         >
                             Log out
-                        </a>
+                        </button>
                     </li>
 
                 </ul>
@@ -177,7 +189,7 @@
                 </p>
 
 
-                <div class="hero p-4 rounded-4 mt-3">
+                <div class="hero p-4 p-md-5 rounded-4 mt-3">
 
                     <div>
 
@@ -210,7 +222,9 @@
                 <div class="row g-3 my-2">
 
                     <div class="col-md-3">
-                        <div class="stat">
+                        <div class="stat s-indigo">
+
+                            <div class="stat-icon">🎯</div>
 
                             <small>
                                 Top Match
@@ -229,7 +243,9 @@
 
 
                     <div class="col-md-3">
-                        <div class="stat">
+                        <div class="stat s-green">
+
+                            <div class="stat-icon">🛠️</div>
 
                             <small>
                                 Skills
@@ -248,7 +264,9 @@
 
 
                     <div class="col-md-3">
-                        <div class="stat">
+                        <div class="stat s-amber">
+
+                            <div class="stat-icon">📈</div>
 
                             <small>
                                 Profile
@@ -267,7 +285,9 @@
 
 
                     <div class="col-md-3">
-                        <div class="stat">
+                        <div class="stat s-pink">
+
+                            <div class="stat-icon">💡</div>
 
                             <small>
                                 Projects
@@ -293,8 +313,8 @@
 
                         <div class="card p-3">
 
-                            <h5>
-                                Top Career Matches
+                            <h5 class="card-title-x">
+                                🏆 Top Career Matches
                             </h5>
 
                             <div id="topCareers"></div>
@@ -308,8 +328,8 @@
 
                         <div class="card p-3">
 
-                            <h5>
-                                Match Distribution
+                            <h5 class="card-title-x">
+                                📊 Match Distribution
                             </h5>
 
                             <canvas id="careerChart"></canvas>
@@ -743,6 +763,23 @@
 
 </div>
 
+
+<!-- LOGOUT CONFIRMATION -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content logout-modal">
+            <div class="modal-body text-center p-4">
+                <div class="logout-icon">👋</div>
+                <h5 id="logoutTitle" class="fw-bold mt-3">Are you sure you want to log out?</h5>
+                <p class="text-muted mb-4">You will need to log in again to see your career matches and roadmap.</p>
+                <div class="d-flex gap-2 justify-content-center">
+                    <button type="button" class="btn btn-light px-4" data-bs-dismiss="modal">Cancel</button>
+                    <a href="../logout" class="btn btn-danger px-4">Yes, log out</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
