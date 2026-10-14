@@ -2,13 +2,13 @@
 
 ## Stack
 - Frontend: HTML5, CSS3, Bootstrap 5, JavaScript
-- Backend: Java 25, JSP, Servlets
+- Backend: Java 17, JSP, Servlets
 - Database: MySQL 8+
 - Connectivity: JDBC
 - Charts: Chart.js
 - Server: Apache Tomcat 10.1+
 - Build: Maven
-- AI: Gemini API (optional)
+- AI: Ollama/LLaMA
 
 ## Features implemented
 - Registration + email confirmation
