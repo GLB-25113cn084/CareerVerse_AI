@@ -1,0 +1,19 @@
+# Build output
+target/
+*.war
+*.class
+
+# Secrets - never push these
+.env
+*.env
+db.local.properties
+
+# IDE / OS files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "vsls-contrib.gitdoc",
+        "vscjava.vscode-java-pack",
+        "redhat.vscode-xml"
+    ]
+}

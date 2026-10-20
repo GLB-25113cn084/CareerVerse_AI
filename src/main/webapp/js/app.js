@@ -4,6 +4,8 @@ const $$ = s => [...document.querySelectorAll(s)];
 let careers = [];
 let profile = {};
 let chart = null;
+let topCareerId = null;
+let chatHistory = [];
 
 const skills = [
     'Java',
@@ -180,6 +182,10 @@ function showPage(id) {
 
     if (id === 'simulator') {
         loadCareerSelect('simCareer');
+    }
+
+    if (id === 'practice') {
+        loadCareerSelect('practiceCareer');
     }
 
     if (id === 'report') {
@@ -1301,6 +1307,20 @@ async function loadCareerSelect(id) {
             select.value =
                 previous;
 
+        } else if (
+            topCareerId &&
+            careers.some(
+                c =>
+                    c.id === topCareerId
+            )
+        ) {
+
+            /*
+             * Default every career dropdown to the student's top match.
+             */
+            select.value =
+                topCareerId;
+
         }
 
 
@@ -1316,6 +1336,11 @@ async function loadCareerSelect(id) {
 
         if (id === 'simCareer') {
             await loadSimulator();
+        }
+
+
+        if (id === 'practiceCareer') {
+            await loadPractice();
         }
 
 
@@ -1609,6 +1634,9 @@ async function loadRoadmap() {
             ).join('');
 
 
+        addRoadmapTargets(id);
+
+
     } catch (error) {
 
         console.error(error);
@@ -1798,6 +1826,28 @@ async function loadSimulator() {
    HOME DASHBOARD
    ========================================================= */
 
+/*
+ * Profile completion = how many of the five profile parts are filled in.
+ */
+function profileCompletion(p) {
+
+    const year =
+        Number(p.currentYear || 1);
+
+    const checks = [
+        !!(p.branch && p.branch.trim()),
+        year >= 1 && year <= 4,
+        !!(p.interests && p.interests.trim()),
+        (p.skills || []).length >= 3,
+        year === 1 || (p.cgpa || []).length >= year - 1
+    ];
+
+    return Math.round(
+        checks.filter(Boolean).length / checks.length * 100
+    );
+}
+
+
 async function loadHome() {
 
     try {
@@ -1813,6 +1863,10 @@ async function loadHome() {
 
         $('#statSkills').textContent =
             (p.skills || []).length;
+
+
+        $('#statProgress').textContent =
+            profileCompletion(p) + '%';
 
 
         const recommendations =
@@ -1862,6 +1916,10 @@ async function loadHome() {
 
         const top =
             recommendations[0];
+
+
+        topCareerId =
+            top.id;
 
 
         $('#statCareer').textContent =
@@ -2203,50 +2261,146 @@ async function loadReport() {
 
     }
 }
+/* =========================================================
+   AI CHATBOT
+   ========================================================= */
+
+/*
+ * Turns the AI's plain-text answer into safe HTML.
+ * The text is escaped first, then **bold**, `code`,
+ * bullet lists and numbered lists are formatted.
+ */
+function formatAnswer(text) {
+
+    const lines =
+        escapeHtml(text).split('\n');
+
+    let html = '';
+    let list = null;
+
+    const inline = line =>
+        line
+            .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>');
+
+    for (const raw of lines) {
+
+        const line = raw.trim();
+        const bullet = line.match(/^[-*•]\s+(.*)/);
+        const numbered = line.match(/^\d+[.)]\s+(.*)/);
+        const heading = line.match(/^#{1,4}\s+(.*)/);
+
+        if (bullet || numbered) {
+
+            const type = bullet ? 'ul' : 'ol';
+
+            if (list !== type) {
+                if (list) html += `</${list}>`;
+                html += `<${type}>`;
+                list = type;
+            }
+
+            html += `<li>${inline((bullet || numbered)[1])}</li>`;
+            continue;
+        }
+
+        if (list) {
+            html += `</${list}>`;
+            list = null;
+        }
+
+        if (heading) {
+            html += `<p class="mb-1"><b>${inline(heading[1])}</b></p>`;
+        } else if (line) {
+            html += `<p class="mb-1">${inline(line)}</p>`;
+        }
+    }
+
+    if (list) {
+        html += `</${list}>`;
+    }
+
+    return html;
+}
+
+
+function addChatMessage(role, html) {
+
+    const box =
+        $('#chatMessages');
+
+    const div =
+        document.createElement('div');
+
+    div.className =
+        'msg ' + (role === 'user' ? 'user-msg' : 'ai-msg');
+
+    div.innerHTML =
+        html;
+
+    box.appendChild(div);
+
+    box.scrollTop =
+        box.scrollHeight;
+
+    return div;
+}
+
+
+function resetChat() {
+
+    chatHistory = [];
+
+    $('#chatMessages').innerHTML = '';
+
+    addChatMessage(
+        'assistant',
+        formatAnswer(
+            'Hi! I am **CareerVerse AI**. I already know your profile, skills and career matches, ' +
+            'so ask me anything about careers, skills, projects, interviews or LeetCode practice.'
+        )
+    );
+
+    $('#chatSuggestions')?.classList.remove('d-none');
+}
+
+
+let chatBusy = false;
+
 async function ask(question) {
 
     const box =
         $('#chatMessages');
 
-
-    if (!box) {
+    if (!box || chatBusy) {
         return;
     }
 
+    if (!box.children.length) {
+        resetChat();
+    }
 
-    box.innerHTML += `
+    chatBusy = true;
 
-        <div class="msg user-msg">
+    $('#chatSend').disabled = true;
 
-            ${escapeHtml(
-                question
-            )}
+    $('#chatSuggestions')?.classList.add('d-none');
 
-        </div>
 
-    `;
+    addChatMessage(
+        'user',
+        escapeHtml(question)
+    );
 
 
     /*
-     * Loading message
+     * "Typing" bubble that is replaced by the answer.
      */
-
-    box.innerHTML += `
-
-        <div
-            class="msg ai-msg"
-            id="aiLoading"
-        >
-
-            CareerVerse AI is thinking...
-
-        </div>
-
-    `;
-
-
-    box.scrollTop =
-        box.scrollHeight;
+    const reply =
+        addChatMessage(
+            'assistant',
+            '<span class="typing"><i></i><i></i><i></i></span>'
+        );
 
 
     try {
@@ -2255,44 +2409,25 @@ async function ask(question) {
             await api(
                 'api/ai',
                 {
-
-                    method:
-                        'POST',
-
-                    body:
-                        JSON.stringify({
-
-                            query:
-                                question
-
-                        })
-
+                    method: 'POST',
+                    body: JSON.stringify({
+                        query: question,
+                        history: chatHistory.slice(-8)
+                    })
                 }
             );
 
-
-        $('#aiLoading')?.remove();
-
-
-
         const answer =
             result.answer ||
-            result.message ||
             'I could not generate an answer right now.';
 
+        reply.innerHTML =
+            formatAnswer(answer);
 
-        box.innerHTML += `
-
-            <div class="msg ai-msg">
-
-                ${escapeHtml(
-                    answer
-                )}
-
-            </div>
-
-        `;
-
+        chatHistory.push(
+            { role: 'user', content: question },
+            { role: 'assistant', content: answer }
+        );
 
     } catch (error) {
 
@@ -2301,20 +2436,25 @@ async function ask(question) {
             error
         );
 
-        $('#aiLoading')?.remove();
+        reply.classList.add('ai-error');
 
-        box.innerHTML += `
-            <div class="msg ai-msg">
-                CareerVerse AI is currently unavailable.
-                Please make sure Ollama is running and try again.
-            </div>
-        `;
-    }   
+        reply.textContent =
+            error.message ||
+            'CareerVerse AI is unavailable right now. Please try again in a moment.';
 
+    } finally {
 
-    box.scrollTop =
-        box.scrollHeight;
+        chatBusy = false;
+
+        $('#chatSend').disabled = false;
+
+        box.scrollTop =
+            box.scrollHeight;
+
+        $('#chatInput')?.focus();
+    }
 }
+
 
 function openAI() {
 
@@ -2323,25 +2463,41 @@ function openAI() {
             'aiModal'
         );
 
-
-    if (modal) {
-
-        new bootstrap.Modal(
-            modal
-        ).show();
-
-
-        setTimeout(
-            () => {
-
-                $('#chatInput')?.focus();
-
-            },
-            300
-        );
-
+    if (!modal) {
+        return;
     }
+
+    if (!$('#chatMessages').children.length) {
+        resetChat();
+    }
+
+    bootstrap.Modal
+        .getOrCreateInstance(modal)
+        .show();
+
+    setTimeout(
+        () => {
+            $('#chatInput')?.focus();
+        },
+        300
+    );
 }
+
+
+$('#chatClear')?.addEventListener(
+    'click',
+    resetChat
+);
+
+
+$$('#chatSuggestions .chip').forEach(
+    chip => {
+        chip.addEventListener(
+            'click',
+            () => ask(chip.textContent.trim())
+        );
+    }
+);
 
 
 /* =========================================================
@@ -2527,5 +2683,12 @@ document.addEventListener(
      */
 
     await loadHome();
+
+
+    /*
+     * LeetCode streak card on the dashboard (uses saved data only).
+     */
+
+    loadHomeStreak();
 
 })();

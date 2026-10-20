@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="com.careerverse.util.Html" %>
 <!doctype html>
 <html>
 <head>
@@ -15,7 +15,7 @@
       <p class="text-muted">AI-powered career guidance & simulation</p>
 
       <% if (request.getParameter("error") != null) { %>
-        <div class="alert alert-danger">${param.error}</div>
+        <div class="alert alert-danger"><%=Html.esc(request.getParameter("error"))%></div>
       <% } %>
       <% if (request.getParameter("reset") != null) { %>
         <div class="alert alert-success">Password reset successfully.</div>

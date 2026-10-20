@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="com.careerverse.util.Html" %>
 <!doctype html>
 <html>
 <head>
@@ -15,12 +15,12 @@
       <h4 class="mt-4">Create a new password</h4>
 
       <% if (request.getParameter("error") != null) { %>
-        <div class="alert alert-danger"><%=request.getParameter("error")%></div>
+        <div class="alert alert-danger"><%=Html.esc(request.getParameter("error"))%></div>
       <% } %>
 
       <form action="reset-password" method="post">
         <input type="hidden" name="token"
-               value="<%=request.getParameter("token") == null ? "" : request.getParameter("token")%>">
+               value="<%=Html.esc(request.getParameter("token"))%>">
         <div class="input-group mb-3">
           <input id="pw" class="form-control" type="password" name="password"
                  minlength="8" autocomplete="new-password" required>

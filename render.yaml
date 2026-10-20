@@ -1,0 +1,47 @@
+# Render Blueprint for CareerVerse AI.
+# Render reads this file when you choose "New > Blueprint" and pick this GitHub repository.
+# Values marked "sync: false" are secrets: Render asks you to type them in, they are never stored in GitHub.
+services:
+  - type: web
+    name: careerverse-ai
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    healthCheckPath: /login.jsp
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: JAVA_OPTS
+        value: "-Xms128m -Xmx320m -XX:+UseSerialGC"
+      # Aiven MySQL: paste the Service URI (mysql://avnadmin:...@...:port/defaultdb?ssl-mode=REQUIRED)
+      - key: DB_URL
+        sync: false
+      # Only needed if DB_URL is a jdbc:mysql:// URL instead of the Aiven Service URI
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      # AI chatbot
+      - key: AI_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GEMINI_API_KEY
+        sync: false
+      # Public website address, used in password-reset emails (e.g. https://careerverse-ai.onrender.com)
+      - key: APP_URL
+        sync: false
+      # Email (optional) - Gmail with an App Password
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false

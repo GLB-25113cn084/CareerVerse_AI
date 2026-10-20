@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="../css/app.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script>
         Chart.defaults.font.family = "Inter, system-ui, sans-serif";
         Chart.defaults.color = "#7b8598";
@@ -58,6 +58,10 @@
 
         <button class="navbtn" data-page="roadmap">
             🗺️ Learning Roadmap
+        </button>
+
+        <button class="navbtn" data-page="practice">
+            💻 LeetCode Practice
         </button>
 
         <button class="navbtn" data-page="simulator">
@@ -285,20 +289,20 @@
 
 
                     <div class="col-md-3">
-                        <div class="stat s-pink">
+                        <div class="stat s-pink stat-link" data-page="practice" role="button">
 
-                            <div class="stat-icon">💡</div>
+                            <div class="stat-icon">🔥</div>
 
                             <small>
-                                Projects
+                                LeetCode Streak
                             </small>
 
-                            <b>
-                                Career-specific
+                            <b id="statStreak">
+                                —
                             </b>
 
-                            <span>
-                                shown in roadmap
+                            <span id="statStreakNote">
+                                link your username
                             </span>
 
                         </div>
@@ -663,6 +667,145 @@
             </section>
 
 
+
+            <!-- LEETCODE PRACTICE -->
+            <section id="practice" class="page">
+
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-2">
+                    <div>
+                        <h2>LeetCode Practice &amp; Streaks</h2>
+                        <p class="text-muted mb-0">
+                            Practise the problems that matter for your career, keep a daily streak
+                            and let your progress update your skill gap.
+                        </p>
+                    </div>
+                    <select id="practiceCareer" class="form-select practice-career"></select>
+                </div>
+
+                <div id="lcAlert" class="mt-3"></div>
+
+                <!-- connect card -->
+                <div class="card p-3 p-md-4 mt-3 lc-connect" id="lcConnect">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-6">
+                            <h5 class="card-title-x mb-1">🔗 Connect your LeetCode account</h5>
+                            <small class="text-muted">
+                                Only your <b>public username</b> is used.
+                                Never type your LeetCode password here.
+                            </small>
+                        </div>
+                        <div class="col-lg-6">
+                            <form id="lcForm" class="input-group" autocomplete="off">
+                                <span class="input-group-text">leetcode.com/u/</span>
+                                <input id="lcUsername" class="form-control" placeholder="your-username" maxlength="60" required>
+                                <button id="lcLinkBtn" class="btn btn-primary" type="submit">Link</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- linked account bar -->
+                <div class="card p-3 mt-3 d-none" id="lcAccount">
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                        <img id="lcAvatar" class="lc-avatar" alt="" src="">
+                        <div class="me-auto">
+                            <a id="lcProfileLink" target="_blank" rel="noopener" class="fw-bold fs-5 text-decoration-none"></a>
+                            <small class="d-block text-muted" id="lcSynced"></small>
+                        </div>
+                        <a class="btn btn-warning" href="https://leetcode.com/problemset/" target="_blank" rel="noopener">Open LeetCode ↗</a>
+                        <button class="btn btn-outline-primary" id="lcRefresh">⟳ Refresh</button>
+                        <button class="btn btn-outline-secondary" id="lcUnlink">Change account</button>
+                    </div>
+                </div>
+
+                <!-- stats -->
+                <div class="row g-3 mt-1 d-none" id="lcStats">
+                    <div class="col-6 col-lg-3">
+                        <div class="stat s-indigo">
+                            <div class="stat-icon">✅</div>
+                            <small>Problems Solved</small>
+                            <b id="lcSolved">0</b>
+                            <span id="lcSolvedSplit"></span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat s-pink">
+                            <div class="stat-icon">🔥</div>
+                            <small>CareerVerse Streak</small>
+                            <b id="lcStreak">0 days</b>
+                            <span id="lcLongest"></span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat s-green">
+                            <div class="stat-icon">📅</div>
+                            <small>This Week</small>
+                            <b id="lcWeek">0 / 5 days</b>
+                            <span id="lcWeekNote"></span>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-3">
+                        <div class="stat s-amber">
+                            <div class="stat-icon">🗄️</div>
+                            <small>SQL Problems</small>
+                            <b id="lcSql">0</b>
+                            <span id="lcRank"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- heatmap -->
+                <div class="card p-3 mt-3 d-none" id="lcHeatCard">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-2">
+                        <h5 class="card-title-x mb-0">🟩 Activity in the last 12 months</h5>
+                        <small class="text-muted" id="lcHeatTotal"></small>
+                    </div>
+                    <div class="heatmap-wrap">
+                        <div id="lcHeatmap" class="heatmap"></div>
+                    </div>
+                    <div class="heat-legend">
+                        Less <i class="h0"></i><i class="h1"></i><i class="h2"></i><i class="h3"></i><i class="h4"></i> More
+                    </div>
+                </div>
+
+                <div class="row g-3 mt-1">
+                    <!-- roadmap targets -->
+                    <div class="col-lg-7" id="lcTargetCol">
+                        <div class="card p-3 h-100">
+                            <h5 class="card-title-x">🎯 Roadmap Practice Targets</h5>
+                            <small class="text-muted mb-2" id="lcTargetNote">
+                                Targets are counted from the day you link LeetCode.
+                            </small>
+                            <div id="lcTargets"></div>
+                        </div>
+                    </div>
+
+                    <!-- skill sync + recent -->
+                    <div class="col-lg-5" id="lcSideCol">
+                        <div class="card p-3 mb-3 d-none" id="lcSkillCard">
+                            <h5 class="card-title-x">📊 Update My Skill Gap</h5>
+                            <small class="text-muted mb-2">Suggested levels worked out from your solved problems.</small>
+                            <div id="lcSkills"></div>
+                            <button class="btn btn-primary mt-2" id="lcSyncSkills">Update profile skills</button>
+                        </div>
+                        <div class="card p-3 d-none" id="lcRecentCard">
+                            <h5 class="card-title-x">⏱️ Recently Solved</h5>
+                            <div id="lcRecent"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- problem list -->
+                <div class="card p-3 p-md-4 mt-3">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-2">
+                        <h5 class="card-title-x mb-0" id="lcPracticeTitle">📚 Practice Problems</h5>
+                        <div id="lcPlans" class="d-flex flex-wrap gap-2"></div>
+                    </div>
+                    <div id="lcProblems"></div>
+                </div>
+
+            </section>
+
             <!-- SIMULATOR -->
             <section id="simulator" class="page">
 
@@ -718,9 +861,18 @@
 
             <div class="modal-header">
 
-                <h5>
-                    CareerVerse AI
+                <h5 class="mb-0">
+                    ✦ CareerVerse AI
+                    <small class="d-block text-muted fs-6 fw-normal">Your personal career mentor</small>
                 </h5>
+
+                <button
+                    id="chatClear"
+                    class="btn btn-sm btn-outline-secondary ms-auto me-2"
+                    type="button"
+                >
+                    New chat
+                </button>
 
                 <button
                     class="btn-close"
@@ -738,10 +890,18 @@
                 ></div>
 
 
+                <div id="chatSuggestions" class="chat-suggestions mt-3">
+                    <button type="button" class="chip">What should I learn next for my top career?</button>
+                    <button type="button" class="chip">Suggest a project for my resume</button>
+                    <button type="button" class="chip">Which LeetCode topics should I practise this week?</button>
+                    <button type="button" class="chip">How do I prepare for internship interviews?</button>
+                </div>
+
                 <div class="input-group mt-3">
 
                     <input
                         id="chatInput"
+                        maxlength="2000"
                         class="form-control"
                         placeholder="Ask anything about careers, skills, projects, interviews…"
                     >
@@ -784,6 +944,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="../js/app.js"></script>
+
+<script src="../js/practice.js"></script>
 
 </body>
 </html>

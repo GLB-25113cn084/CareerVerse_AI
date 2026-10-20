@@ -1,278 +1,104 @@
 package com.careerverse.servlet;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
+import com.careerverse.service.AIService;
+import com.careerverse.service.StudentContext;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-import org.json.JSONObject;
-
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/ai-query")
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * POST /app/api/ai   body: {"query": "...", "history": [{"role":"user|assistant","content":"..."}]}
+ * Returns {"answer": "..."}.
+ *
+ * It sits under /app/* so AuthFilter makes sure only logged-in students can use it.
+ */
+@WebServlet("/app/api/ai")
 public class AIQueryServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+    private static final int MAX_QUESTION = 2000;
+    private static final int MAX_HISTORY = 8;
 
-    private static final String OLLAMA_URL =
-            "http://localhost:11434/api/generate";
-
-    private static final String OLLAMA_MODEL =
-            "llama3.2";
+    private final Gson gson = new Gson();
 
     @Override
-    protected void doPost(
-            HttpServletRequest request,
-            HttpServletResponse response)
-            throws ServletException, IOException {
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        JSONObject result = new JSONObject();
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Map<String, Object> result = new LinkedHashMap<>();
         try {
+            Object uid = request.getSession().getAttribute("userId");
+            if (uid == null) {
+                send(response, 401, Map.of("error", "Please log in again."));
+                return;
+            }
+            int userId = ((Number) uid).intValue();
+            String name = (String) request.getSession().getAttribute("userName");
 
-            // ---------------------------------------------------------
-            // Read request body
-            // ---------------------------------------------------------
+            JsonObject input = JsonParser.parseReader(request.getReader()).getAsJsonObject();
+            String question = text(input, "query");
+            if (question.isEmpty()) question = text(input, "message");
+            if (question.isEmpty()) {
+                send(response, 400, Map.of("error", "Please type a question."));
+                return;
+            }
+            if (question.length() > MAX_QUESTION) question = question.substring(0, MAX_QUESTION);
 
-            StringBuilder body = new StringBuilder();
-
-            try (BufferedReader reader = request.getReader()) {
-
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    body.append(line);
+            List<AIService.Message> history = new ArrayList<>();
+            if (input.has("history") && input.get("history").isJsonArray()) {
+                JsonArray arr = input.getAsJsonArray("history");
+                int start = Math.max(0, arr.size() - MAX_HISTORY);
+                for (int i = start; i < arr.size(); i++) {
+                    JsonElement e = arr.get(i);
+                    if (!e.isJsonObject()) continue;
+                    String role = text(e.getAsJsonObject(), "role");
+                    String content = text(e.getAsJsonObject(), "content");
+                    if (content.isEmpty()) continue;
+                    if (content.length() > MAX_QUESTION) content = content.substring(0, MAX_QUESTION);
+                    history.add(new AIService.Message("assistant".equals(role) ? "assistant" : "user", content));
                 }
             }
 
-            JSONObject input;
+            String context = StudentContext.describe(userId, name);
+            String answer = AIService.ask(context, history, question);
+            if (answer.isBlank()) answer = "Sorry, I could not come up with an answer. Please try asking in a different way.";
 
-            if (body.toString().trim().isEmpty()) {
-                input = new JSONObject();
-            } else {
-                input = new JSONObject(body.toString());
-            }
-
-            // ---------------------------------------------------------
-            // Get query
-            // ---------------------------------------------------------
-
-            String query =
-                    input.optString("query", "").trim();
-
-            if (query.isEmpty()) {
-                query =
-                        input.optString("message", "").trim();
-            }
-
-            // ---------------------------------------------------------
-            // Validate
-            // ---------------------------------------------------------
-
-            if (query.isEmpty()) {
-
-                result.put("success", false);
-                result.put(
-                        "error",
-                        "Please provide a query."
-                );
-
-                response.setStatus(
-                        HttpServletResponse.SC_BAD_REQUEST
-                );
-
-                response.getWriter().write(
-                        result.toString()
-                );
-
-                return;
-            }
-
-            // ---------------------------------------------------------
-            // Ask Ollama
-            // ---------------------------------------------------------
-
-            String answer = askOllama(query);
-
-            // ---------------------------------------------------------
-            // Success response
-            // ---------------------------------------------------------
-
-            result.put("success", true);
             result.put("answer", answer);
-
-            response.setStatus(
-                    HttpServletResponse.SC_OK
-            );
-
-            response.getWriter().write(
-                    result.toString()
-            );
+            result.put("provider", AIService.provider());
+            send(response, 200, result);
 
         } catch (Exception e) {
-
-            e.printStackTrace();
-
-            result.put("success", false);
-
-            result.put(
-                    "error",
-                    "CareerVerse AI is currently unavailable. "
-                    + "Please make sure Ollama is running."
-            );
-
-            response.setStatus(
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR
-            );
-
-            response.getWriter().write(
-                    result.toString()
-            );
+            System.err.println("CareerVerse AI error: " + e.getMessage());
+            String provider = AIService.provider();
+            String hint = switch (provider) {
+                case "ollama" -> "The AI model is not reachable. On Render, set AI_PROVIDER=groq and GROQ_API_KEY.";
+                case "groq" -> "The Groq AI service did not respond. Check GROQ_API_KEY on Render.";
+                case "gemini" -> "The Gemini AI service did not respond. Check GEMINI_API_KEY on Render.";
+                default -> "Check the AI_PROVIDER setting.";
+            };
+            send(response, 503, Map.of("error", "CareerVerse AI is unavailable right now. " + hint));
         }
     }
 
-    // =========================================================
-    // Ollama API
-    // =========================================================
+    private static String text(JsonObject o, String key) {
+        if (o == null || !o.has(key) || o.get(key).isJsonNull()) return "";
+        return o.get(key).getAsString().trim();
+    }
 
-    private String askOllama(String query)
-            throws IOException {
-
-        URL url = new URL(OLLAMA_URL);
-
-        HttpURLConnection connection =
-                (HttpURLConnection) url.openConnection();
-
-        connection.setRequestMethod("POST");
-
-        connection.setRequestProperty(
-                "Content-Type",
-                "application/json"
-        );
-
-        connection.setDoOutput(true);
-
-        // ---------------------------------------------------------
-        // Prompt
-        // ---------------------------------------------------------
-
-        String prompt =
-                "You are CareerVerse AI, a helpful career "
-                + "advisor for students.\n\n"
-                + "Give clear, practical and encouraging "
-                + "career guidance.\n"
-                + "Keep answers suitable for students.\n\n"
-                + "Student question:\n"
-                + query;
-
-        JSONObject requestBody =
-                new JSONObject();
-
-        requestBody.put(
-                "model",
-                OLLAMA_MODEL
-        );
-
-        requestBody.put(
-                "prompt",
-                prompt
-        );
-
-        requestBody.put(
-                "stream",
-                false
-        );
-
-        // ---------------------------------------------------------
-        // Send request
-        // ---------------------------------------------------------
-
-        try (OutputStream output =
-                     connection.getOutputStream()) {
-
-            byte[] input =
-                    requestBody.toString()
-                            .getBytes(StandardCharsets.UTF_8);
-
-            output.write(input);
-        }
-
-        // ---------------------------------------------------------
-        // Check response
-        // ---------------------------------------------------------
-
-        int status =
-                connection.getResponseCode();
-
-        InputStream inputStream;
-
-        if (status >= 200 && status < 300) {
-
-            inputStream =
-                    connection.getInputStream();
-
-        } else {
-
-            inputStream =
-                    connection.getErrorStream();
-        }
-
-        StringBuilder responseText =
-                new StringBuilder();
-
-        try (BufferedReader reader =
-                     new BufferedReader(
-                             new InputStreamReader(
-                                     inputStream,
-                                     StandardCharsets.UTF_8))) {
-
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-
-                responseText.append(line);
-            }
-        }
-
-        connection.disconnect();
-
-        // ---------------------------------------------------------
-        // Handle HTTP error
-        // ---------------------------------------------------------
-
-        if (status < 200 || status >= 300) {
-
-            throw new IOException(
-                    "Ollama returned HTTP "
-                    + status
-                    + ": "
-                    + responseText
-            );
-        }
-
-        // ---------------------------------------------------------
-        // Parse Ollama response
-        // ---------------------------------------------------------
-
-        JSONObject ollamaResponse =
-                new JSONObject(
-                        responseText.toString()
-                );
-
-        return ollamaResponse.optString(
-                "response",
-                "Sorry, I could not generate a response."
-        ).trim();
+    private void send(HttpServletResponse response, int status, Object body) throws IOException {
+        response.setStatus(status);
+        response.setContentType("application/json;charset=UTF-8");
+        response.getWriter().write(gson.toJson(body));
     }
 }

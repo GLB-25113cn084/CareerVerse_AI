@@ -1,0 +1,23 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 2000,
+
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.postCommitCommand": "sync",
+
+    "gitdoc.enabled": true,
+    "gitdoc.autoCommitDelay": 60000,
+    "gitdoc.autoPush": "onCommit",
+    "gitdoc.autoPull": "onPush",
+    "gitdoc.pullOnOpen": true,
+    "gitdoc.commitValidationLevel": "error",
+    "gitdoc.commitOnClose": true,
+    "gitdoc.filePattern": "**/*",
+
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "files.exclude": {
+        "**/target": true
+    }
+}

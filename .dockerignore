@@ -2,4 +2,6 @@ target/
 .git/
 .idea/
 .vscode/
+.env
 *.log
+README*.md

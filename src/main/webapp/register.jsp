@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="com.careerverse.util.Html" %>
 <!doctype html>
 <html>
 <head>
@@ -15,7 +15,7 @@
       <p class="text-muted">Create your student career profile</p>
 
       <% if (request.getParameter("error") != null) { %>
-        <div class="alert alert-danger"><%=request.getParameter("error")%></div>
+        <div class="alert alert-danger"><%=Html.esc(request.getParameter("error"))%></div>
       <% } %>
 
       <form action="register" method="post" autocomplete="on">
