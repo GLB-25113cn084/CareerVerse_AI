@@ -117,9 +117,26 @@ public class CareerDetailServlet extends HttpServlet {
                     )
             );
 
+            int currentYear =
+                    profile.get("currentYear") instanceof Number n
+                    ? n.intValue()
+                    : 1;
+
+            result.put(
+                    "currentSemester",
+                    CareerEngine.currentSemester(
+                            currentYear,
+                            java.time.LocalDate.now(java.time.ZoneId.of("Asia/Kolkata"))
+                    )
+            );
+
             result.put(
                     "roadmap",
-                    CareerEngine.roadmap(career)
+                    CareerEngine.roadmap(
+                            career,
+                            currentYear,
+                            java.time.LocalDate.now(java.time.ZoneId.of("Asia/Kolkata"))
+                    )
             );
 
             result.put(

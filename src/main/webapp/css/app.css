@@ -1199,3 +1199,119 @@ body {
     0%, 80%, 100% { opacity: .25; transform: translateY(0); }
     40% { opacity: 1; transform: translateY(-3px); }
 }
+
+/* =========================
+   SEMESTER ROADMAP
+   ========================= */
+
+.road-current {
+    border: 2px solid #6366f1;
+    box-shadow: 0 10px 30px #6366f122;
+}
+
+.phase-badge {
+    background: #eef0ff;
+    color: #4446c9;
+}
+
+.sem-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sem-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: #11152b;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sem-dot.now {
+    background: #5b5ce2;
+    border-color: #5b5ce2;
+    color: #fff;
+}
+
+.road-block {
+    margin-top: 12px;
+}
+
+.road-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--muted);
+    margin-bottom: 6px;
+}
+
+.road-module {
+    margin-bottom: 8px;
+}
+
+.topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.topic-chips span,
+.cert-chip {
+    display: inline-block;
+    background: #f4f5fb;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 12.5px;
+}
+
+.cert-chip {
+    background: #fff8e6;
+    border-color: #ffe2a8;
+    margin: 0 6px 6px 0;
+}
+
+.road-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+}
+
+.road-project {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: #fcfcff;
+}
+
+.level-badge.beginner     { background: #e3f8f5; color: #00897b; }
+.level-badge.intermediate { background: #fff5d6; color: #b37a00; }
+.level-badge.advanced     { background: #fde7e7; color: #c62828; }
+.level-badge.capstone     { background: #ece9ff; color: #4b3fd6; }
+
+.road-checkpoint {
+    margin-top: 12px;
+    background: #f1fbf4;
+    border: 1px solid #b9e6c6;
+    border-radius: 10px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.core-badge {
+    background: #e8f8ee;
+    color: #15803d;
+    font-size: 11px;
+    vertical-align: middle;
+}

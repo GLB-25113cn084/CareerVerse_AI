@@ -1,24 +1,133 @@
 package com.careerverse.model;
+
+import com.google.gson.Gson;
+
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+
+/**
+ * All careers known to CareerVerse.
+ *
+ * The data lives in src/main/resources/careers.json so it can be edited
+ * without changing Java code. Each career says which branches it suits
+ * (cs, ece, ee, me, civil), its skills, learning modules, projects,
+ * certifications and internship roles.
+ */
 public class CareerData {
- public record Career(String id,String name,String icon,String description,List<String> languages,List<String> skills,List<Project> projects,List<Stage> stages,Map<String,Integer> skillWeights){}
- public record Project(String title,String level,String result,List<String> skills){}
- public record Stage(String title,String duration,String goal,List<String> tasks,String checkpoint){}
- private static List<String> L(String...x){return List.of(x);} private static Map<String,Integer> W(Object...x){Map<String,Integer>m=new LinkedHashMap<>();for(int i=0;i<x.length;i+=2)m.put((String)x[i],(Integer)x[i+1]);return m;}
- private static List<Stage> stages(String n){return List.of(new Stage("Foundation","Month 1","Build fundamentals for "+n,L("Learn core concepts","Set up tools","Solve 15 guided exercises"),"You can explain the basics without notes."),new Stage("Core Skills","Months 2–3","Build job-ready technical depth",L("Complete structured learning","Practice 3 times/week","Build a mini project"),"Finish a working mini project."),new Stage("Portfolio","Months 4–5","Create evidence of ability",L("Build flagship project","Write README","Deploy/demo it","Get feedback"),"Project is demo-ready."),new Stage("Hiring Prep","Month 6","Become internship/job ready",L("Resume","GitHub cleanup","Mock interviews","Applications"),"Apply consistently and track results."));}
- public static final List<Career> ALL=List.of(
-  new Career("software","Software Engineer","💻","Build web, mobile and backend software.",L("Java","Python","JavaScript","SQL"),L("Java","DSA","SQL","Git","OOP","REST APIs","Testing"),List.of(new Project("Student Task Manager","Beginner","CRUD + authentication",L("Java","JSP","MySQL")),new Project("College Placement Portal","Advanced","Role-based placement portal",L("Java","Servlets","MySQL","Bootstrap"))),stages("Software Engineering"),W("Java",20,"DSA",25,"SQL",15,"Git",10,"REST APIs",15,"OOP",15)),
-  new Career("aiml","AI / ML Engineer","🤖","Build intelligent models and AI applications.",L("Python","SQL","JavaScript"),L("Python","Statistics","Linear Algebra","Machine Learning","Pandas","NumPy","Git"),List.of(new Project("Student Performance Predictor","Intermediate","ML model + dashboard",L("Python","Pandas","Scikit-learn")),new Project("Career Recommendation Engine","Advanced","Personalized ML recommendation system",L("Python","Scikit-learn","APIs"))),stages("AI / ML"),W("Python",20,"Machine Learning",25,"Statistics",15,"Linear Algebra",15,"Pandas",10,"NumPy",5,"Git",10)),
-  new Career("data","Data Analyst","📊","Turn data into useful insights.",L("Python","SQL","R"),L("SQL","Excel","Python","Statistics","Power BI","Data Visualization","Communication"),List.of(new Project("College Analytics Dashboard","Intermediate","Interactive KPI dashboard",L("SQL","Python","Power BI")),new Project("Placement Prediction Dashboard","Advanced","Insight + prediction report",L("SQL","Python","Statistics"))),stages("Data Analytics"),W("SQL",25,"Excel",15,"Python",15,"Statistics",15,"Power BI",15,"Data Visualization",10,"Communication",5)),
-  new Career("web","Full Stack Developer","🌐","Build complete responsive web applications.",L("JavaScript","Java","Python","SQL"),L("HTML","CSS","JavaScript","Bootstrap","Java","Servlets","MySQL","REST APIs","Git"),List.of(new Project("Placement Portal","Advanced","Production-style portal",L("HTML","Bootstrap","Java","MySQL")),new Project("Student Community App","Advanced","Full-stack social utility app",L("JavaScript","REST APIs","MySQL"))),stages("Full Stack Development"),W("HTML",8,"CSS",8,"JavaScript",15,"Bootstrap",8,"Java",15,"Servlets",15,"MySQL",15,"REST APIs",10,"Git",6)),
-  new Career("cyber","Cybersecurity Analyst","🛡️","Protect systems, networks and applications.",L("Python","Bash","SQL"),L("Linux","Networking","Python","Cybersecurity","Cryptography","Web Security","Git"),List.of(new Project("Secure Web Audit Lab","Advanced","Documented security audit",L("Linux","Python","Web Security")),new Project("Password Security Checker","Intermediate","Defensive password analysis",L("Python","Cryptography"))),stages("Cybersecurity"),W("Linux",20,"Networking",20,"Python",10,"Cybersecurity",25,"Cryptography",10,"Web Security",10,"Git",5)),
-  new Career("uiux","UI/UX Designer","🎨","Design useful and accessible digital experiences.",L("Figma","HTML","CSS","JavaScript"),L("Figma","Design Thinking","User Research","Prototyping","Typography","Communication","HTML","CSS"),List.of(new Project("Campus Companion UX Case Study","Intermediate","Research-to-prototype case study",L("Figma","UX Research")),new Project("Career Dashboard Redesign","Advanced","Accessible product redesign",L("Figma","Prototyping","Design Thinking"))),stages("UI/UX Design"),W("Figma",25,"Design Thinking",15,"User Research",20,"Prototyping",15,"Communication",10,"HTML",5,"CSS",5,"Typography",5)),
-  new Career("mobile","Mobile App Developer","📱","Create Android and cross-platform mobile apps.",L("Java","Kotlin","Dart"),L("Java","Kotlin","Flutter","Dart","APIs","SQLite","Git"),List.of(new Project("Campus Connect App","Intermediate","Student utility app",L("Flutter","Dart","SQLite")),new Project("College Events App","Advanced","Event discovery + registration",L("Kotlin","APIs","SQLite"))),stages("Mobile Development"),W("Java",10,"Kotlin",15,"Flutter",25,"Dart",15,"APIs",15,"SQLite",10,"Git",10)),
-  new Career("devops","DevOps Engineer","⚙️","Automate delivery, deployment and infrastructure.",L("Bash","Python","YAML"),L("Linux","Git","Docker","CI/CD","Cloud","Networking","Bash"),List.of(new Project("CI/CD Deployment Pipeline","Advanced","Automated build-test-deploy",L("Git","Docker","CI/CD")),new Project("Containerized College App","Advanced","Dockerized deployment",L("Docker","Linux","Cloud"))),stages("DevOps"),W("Linux",20,"Git",10,"Docker",20,"CI/CD",20,"Cloud",15,"Networking",10,"Bash",5)),
-  new Career("cloud","Cloud Engineer","☁️","Design and operate cloud infrastructure.",L("Python","Bash","YAML"),L("Linux","Networking","Cloud","Docker","Security","Git","Databases"),List.of(new Project("Cloud-hosted College Portal","Advanced","Containerized cloud deployment",L("Docker","Cloud","Git")),new Project("Auto Scaling Demo","Advanced","Scalable service deployment",L("Cloud","Networking"))),stages("Cloud Engineering"),W("Linux",15,"Networking",15,"Cloud",25,"Docker",15,"Security",10,"Git",10,"Databases",10)),
-  new Career("product","Product Analyst","🧭","Use data and user insight to improve products.",L("SQL","Python"),L("SQL","Analytics","Communication","Research","Excel","Product Thinking"),List.of(new Project("Feature Analytics Study","Intermediate","Data-backed product proposal",L("SQL","Excel","Analytics")),new Project("Student App Product Case","Advanced","User research + metrics plan",L("Research","Analytics"))),stages("Product Analytics"),W("SQL",25,"Analytics",20,"Communication",15,"Research",15,"Excel",10,"Product Thinking",15)),
-  new Career("qa","QA / Test Engineer","🧪","Improve software quality through systematic testing.",L("Java","Python","JavaScript"),L("Testing","Java","Selenium","API Testing","SQL","Git"),List.of(new Project("Automated Testing Suite","Intermediate","UI + API test suite",L("Selenium","Java","API Testing")),new Project("Regression Test Dashboard","Advanced","Test reporting dashboard",L("Java","SQL","Testing"))),stages("Software Testing"),W("Testing",25,"Java",15,"Selenium",20,"API Testing",15,"SQL",10,"Git",15)),
-  new Career("technical-writer","Technical Writer","📝","Turn technical concepts into clear documentation.",L("Markdown","HTML"),L("Technical Writing","Research","Communication","Markdown","Git","API Documentation"),List.of(new Project("Developer Documentation Hub","Beginner","API docs + guides",L("Markdown","Git","HTML")),new Project("Open-source Documentation Pack","Intermediate","Docs contribution portfolio",L("Git","Markdown"))),stages("Technical Writing"),W("Technical Writing",30,"Research",15,"Communication",20,"Markdown",10,"Git",10,"API Documentation",15))
- );
- public static Career get(String id){return ALL.stream().filter(c->c.id().equals(id)).findFirst().orElse(null);}
+
+    public record Career(String id, String name, String icon, String description,
+                         List<String> branches, List<String> core,
+                         List<String> languages, List<String> skills,
+                         List<Project> projects, List<Stage> stages,
+                         Map<String, Integer> skillWeights,
+                         List<Module> modules, List<String> certifications, List<String> roles) {}
+
+    public record Project(String title, String level, String result, List<String> skills) {}
+
+    public record Module(String title, List<String> topics) {}
+
+    /** A stage of the career simulator. */
+    public record Stage(String title, String duration, String goal, List<String> tasks, String checkpoint) {}
+
+    /* JSON shape of careers.json (plain classes so Gson can fill them). */
+    private static class FileJson { List<CareerJson> careers; }
+    private static class CareerJson {
+        String id, name, icon, description;
+        List<String> branches, core, languages, skills, certifications, roles;
+        Map<String, Integer> skillWeights;
+        List<ProjectJson> projects;
+        List<ModuleJson> modules;
+    }
+    private static class ProjectJson { String title, level, result; List<String> skills; }
+    private static class ModuleJson { String title; List<String> topics; }
+
+    public static final List<Career> ALL = load();
+
+    private static List<Career> load() {
+        try (Reader in = new InputStreamReader(
+                Objects.requireNonNull(CareerData.class.getClassLoader().getResourceAsStream("careers.json"),
+                        "careers.json is missing from src/main/resources"),
+                StandardCharsets.UTF_8)) {
+            FileJson file = new Gson().fromJson(in, FileJson.class);
+            List<Career> out = new ArrayList<>();
+            for (CareerJson c : file.careers) {
+                List<Project> projects = new ArrayList<>();
+                for (ProjectJson p : c.projects) projects.add(new Project(p.title, p.level, p.result, List.copyOf(p.skills)));
+                List<Module> modules = new ArrayList<>();
+                for (ModuleJson m : c.modules) modules.add(new Module(m.title, List.copyOf(m.topics)));
+                out.add(new Career(c.id, c.name, c.icon, c.description,
+                        List.copyOf(c.branches), c.core == null ? List.of() : List.copyOf(c.core),
+                        List.copyOf(c.languages), List.copyOf(c.skills),
+                        List.copyOf(projects), simulatorStages(c.name, modules, projects, c.roles),
+                        Collections.unmodifiableMap(new LinkedHashMap<>(c.skillWeights)),
+                        List.copyOf(modules), List.copyOf(c.certifications), List.copyOf(c.roles)));
+            }
+            return List.copyOf(out);
+        } catch (Exception e) {
+            throw new IllegalStateException("Could not load careers.json: " + e.getMessage(), e);
+        }
+    }
+
+    /** Four simulator stages built from the career's own modules, projects and roles. */
+    private static List<Stage> simulatorStages(String name, List<Module> modules, List<Project> projects, List<String> roles) {
+        String firstProject = projects.get(0).title();
+        String midProject = projects.get(Math.min(3, projects.size() - 1)).title();
+        String capstone = projects.get(projects.size() - 1).title();
+        List<String> foundation = new ArrayList<>(modules.get(0).topics());
+        foundation.add("Build: " + firstProject);
+        List<String> core = new ArrayList<>();
+        for (int i = 1; i < Math.min(4, modules.size()); i++) core.add("Learn " + modules.get(i).title());
+        core.add("Build: " + midProject);
+        return List.of(
+            new Stage("Foundation", "Months 1–2", "Build the fundamentals of " + name, foundation,
+                    "You can explain the basics of " + modules.get(0).title() + " without notes."),
+            new Stage("Core Skills", "Months 3–6", "Develop job-ready depth", core,
+                    "You have finished " + midProject + " and can explain how it works."),
+            new Stage("Portfolio", "Months 7–10", "Create proof of your ability",
+                    List.of("Build: " + capstone, "Write a clear README / report", "Demo it to friends and mentors", "Share it on LinkedIn"),
+                    "Your capstone project is demo-ready."),
+            new Stage("Hiring Prep", "Months 11–12", "Become internship / job ready",
+                    List.of("Update resume and LinkedIn", "Practise mock interviews", "Apply for " + String.join(", ", roles), "Track every application"),
+                    "You are applying every week and getting interview calls."));
+    }
+
+    public static Career get(String id) {
+        if (id == null) return null;
+        for (Career c : ALL) if (c.id().equals(id)) return c;
+        return null;
+    }
+
+    /**
+     * Maps the branch text saved in the profile to a branch group:
+     * cs, ece, ee, me, civil, or "all" when the branch is empty/other.
+     */
+    public static String branchGroup(String branch) {
+        if (branch == null) return "all";
+        String b = branch.toLowerCase(Locale.ROOT);
+        if (b.isBlank()) return "all";
+        if (b.contains("computer") || b.contains("information technology") || b.contains("artificial")
+                || b.contains("data science") || b.contains("cyber") || b.contains("software")) return "cs";
+        if (b.contains("electrical")) return "ee";
+        if (b.contains("electronics") || b.contains("communication") || b.contains("instrumentation")) return "ece";
+        if (b.contains("mechanical") || b.contains("automobile") || b.contains("production")
+                || b.contains("mechatronics") || b.contains("aeronautical")) return "me";
+        if (b.contains("civil")) return "civil";
+        return "all";
+    }
+
+    /** Careers that suit a branch. Unknown branch -> every career. */
+    public static List<Career> forBranch(String branch) {
+        String group = branchGroup(branch);
+        if ("all".equals(group)) return ALL;
+        List<Career> out = new ArrayList<>();
+        for (Career c : ALL) if (c.branches().contains(group)) out.add(c);
+        return out;
+    }
+
+    /** True when the career is a core career of the student's branch (e.g. VLSI for ECE). */
+    public static boolean isCore(Career c, String branch) {
+        return c.core().contains(branchGroup(branch));
+    }
 }

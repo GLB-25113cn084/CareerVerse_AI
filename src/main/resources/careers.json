@@ -1,0 +1,5470 @@
+{
+ "careers": [
+  {
+   "id": "software",
+   "name": "Software Engineer",
+   "icon": "💻",
+   "description": "Build web, mobile and backend software used by millions.",
+   "branches": [
+    "cs",
+    "ece",
+    "ee"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Java",
+    "Python",
+    "JavaScript",
+    "SQL"
+   ],
+   "skills": [
+    "Java",
+    "DSA",
+    "SQL",
+    "Git",
+    "OOP",
+    "REST APIs",
+    "Testing"
+   ],
+   "skillWeights": {
+    "Java": 20,
+    "DSA": 25,
+    "SQL": 15,
+    "Git": 10,
+    "REST APIs": 15,
+    "OOP": 15
+   },
+   "modules": [
+    {
+     "title": "Programming Foundations",
+     "topics": [
+      "Java or Python syntax",
+      "Problem solving with loops and functions",
+      "Git and GitHub basics"
+     ]
+    },
+    {
+     "title": "Object-Oriented Programming",
+     "topics": [
+      "Classes, inheritance, interfaces",
+      "SOLID principles",
+      "Exceptions and collections"
+     ]
+    },
+    {
+     "title": "Data Structures",
+     "topics": [
+      "Arrays, strings, hashing",
+      "Linked lists, stacks, queues",
+      "Trees and heaps"
+     ]
+    },
+    {
+     "title": "Algorithms",
+     "topics": [
+      "Sorting and searching",
+      "Recursion and backtracking",
+      "Graphs and dynamic programming"
+     ]
+    },
+    {
+     "title": "Databases and SQL",
+     "topics": [
+      "ER design and normalization",
+      "Joins, indexes, transactions",
+      "JDBC / ORM basics"
+     ]
+    },
+    {
+     "title": "Backend Development",
+     "topics": [
+      "HTTP and REST APIs",
+      "Servlets / Spring Boot",
+      "Authentication and security"
+     ]
+    },
+    {
+     "title": "Software Engineering Practices",
+     "topics": [
+      "Unit testing (JUnit)",
+      "Design patterns",
+      "Code reviews and clean code"
+     ]
+    },
+    {
+     "title": "System Design Basics",
+     "topics": [
+      "Caching, load balancing",
+      "Scalability and databases at scale",
+      "Low-level design interviews"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Console Library Manager",
+     "level": "Beginner",
+     "result": "Menu-driven Java app with file storage",
+     "skills": [
+      "Java",
+      "OOP"
+     ]
+    },
+    {
+     "title": "Personal Expense Tracker",
+     "level": "Beginner",
+     "result": "CRUD app with MySQL and charts",
+     "skills": [
+      "Java",
+      "SQL"
+     ]
+    },
+    {
+     "title": "Student Task Manager",
+     "level": "Intermediate",
+     "result": "Web app with login, tasks and deadlines",
+     "skills": [
+      "Java",
+      "Servlets",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "URL Shortener API",
+     "level": "Intermediate",
+     "result": "REST API with hashing and analytics",
+     "skills": [
+      "REST APIs",
+      "SQL",
+      "Git"
+     ]
+    },
+    {
+     "title": "Online Code Judge (mini)",
+     "level": "Intermediate",
+     "result": "Compile, run and test user code safely",
+     "skills": [
+      "Java",
+      "DSA",
+      "Testing"
+     ]
+    },
+    {
+     "title": "Real-time Chat Application",
+     "level": "Advanced",
+     "result": "WebSocket chat with rooms and history",
+     "skills": [
+      "Java",
+      "REST APIs",
+      "SQL"
+     ]
+    },
+    {
+     "title": "College Placement Portal",
+     "level": "Advanced",
+     "result": "Role-based portal for students, TPO and recruiters",
+     "skills": [
+      "Java",
+      "Servlets",
+      "MySQL",
+      "Bootstrap"
+     ]
+    },
+    {
+     "title": "Scalable E-commerce Backend",
+     "level": "Capstone",
+     "result": "Microservice backend with cart, orders and payments mock",
+     "skills": [
+      "Java",
+      "REST APIs",
+      "SQL",
+      "Testing"
+     ]
+    }
+   ],
+   "certifications": [
+    "Oracle Certified Associate – Java SE",
+    "NPTEL – Programming, Data Structures and Algorithms",
+    "Meta Back-End Developer (Coursera)",
+    "AWS Certified Cloud Practitioner"
+   ],
+   "roles": [
+    "Software Engineering Intern",
+    "Backend Developer Intern",
+    "SDE Intern"
+   ]
+  },
+  {
+   "id": "aiml",
+   "name": "AI / ML Engineer",
+   "icon": "🤖",
+   "description": "Build intelligent models and AI applications.",
+   "branches": [
+    "cs",
+    "ece"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Python",
+    "SQL",
+    "JavaScript"
+   ],
+   "skills": [
+    "Python",
+    "Statistics",
+    "Linear Algebra",
+    "Machine Learning",
+    "Pandas",
+    "NumPy",
+    "Git"
+   ],
+   "skillWeights": {
+    "Python": 20,
+    "Machine Learning": 25,
+    "Statistics": 15,
+    "Linear Algebra": 15,
+    "Pandas": 10,
+    "NumPy": 5,
+    "Git": 10
+   },
+   "modules": [
+    {
+     "title": "Python for AI",
+     "topics": [
+      "Python basics and OOP",
+      "NumPy arrays",
+      "Pandas data cleaning"
+     ]
+    },
+    {
+     "title": "Math for Machine Learning",
+     "topics": [
+      "Linear algebra (vectors, matrices)",
+      "Probability and statistics",
+      "Calculus for gradients"
+     ]
+    },
+    {
+     "title": "Classical Machine Learning",
+     "topics": [
+      "Regression and classification",
+      "Decision trees and ensembles",
+      "Model evaluation and cross-validation"
+     ]
+    },
+    {
+     "title": "Data Handling",
+     "topics": [
+      "Feature engineering",
+      "Visualization with Matplotlib/Seaborn",
+      "SQL for data extraction"
+     ]
+    },
+    {
+     "title": "Deep Learning",
+     "topics": [
+      "Neural networks with PyTorch/TensorFlow",
+      "CNNs for images",
+      "RNNs and transformers"
+     ]
+    },
+    {
+     "title": "NLP and Generative AI",
+     "topics": [
+      "Text preprocessing and embeddings",
+      "LLM APIs and prompt engineering",
+      "RAG with vector databases"
+     ]
+    },
+    {
+     "title": "MLOps",
+     "topics": [
+      "Model deployment with FastAPI",
+      "Docker for ML",
+      "Experiment tracking (MLflow)"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "House Price Predictor",
+     "level": "Beginner",
+     "result": "Linear regression with a clean notebook",
+     "skills": [
+      "Python",
+      "Pandas",
+      "Machine Learning"
+     ]
+    },
+    {
+     "title": "Spam Email Classifier",
+     "level": "Beginner",
+     "result": "Naive Bayes text classifier",
+     "skills": [
+      "Python",
+      "Machine Learning"
+     ]
+    },
+    {
+     "title": "Student Performance Predictor",
+     "level": "Intermediate",
+     "result": "ML model with a Streamlit dashboard",
+     "skills": [
+      "Python",
+      "Pandas",
+      "Machine Learning"
+     ]
+    },
+    {
+     "title": "Handwritten Digit Recognizer",
+     "level": "Intermediate",
+     "result": "CNN trained on MNIST with a drawing pad",
+     "skills": [
+      "Python",
+      "Machine Learning",
+      "NumPy"
+     ]
+    },
+    {
+     "title": "Movie Recommendation System",
+     "level": "Intermediate",
+     "result": "Collaborative filtering recommender",
+     "skills": [
+      "Python",
+      "Pandas",
+      "Statistics"
+     ]
+    },
+    {
+     "title": "Resume Screening with NLP",
+     "level": "Advanced",
+     "result": "Rank resumes against job descriptions",
+     "skills": [
+      "Python",
+      "Machine Learning"
+     ]
+    },
+    {
+     "title": "College Notes Chatbot (RAG)",
+     "level": "Advanced",
+     "result": "LLM chatbot that answers from PDFs",
+     "skills": [
+      "Python",
+      "Machine Learning",
+      "Git"
+     ]
+    },
+    {
+     "title": "Plant Disease Detection App",
+     "level": "Capstone",
+     "result": "Deployed image model with a mobile-friendly web app",
+     "skills": [
+      "Python",
+      "Machine Learning",
+      "Git"
+     ]
+    }
+   ],
+   "certifications": [
+    "Machine Learning Specialization – Andrew Ng (Coursera)",
+    "NPTEL – Introduction to Machine Learning",
+    "Google TensorFlow Developer Certificate",
+    "Microsoft Azure AI Fundamentals (AI-900)"
+   ],
+   "roles": [
+    "ML Intern",
+    "Data Science Intern",
+    "AI Research Intern"
+   ]
+  },
+  {
+   "id": "data",
+   "name": "Data Analyst",
+   "icon": "📊",
+   "description": "Turn data into useful insights for business decisions.",
+   "branches": [
+    "cs",
+    "ece",
+    "ee",
+    "me",
+    "civil"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Python",
+    "SQL",
+    "R"
+   ],
+   "skills": [
+    "SQL",
+    "Excel",
+    "Python",
+    "Statistics",
+    "Power BI",
+    "Data Visualization",
+    "Communication"
+   ],
+   "skillWeights": {
+    "SQL": 25,
+    "Excel": 15,
+    "Python": 15,
+    "Statistics": 15,
+    "Power BI": 15,
+    "Data Visualization": 10,
+    "Communication": 5
+   },
+   "modules": [
+    {
+     "title": "Excel for Analysis",
+     "topics": [
+      "Formulas and lookups",
+      "Pivot tables",
+      "Charts and dashboards"
+     ]
+    },
+    {
+     "title": "SQL",
+     "topics": [
+      "SELECT, WHERE, GROUP BY",
+      "Joins and subqueries",
+      "Window functions"
+     ]
+    },
+    {
+     "title": "Statistics",
+     "topics": [
+      "Descriptive statistics",
+      "Probability and distributions",
+      "Hypothesis testing and A/B tests"
+     ]
+    },
+    {
+     "title": "Python for Data",
+     "topics": [
+      "Pandas and NumPy",
+      "Data cleaning",
+      "Exploratory data analysis"
+     ]
+    },
+    {
+     "title": "Visualization and BI",
+     "topics": [
+      "Power BI / Tableau",
+      "DAX basics",
+      "Dashboard design principles"
+     ]
+    },
+    {
+     "title": "Business Analytics",
+     "topics": [
+      "KPIs and metrics",
+      "Storytelling with data",
+      "Presenting insights to stakeholders"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Sales Dashboard in Excel",
+     "level": "Beginner",
+     "result": "Interactive pivot-table dashboard",
+     "skills": [
+      "Excel",
+      "Data Visualization"
+     ]
+    },
+    {
+     "title": "College Results Analysis",
+     "level": "Beginner",
+     "result": "SQL queries on semester results",
+     "skills": [
+      "SQL",
+      "Statistics"
+     ]
+    },
+    {
+     "title": "Zomato Restaurant EDA",
+     "level": "Intermediate",
+     "result": "Python EDA with charts and insights",
+     "skills": [
+      "Python",
+      "Data Visualization"
+     ]
+    },
+    {
+     "title": "HR Attrition Dashboard",
+     "level": "Intermediate",
+     "result": "Power BI dashboard with drill-downs",
+     "skills": [
+      "Power BI",
+      "SQL"
+     ]
+    },
+    {
+     "title": "IPL Data Story",
+     "level": "Intermediate",
+     "result": "Storytelling report on cricket data",
+     "skills": [
+      "Python",
+      "Statistics",
+      "Communication"
+     ]
+    },
+    {
+     "title": "Customer Segmentation",
+     "level": "Advanced",
+     "result": "RFM analysis and clustering",
+     "skills": [
+      "Python",
+      "Statistics",
+      "SQL"
+     ]
+    },
+    {
+     "title": "Placement Prediction Dashboard",
+     "level": "Advanced",
+     "result": "Insight + prediction report for TPO",
+     "skills": [
+      "SQL",
+      "Python",
+      "Power BI"
+     ]
+    },
+    {
+     "title": "End-to-End Retail Analytics",
+     "level": "Capstone",
+     "result": "Database, ETL, dashboard and recommendations deck",
+     "skills": [
+      "SQL",
+      "Python",
+      "Power BI",
+      "Communication"
+     ]
+    }
+   ],
+   "certifications": [
+    "Google Data Analytics Professional Certificate",
+    "Microsoft Power BI Data Analyst (PL-300)",
+    "NPTEL – Python for Data Science",
+    "HackerRank SQL (Intermediate)"
+   ],
+   "roles": [
+    "Data Analyst Intern",
+    "Business Analyst Intern",
+    "MIS Intern"
+   ]
+  },
+  {
+   "id": "web",
+   "name": "Full Stack Developer",
+   "icon": "🌐",
+   "description": "Build complete, responsive web applications.",
+   "branches": [
+    "cs",
+    "ece"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "JavaScript",
+    "Java",
+    "Python",
+    "SQL"
+   ],
+   "skills": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Bootstrap",
+    "Java",
+    "Servlets",
+    "MySQL",
+    "REST APIs",
+    "Git"
+   ],
+   "skillWeights": {
+    "HTML": 8,
+    "CSS": 8,
+    "JavaScript": 15,
+    "Bootstrap": 8,
+    "Java": 15,
+    "Servlets": 15,
+    "MySQL": 15,
+    "REST APIs": 10,
+    "Git": 6
+   },
+   "modules": [
+    {
+     "title": "Web Basics",
+     "topics": [
+      "HTML5 semantics",
+      "CSS layout: flexbox and grid",
+      "Responsive design"
+     ]
+    },
+    {
+     "title": "JavaScript",
+     "topics": [
+      "ES6+ features",
+      "DOM and events",
+      "Fetch API and async/await"
+     ]
+    },
+    {
+     "title": "Frontend Frameworks",
+     "topics": [
+      "React components and hooks",
+      "State management",
+      "Bootstrap / Tailwind"
+     ]
+    },
+    {
+     "title": "Backend",
+     "topics": [
+      "Java Servlets or Node.js/Express",
+      "REST API design",
+      "Sessions and JWT authentication"
+     ]
+    },
+    {
+     "title": "Databases",
+     "topics": [
+      "MySQL schema design",
+      "MongoDB basics",
+      "ORMs"
+     ]
+    },
+    {
+     "title": "Deployment",
+     "topics": [
+      "Git workflows",
+      "Docker basics",
+      "Hosting on Render / Vercel"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Personal Portfolio Website",
+     "level": "Beginner",
+     "result": "Responsive portfolio with projects section",
+     "skills": [
+      "HTML",
+      "CSS"
+     ]
+    },
+    {
+     "title": "Weather App",
+     "level": "Beginner",
+     "result": "Fetches live weather from a public API",
+     "skills": [
+      "JavaScript"
+     ]
+    },
+    {
+     "title": "Quiz Web App",
+     "level": "Intermediate",
+     "result": "Timed quiz with scores saved to a database",
+     "skills": [
+      "JavaScript",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "Blog Platform",
+     "level": "Intermediate",
+     "result": "Posts, comments and admin panel",
+     "skills": [
+      "Java",
+      "Servlets",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "Student Community App",
+     "level": "Intermediate",
+     "result": "Full-stack social utility app",
+     "skills": [
+      "JavaScript",
+      "REST APIs",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "Food Ordering Website",
+     "level": "Advanced",
+     "result": "Cart, orders and payment gateway sandbox",
+     "skills": [
+      "JavaScript",
+      "REST APIs",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "Placement Portal",
+     "level": "Advanced",
+     "result": "Production-style portal with roles",
+     "skills": [
+      "HTML",
+      "Bootstrap",
+      "Java",
+      "MySQL"
+     ]
+    },
+    {
+     "title": "Real-time Collaborative Notes",
+     "level": "Capstone",
+     "result": "Live collaboration with WebSockets, deployed",
+     "skills": [
+      "JavaScript",
+      "REST APIs",
+      "Git"
+     ]
+    }
+   ],
+   "certifications": [
+    "Meta Front-End Developer (Coursera)",
+    "freeCodeCamp Responsive Web Design",
+    "NPTEL – Modern Application Development",
+    "MongoDB Associate Developer"
+   ],
+   "roles": [
+    "Web Developer Intern",
+    "Frontend Intern",
+    "Full Stack Intern"
+   ]
+  },
+  {
+   "id": "cyber",
+   "name": "Cybersecurity Analyst",
+   "icon": "🛡️",
+   "description": "Protect systems, networks and applications from attacks.",
+   "branches": [
+    "cs",
+    "ece"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Python",
+    "Bash",
+    "SQL"
+   ],
+   "skills": [
+    "Linux",
+    "Networking",
+    "Python",
+    "Cybersecurity",
+    "Cryptography",
+    "Web Security",
+    "Git"
+   ],
+   "skillWeights": {
+    "Linux": 20,
+    "Networking": 20,
+    "Python": 10,
+    "Cybersecurity": 25,
+    "Cryptography": 10,
+    "Web Security": 10,
+    "Git": 5
+   },
+   "modules": [
+    {
+     "title": "Linux and Command Line",
+     "topics": [
+      "File system and permissions",
+      "Bash scripting",
+      "Processes and services"
+     ]
+    },
+    {
+     "title": "Networking",
+     "topics": [
+      "OSI and TCP/IP",
+      "DNS, HTTP, TLS",
+      "Wireshark packet analysis"
+     ]
+    },
+    {
+     "title": "Security Fundamentals",
+     "topics": [
+      "CIA triad and threat models",
+      "Cryptography basics",
+      "Authentication and access control"
+     ]
+    },
+    {
+     "title": "Web Application Security",
+     "topics": [
+      "OWASP Top 10",
+      "Burp Suite",
+      "Secure coding"
+     ]
+    },
+    {
+     "title": "Ethical Hacking",
+     "topics": [
+      "Reconnaissance with Nmap",
+      "Exploitation labs (TryHackMe)",
+      "Privilege escalation"
+     ]
+    },
+    {
+     "title": "Defensive Security",
+     "topics": [
+      "SIEM and log analysis",
+      "Incident response",
+      "Vulnerability management"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Password Strength Checker",
+     "level": "Beginner",
+     "result": "Python tool with entropy scoring",
+     "skills": [
+      "Python",
+      "Cryptography"
+     ]
+    },
+    {
+     "title": "Port Scanner",
+     "level": "Beginner",
+     "result": "Multi-threaded TCP port scanner",
+     "skills": [
+      "Python",
+      "Networking"
+     ]
+    },
+    {
+     "title": "Packet Sniffer and Analyzer",
+     "level": "Intermediate",
+     "result": "Capture and summarize network traffic",
+     "skills": [
+      "Python",
+      "Networking"
+     ]
+    },
+    {
+     "title": "File Encryption Tool",
+     "level": "Intermediate",
+     "result": "AES encryption with key management",
+     "skills": [
+      "Python",
+      "Cryptography"
+     ]
+    },
+    {
+     "title": "Vulnerable Web App Lab",
+     "level": "Intermediate",
+     "result": "DVWA-style lab with write-ups",
+     "skills": [
+      "Web Security",
+      "Linux"
+     ]
+    },
+    {
+     "title": "Phishing URL Detector",
+     "level": "Advanced",
+     "result": "ML-based phishing link classifier",
+     "skills": [
+      "Python",
+      "Cybersecurity"
+     ]
+    },
+    {
+     "title": "Home SOC with SIEM",
+     "level": "Advanced",
+     "result": "Wazuh/ELK setup with alert rules",
+     "skills": [
+      "Linux",
+      "Cybersecurity",
+      "Networking"
+     ]
+    },
+    {
+     "title": "Security Audit of a College Website",
+     "level": "Capstone",
+     "result": "Full VAPT report with fixes (with permission)",
+     "skills": [
+      "Web Security",
+      "Linux",
+      "Cybersecurity"
+     ]
+    }
+   ],
+   "certifications": [
+    "CompTIA Security+",
+    "Cisco Introduction to Cybersecurity",
+    "TryHackMe Pre-Security / SOC Level 1",
+    "EC-Council CEH (later)"
+   ],
+   "roles": [
+    "Security Analyst Intern",
+    "SOC Intern",
+    "VAPT Intern"
+   ]
+  },
+  {
+   "id": "uiux",
+   "name": "UI/UX Designer",
+   "icon": "🎨",
+   "description": "Design useful and accessible digital experiences.",
+   "branches": [
+    "cs",
+    "ece",
+    "me",
+    "civil"
+   ],
+   "core": [],
+   "languages": [
+    "Figma",
+    "HTML",
+    "CSS",
+    "JavaScript"
+   ],
+   "skills": [
+    "Figma",
+    "Design Thinking",
+    "User Research",
+    "Prototyping",
+    "Typography",
+    "Communication",
+    "HTML",
+    "CSS"
+   ],
+   "skillWeights": {
+    "Figma": 25,
+    "Design Thinking": 15,
+    "User Research": 20,
+    "Prototyping": 15,
+    "Communication": 10,
+    "HTML": 5,
+    "CSS": 5,
+    "Typography": 5
+   },
+   "modules": [
+    {
+     "title": "Design Fundamentals",
+     "topics": [
+      "Colour, typography, spacing",
+      "Visual hierarchy",
+      "Grids and layout"
+     ]
+    },
+    {
+     "title": "Figma",
+     "topics": [
+      "Frames and auto layout",
+      "Components and variants",
+      "Design systems"
+     ]
+    },
+    {
+     "title": "User Research",
+     "topics": [
+      "User interviews",
+      "Personas and journey maps",
+      "Usability testing"
+     ]
+    },
+    {
+     "title": "Interaction Design",
+     "topics": [
+      "Wireframes and user flows",
+      "Prototyping and micro-interactions",
+      "Accessibility (WCAG)"
+     ]
+    },
+    {
+     "title": "Front-end for Designers",
+     "topics": [
+      "HTML and CSS basics",
+      "Design hand-off",
+      "Responsive design"
+     ]
+    },
+    {
+     "title": "Portfolio and Case Studies",
+     "topics": [
+      "Writing case studies",
+      "Presenting design decisions",
+      "Design critiques"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "App Redesign Challenge",
+     "level": "Beginner",
+     "result": "Redesign one screen of a popular app",
+     "skills": [
+      "Figma",
+      "Typography"
+     ]
+    },
+    {
+     "title": "Landing Page Design",
+     "level": "Beginner",
+     "result": "High-fidelity landing page in Figma",
+     "skills": [
+      "Figma",
+      "Typography"
+     ]
+    },
+    {
+     "title": "Campus Companion UX Case Study",
+     "level": "Intermediate",
+     "result": "Research-to-prototype case study",
+     "skills": [
+      "Figma",
+      "User Research"
+     ]
+    },
+    {
+     "title": "Food Delivery App Prototype",
+     "level": "Intermediate",
+     "result": "Clickable prototype with user flows",
+     "skills": [
+      "Figma",
+      "Prototyping"
+     ]
+    },
+    {
+     "title": "Design System Starter Kit",
+     "level": "Intermediate",
+     "result": "Reusable components and tokens",
+     "skills": [
+      "Figma",
+      "Design Thinking"
+     ]
+    },
+    {
+     "title": "Accessibility Audit",
+     "level": "Advanced",
+     "result": "Audit and fixes for a public website",
+     "skills": [
+      "User Research",
+      "HTML",
+      "CSS"
+     ]
+    },
+    {
+     "title": "Career Dashboard Redesign",
+     "level": "Advanced",
+     "result": "Accessible product redesign with testing",
+     "skills": [
+      "Figma",
+      "Prototyping",
+      "Design Thinking"
+     ]
+    },
+    {
+     "title": "End-to-End Product Case Study",
+     "level": "Capstone",
+     "result": "Research, design, test and iterate a real app",
+     "skills": [
+      "Figma",
+      "User Research",
+      "Communication"
+     ]
+    }
+   ],
+   "certifications": [
+    "Google UX Design Professional Certificate",
+    "Interaction Design Foundation courses",
+    "NPTEL – Design Thinking",
+    "Figma Professional Certificate"
+   ],
+   "roles": [
+    "UI/UX Design Intern",
+    "Product Design Intern",
+    "Visual Design Intern"
+   ]
+  },
+  {
+   "id": "mobile",
+   "name": "Mobile App Developer",
+   "icon": "📱",
+   "description": "Create Android and cross-platform mobile apps.",
+   "branches": [
+    "cs"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Java",
+    "Kotlin",
+    "Dart"
+   ],
+   "skills": [
+    "Java",
+    "Kotlin",
+    "Flutter",
+    "Dart",
+    "APIs",
+    "SQLite",
+    "Git"
+   ],
+   "skillWeights": {
+    "Java": 10,
+    "Kotlin": 15,
+    "Flutter": 25,
+    "Dart": 15,
+    "APIs": 15,
+    "SQLite": 10,
+    "Git": 10
+   },
+   "modules": [
+    {
+     "title": "Programming Basics",
+     "topics": [
+      "Kotlin or Dart syntax",
+      "OOP",
+      "Git"
+     ]
+    },
+    {
+     "title": "Android / Flutter UI",
+     "topics": [
+      "Layouts and widgets",
+      "Navigation",
+      "Material Design"
+     ]
+    },
+    {
+     "title": "Data and Storage",
+     "topics": [
+      "SQLite / Room",
+      "Shared preferences",
+      "Firebase Firestore"
+     ]
+    },
+    {
+     "title": "Networking",
+     "topics": [
+      "REST APIs with Retrofit/http",
+      "JSON parsing",
+      "Error handling and offline mode"
+     ]
+    },
+    {
+     "title": "App Architecture",
+     "topics": [
+      "MVVM",
+      "State management (Provider/Bloc)",
+      "Testing"
+     ]
+    },
+    {
+     "title": "Publishing",
+     "topics": [
+      "Play Store release",
+      "Performance and analytics",
+      "Push notifications"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Calculator and Unit Converter",
+     "level": "Beginner",
+     "result": "First app with clean UI",
+     "skills": [
+      "Kotlin",
+      "Flutter"
+     ]
+    },
+    {
+     "title": "To-Do App with Reminders",
+     "level": "Beginner",
+     "result": "Local storage and notifications",
+     "skills": [
+      "SQLite",
+      "Flutter"
+     ]
+    },
+    {
+     "title": "Campus Connect App",
+     "level": "Intermediate",
+     "result": "Student notices, timetable and events",
+     "skills": [
+      "Flutter",
+      "Dart",
+      "SQLite"
+     ]
+    },
+    {
+     "title": "News Reader",
+     "level": "Intermediate",
+     "result": "REST API app with bookmarks",
+     "skills": [
+      "APIs",
+      "Kotlin"
+     ]
+    },
+    {
+     "title": "Expense Splitter",
+     "level": "Intermediate",
+     "result": "Group expenses with Firebase sync",
+     "skills": [
+      "Flutter",
+      "Dart"
+     ]
+    },
+    {
+     "title": "College Events App",
+     "level": "Advanced",
+     "result": "Event discovery, registration and QR tickets",
+     "skills": [
+      "Kotlin",
+      "APIs",
+      "SQLite"
+     ]
+    },
+    {
+     "title": "Fitness Tracker",
+     "level": "Advanced",
+     "result": "Step counter with charts and goals",
+     "skills": [
+      "Flutter",
+      "APIs"
+     ]
+    },
+    {
+     "title": "Published Play Store App",
+     "level": "Capstone",
+     "result": "A real app with users, ratings and analytics",
+     "skills": [
+      "Flutter",
+      "Dart",
+      "APIs",
+      "Git"
+     ]
+    }
+   ],
+   "certifications": [
+    "Google Associate Android Developer",
+    "Meta Android Developer (Coursera)",
+    "Flutter & Dart – The Complete Guide",
+    "NPTEL – Mobile Computing"
+   ],
+   "roles": [
+    "Android Developer Intern",
+    "Flutter Developer Intern",
+    "Mobile App Intern"
+   ]
+  },
+  {
+   "id": "devops",
+   "name": "DevOps Engineer",
+   "icon": "⚙️",
+   "description": "Automate delivery, deployment and infrastructure.",
+   "branches": [
+    "cs"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Bash",
+    "Python",
+    "YAML"
+   ],
+   "skills": [
+    "Linux",
+    "Git",
+    "Docker",
+    "CI/CD",
+    "Cloud",
+    "Networking",
+    "Bash"
+   ],
+   "skillWeights": {
+    "Linux": 20,
+    "Git": 10,
+    "Docker": 20,
+    "CI/CD": 20,
+    "Cloud": 15,
+    "Networking": 10,
+    "Bash": 5
+   },
+   "modules": [
+    {
+     "title": "Linux and Scripting",
+     "topics": [
+      "Linux administration",
+      "Bash scripting",
+      "Cron and services"
+     ]
+    },
+    {
+     "title": "Version Control",
+     "topics": [
+      "Git branching",
+      "Pull requests",
+      "GitHub Actions basics"
+     ]
+    },
+    {
+     "title": "Containers",
+     "topics": [
+      "Docker images and volumes",
+      "Docker Compose",
+      "Container security"
+     ]
+    },
+    {
+     "title": "CI/CD",
+     "topics": [
+      "Pipelines with GitHub Actions / Jenkins",
+      "Automated testing",
+      "Release strategies"
+     ]
+    },
+    {
+     "title": "Cloud and IaC",
+     "topics": [
+      "AWS core services",
+      "Terraform",
+      "Networking (VPC, DNS)"
+     ]
+    },
+    {
+     "title": "Orchestration and Monitoring",
+     "topics": [
+      "Kubernetes basics",
+      "Prometheus and Grafana",
+      "Logging and alerts"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Linux Automation Scripts",
+     "level": "Beginner",
+     "result": "Backup and log-cleanup scripts",
+     "skills": [
+      "Linux",
+      "Bash"
+     ]
+    },
+    {
+     "title": "Dockerize a Web App",
+     "level": "Beginner",
+     "result": "Multi-container app with Compose",
+     "skills": [
+      "Docker"
+     ]
+    },
+    {
+     "title": "CI Pipeline for a Java App",
+     "level": "Intermediate",
+     "result": "Build, test and report on every push",
+     "skills": [
+      "CI/CD",
+      "Git"
+     ]
+    },
+    {
+     "title": "Static Site on AWS",
+     "level": "Intermediate",
+     "result": "S3 + CloudFront with HTTPS",
+     "skills": [
+      "Cloud",
+      "Networking"
+     ]
+    },
+    {
+     "title": "Infrastructure as Code",
+     "level": "Intermediate",
+     "result": "Terraform VPC, EC2 and database",
+     "skills": [
+      "Cloud",
+      "Bash"
+     ]
+    },
+    {
+     "title": "CI/CD Deployment Pipeline",
+     "level": "Advanced",
+     "result": "Automated build-test-deploy to cloud",
+     "skills": [
+      "Git",
+      "Docker",
+      "CI/CD"
+     ]
+    },
+    {
+     "title": "Kubernetes Microservices",
+     "level": "Advanced",
+     "result": "Deploy 3 services with Helm",
+     "skills": [
+      "Docker",
+      "Cloud"
+     ]
+    },
+    {
+     "title": "Full Observability Stack",
+     "level": "Capstone",
+     "result": "Monitoring, logs and alerts for a live app",
+     "skills": [
+      "Linux",
+      "Docker",
+      "Cloud",
+      "CI/CD"
+     ]
+    }
+   ],
+   "certifications": [
+    "AWS Certified Cloud Practitioner",
+    "Docker Certified Associate",
+    "Certified Kubernetes Administrator (CKA, later)",
+    "HashiCorp Terraform Associate"
+   ],
+   "roles": [
+    "DevOps Intern",
+    "Site Reliability Intern",
+    "Cloud Ops Intern"
+   ]
+  },
+  {
+   "id": "cloud",
+   "name": "Cloud Engineer",
+   "icon": "☁️",
+   "description": "Design and operate cloud infrastructure.",
+   "branches": [
+    "cs",
+    "ece"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Python",
+    "Bash",
+    "YAML"
+   ],
+   "skills": [
+    "Linux",
+    "Networking",
+    "Cloud",
+    "Docker",
+    "Security",
+    "Git",
+    "Databases"
+   ],
+   "skillWeights": {
+    "Linux": 15,
+    "Networking": 15,
+    "Cloud": 25,
+    "Docker": 15,
+    "Security": 10,
+    "Git": 10,
+    "Databases": 10
+   },
+   "modules": [
+    {
+     "title": "IT Foundations",
+     "topics": [
+      "Linux basics",
+      "Networking fundamentals",
+      "Virtualization"
+     ]
+    },
+    {
+     "title": "Cloud Core Services",
+     "topics": [
+      "Compute (EC2/VMs)",
+      "Storage (S3/Blob)",
+      "IAM and security"
+     ]
+    },
+    {
+     "title": "Cloud Networking",
+     "topics": [
+      "VPC, subnets, routing",
+      "Load balancers",
+      "DNS and CDN"
+     ]
+    },
+    {
+     "title": "Databases in the Cloud",
+     "topics": [
+      "RDS / Cloud SQL",
+      "NoSQL (DynamoDB)",
+      "Backups and replication"
+     ]
+    },
+    {
+     "title": "Automation",
+     "topics": [
+      "Infrastructure as Code",
+      "Serverless (Lambda)",
+      "Containers on the cloud"
+     ]
+    },
+    {
+     "title": "Architecture",
+     "topics": [
+      "Well-Architected Framework",
+      "High availability",
+      "Cost optimization"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Host a Website on a VM",
+     "level": "Beginner",
+     "result": "Apache on EC2 with a domain",
+     "skills": [
+      "Cloud",
+      "Linux"
+     ]
+    },
+    {
+     "title": "Cloud Storage Photo Gallery",
+     "level": "Beginner",
+     "result": "Upload and view images from S3",
+     "skills": [
+      "Cloud"
+     ]
+    },
+    {
+     "title": "Serverless Contact Form",
+     "level": "Intermediate",
+     "result": "Lambda + API Gateway + email",
+     "skills": [
+      "Cloud",
+      "Security"
+     ]
+    },
+    {
+     "title": "Cloud-hosted College Portal",
+     "level": "Intermediate",
+     "result": "Containerized cloud deployment",
+     "skills": [
+      "Docker",
+      "Cloud",
+      "Git"
+     ]
+    },
+    {
+     "title": "Three-tier Architecture",
+     "level": "Intermediate",
+     "result": "Web, app and database tiers in a VPC",
+     "skills": [
+      "Cloud",
+      "Networking",
+      "Databases"
+     ]
+    },
+    {
+     "title": "Auto Scaling Demo",
+     "level": "Advanced",
+     "result": "Scalable service with load testing",
+     "skills": [
+      "Cloud",
+      "Networking"
+     ]
+    },
+    {
+     "title": "Multi-region Disaster Recovery",
+     "level": "Advanced",
+     "result": "Backup and failover plan",
+     "skills": [
+      "Cloud",
+      "Databases",
+      "Security"
+     ]
+    },
+    {
+     "title": "Cost-optimized SaaS Deployment",
+     "level": "Capstone",
+     "result": "Production-style deployment with monitoring and budget alerts",
+     "skills": [
+      "Cloud",
+      "Docker",
+      "Security"
+     ]
+    }
+   ],
+   "certifications": [
+    "AWS Certified Cloud Practitioner",
+    "AWS Solutions Architect – Associate",
+    "Microsoft Azure Fundamentals (AZ-900)",
+    "Google Associate Cloud Engineer"
+   ],
+   "roles": [
+    "Cloud Intern",
+    "Cloud Support Associate Intern",
+    "Infrastructure Intern"
+   ]
+  },
+  {
+   "id": "product",
+   "name": "Product Analyst",
+   "icon": "🧭",
+   "description": "Use data and user insight to improve products.",
+   "branches": [
+    "cs",
+    "ece",
+    "ee",
+    "me",
+    "civil"
+   ],
+   "core": [],
+   "languages": [
+    "SQL",
+    "Python"
+   ],
+   "skills": [
+    "SQL",
+    "Analytics",
+    "Communication",
+    "Research",
+    "Excel",
+    "Product Thinking"
+   ],
+   "skillWeights": {
+    "SQL": 25,
+    "Analytics": 20,
+    "Communication": 15,
+    "Research": 15,
+    "Excel": 10,
+    "Product Thinking": 15
+   },
+   "modules": [
+    {
+     "title": "Product Basics",
+     "topics": [
+      "How tech products are built",
+      "User problems and value",
+      "Product teams and roles"
+     ]
+    },
+    {
+     "title": "Analytics Foundations",
+     "topics": [
+      "Excel and SQL",
+      "Funnels and cohorts",
+      "Metrics (DAU, retention, NPS)"
+     ]
+    },
+    {
+     "title": "User Research",
+     "topics": [
+      "Surveys and interviews",
+      "Jobs-to-be-done",
+      "Competitor analysis"
+     ]
+    },
+    {
+     "title": "Experimentation",
+     "topics": [
+      "A/B testing",
+      "Statistical significance",
+      "Feature prioritization (RICE)"
+     ]
+    },
+    {
+     "title": "Communication",
+     "topics": [
+      "PRDs and one-pagers",
+      "Dashboards for teams",
+      "Presenting recommendations"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "App Teardown",
+     "level": "Beginner",
+     "result": "Analysis of a popular app's features",
+     "skills": [
+      "Product Thinking",
+      "Research"
+     ]
+    },
+    {
+     "title": "Survey Insights Report",
+     "level": "Beginner",
+     "result": "Campus survey with charts",
+     "skills": [
+      "Excel",
+      "Research"
+     ]
+    },
+    {
+     "title": "Feature Analytics Study",
+     "level": "Intermediate",
+     "result": "Data-backed product proposal",
+     "skills": [
+      "SQL",
+      "Excel",
+      "Analytics"
+     ]
+    },
+    {
+     "title": "Funnel Analysis Dashboard",
+     "level": "Intermediate",
+     "result": "Signup-to-purchase funnel with drop-offs",
+     "skills": [
+      "SQL",
+      "Analytics"
+     ]
+    },
+    {
+     "title": "A/B Test Simulation",
+     "level": "Intermediate",
+     "result": "Design and analyze a mock experiment",
+     "skills": [
+      "Analytics",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Student App Product Case",
+     "level": "Advanced",
+     "result": "User research + metrics plan",
+     "skills": [
+      "Research",
+      "Analytics"
+     ]
+    },
+    {
+     "title": "PRD for a New Feature",
+     "level": "Advanced",
+     "result": "Problem, solution, metrics and roadmap",
+     "skills": [
+      "Product Thinking",
+      "Communication"
+     ]
+    },
+    {
+     "title": "Product Growth Case Competition",
+     "level": "Capstone",
+     "result": "End-to-end growth strategy with data",
+     "skills": [
+      "SQL",
+      "Analytics",
+      "Communication",
+      "Product Thinking"
+     ]
+    }
+   ],
+   "certifications": [
+    "Google Data Analytics Professional Certificate",
+    "Product Analytics (Mixpanel/Amplitude Academy)",
+    "NPTEL – Business Analytics",
+    "Pragmatic Institute Foundations"
+   ],
+   "roles": [
+    "Product Analyst Intern",
+    "Associate Product Manager Intern",
+    "Business Analyst Intern"
+   ]
+  },
+  {
+   "id": "qa",
+   "name": "QA / Test Engineer",
+   "icon": "🧪",
+   "description": "Improve software quality through systematic testing.",
+   "branches": [
+    "cs",
+    "ece",
+    "ee"
+   ],
+   "core": [
+    "cs"
+   ],
+   "languages": [
+    "Java",
+    "Python",
+    "JavaScript"
+   ],
+   "skills": [
+    "Testing",
+    "Java",
+    "Selenium",
+    "API Testing",
+    "SQL",
+    "Git"
+   ],
+   "skillWeights": {
+    "Testing": 25,
+    "Java": 15,
+    "Selenium": 20,
+    "API Testing": 15,
+    "SQL": 10,
+    "Git": 15
+   },
+   "modules": [
+    {
+     "title": "Testing Fundamentals",
+     "topics": [
+      "SDLC and STLC",
+      "Test cases and test plans",
+      "Bug reports"
+     ]
+    },
+    {
+     "title": "Programming for Testers",
+     "topics": [
+      "Java or Python basics",
+      "OOP",
+      "Git"
+     ]
+    },
+    {
+     "title": "UI Automation",
+     "topics": [
+      "Selenium WebDriver",
+      "Page Object Model",
+      "TestNG / JUnit"
+     ]
+    },
+    {
+     "title": "API Testing",
+     "topics": [
+      "Postman",
+      "REST Assured",
+      "Contract testing"
+     ]
+    },
+    {
+     "title": "Advanced Testing",
+     "topics": [
+      "Performance testing (JMeter)",
+      "CI integration",
+      "BDD with Cucumber"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Manual Test Plan",
+     "level": "Beginner",
+     "result": "Test cases and bug reports for a web app",
+     "skills": [
+      "Testing"
+     ]
+    },
+    {
+     "title": "Postman Collection",
+     "level": "Beginner",
+     "result": "API tests for a public API",
+     "skills": [
+      "API Testing"
+     ]
+    },
+    {
+     "title": "Automated Login Tests",
+     "level": "Intermediate",
+     "result": "Selenium tests with data-driven inputs",
+     "skills": [
+      "Selenium",
+      "Java"
+     ]
+    },
+    {
+     "title": "Automated Testing Suite",
+     "level": "Intermediate",
+     "result": "UI + API test suite",
+     "skills": [
+      "Selenium",
+      "Java",
+      "API Testing"
+     ]
+    },
+    {
+     "title": "Performance Test Report",
+     "level": "Intermediate",
+     "result": "JMeter load test with analysis",
+     "skills": [
+      "Testing"
+     ]
+    },
+    {
+     "title": "Regression Test Dashboard",
+     "level": "Advanced",
+     "result": "Test reporting dashboard",
+     "skills": [
+      "Java",
+      "SQL",
+      "Testing"
+     ]
+    },
+    {
+     "title": "BDD Framework",
+     "level": "Advanced",
+     "result": "Cucumber framework with CI",
+     "skills": [
+      "Selenium",
+      "Git"
+     ]
+    },
+    {
+     "title": "Complete Test Framework for an Open-source App",
+     "level": "Capstone",
+     "result": "Framework, reports and CI pipeline",
+     "skills": [
+      "Selenium",
+      "API Testing",
+      "Git",
+      "Testing"
+     ]
+    }
+   ],
+   "certifications": [
+    "ISTQB Foundation Level",
+    "Selenium WebDriver with Java (Udemy)",
+    "Postman API Fundamentals Student Expert",
+    "NPTEL – Software Testing"
+   ],
+   "roles": [
+    "QA Intern",
+    "Automation Test Intern",
+    "SDET Intern"
+   ]
+  },
+  {
+   "id": "technical-writer",
+   "name": "Technical Writer",
+   "icon": "📝",
+   "description": "Turn technical concepts into clear documentation.",
+   "branches": [
+    "cs",
+    "ece",
+    "ee",
+    "me",
+    "civil"
+   ],
+   "core": [],
+   "languages": [
+    "Markdown",
+    "HTML"
+   ],
+   "skills": [
+    "Technical Writing",
+    "Research",
+    "Communication",
+    "Markdown",
+    "Git",
+    "API Documentation"
+   ],
+   "skillWeights": {
+    "Technical Writing": 30,
+    "Research": 15,
+    "Communication": 20,
+    "Markdown": 10,
+    "Git": 10,
+    "API Documentation": 15
+   },
+   "modules": [
+    {
+     "title": "Writing Foundations",
+     "topics": [
+      "Plain English",
+      "Audience analysis",
+      "Editing and style guides"
+     ]
+    },
+    {
+     "title": "Docs Tooling",
+     "topics": [
+      "Markdown",
+      "Git and GitHub",
+      "Static site generators (Docusaurus)"
+     ]
+    },
+    {
+     "title": "Technical Depth",
+     "topics": [
+      "Reading code",
+      "APIs and JSON",
+      "Basic programming"
+     ]
+    },
+    {
+     "title": "Documentation Types",
+     "topics": [
+      "Tutorials and how-tos",
+      "API reference (OpenAPI)",
+      "Release notes"
+     ]
+    },
+    {
+     "title": "Portfolio",
+     "topics": [
+      "Open-source contributions",
+      "Docs-as-code",
+      "Content strategy"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "How-to Guide Series",
+     "level": "Beginner",
+     "result": "Three step-by-step guides",
+     "skills": [
+      "Technical Writing",
+      "Markdown"
+     ]
+    },
+    {
+     "title": "Tool Comparison Article",
+     "level": "Beginner",
+     "result": "Researched comparison blog post",
+     "skills": [
+      "Research",
+      "Communication"
+     ]
+    },
+    {
+     "title": "Developer Documentation Hub",
+     "level": "Intermediate",
+     "result": "API docs + guides",
+     "skills": [
+      "Markdown",
+      "Git",
+      "API Documentation"
+     ]
+    },
+    {
+     "title": "README Makeover",
+     "level": "Intermediate",
+     "result": "Improve READMEs of 3 open-source repos",
+     "skills": [
+      "Markdown",
+      "Git"
+     ]
+    },
+    {
+     "title": "Video Tutorial Script",
+     "level": "Intermediate",
+     "result": "Script and storyboard for a tech tutorial",
+     "skills": [
+      "Communication"
+     ]
+    },
+    {
+     "title": "OpenAPI Reference",
+     "level": "Advanced",
+     "result": "Full API reference with examples",
+     "skills": [
+      "API Documentation"
+     ]
+    },
+    {
+     "title": "Open-source Documentation Pack",
+     "level": "Advanced",
+     "result": "Merged docs contributions",
+     "skills": [
+      "Git",
+      "Markdown"
+     ]
+    },
+    {
+     "title": "Docs Site for a Product",
+     "level": "Capstone",
+     "result": "Complete documentation website",
+     "skills": [
+      "Technical Writing",
+      "Git",
+      "API Documentation"
+     ]
+    }
+   ],
+   "certifications": [
+    "Google Technical Writing One & Two",
+    "Write the Docs resources",
+    "Coursera – Technical Writing",
+    "Season of Docs contribution"
+   ],
+   "roles": [
+    "Technical Writer Intern",
+    "Content Developer Intern",
+    "Documentation Intern"
+   ]
+  },
+  {
+   "id": "embedded",
+   "name": "Embedded Systems Engineer",
+   "icon": "🔌",
+   "description": "Program microcontrollers that run cars, appliances and medical devices.",
+   "branches": [
+    "ece",
+    "ee",
+    "cs"
+   ],
+   "core": [
+    "ece"
+   ],
+   "languages": [
+    "C",
+    "C++",
+    "Python",
+    "Assembly"
+   ],
+   "skills": [
+    "C",
+    "Embedded C",
+    "Microcontrollers",
+    "Digital Electronics",
+    "RTOS",
+    "Communication Protocols",
+    "Git"
+   ],
+   "skillWeights": {
+    "C": 20,
+    "Embedded C": 20,
+    "Microcontrollers": 20,
+    "Digital Electronics": 10,
+    "RTOS": 10,
+    "Communication Protocols": 15,
+    "Git": 5
+   },
+   "modules": [
+    {
+     "title": "C Programming",
+     "topics": [
+      "Pointers and memory",
+      "Bit manipulation",
+      "Structures and unions"
+     ]
+    },
+    {
+     "title": "Digital Electronics",
+     "topics": [
+      "Logic gates and flip-flops",
+      "Counters and registers",
+      "ADC/DAC basics"
+     ]
+    },
+    {
+     "title": "Microcontrollers",
+     "topics": [
+      "Arduino and AVR",
+      "GPIO, timers, interrupts",
+      "STM32 / ARM Cortex-M"
+     ]
+    },
+    {
+     "title": "Communication Protocols",
+     "topics": [
+      "UART, SPI, I2C",
+      "CAN bus",
+      "USB basics"
+     ]
+    },
+    {
+     "title": "Real-Time Systems",
+     "topics": [
+      "FreeRTOS tasks and queues",
+      "Scheduling",
+      "Low-power design"
+     ]
+    },
+    {
+     "title": "Embedded Linux",
+     "topics": [
+      "Raspberry Pi",
+      "Device drivers basics",
+      "Yocto overview"
+     ]
+    },
+    {
+     "title": "Hardware Tools",
+     "topics": [
+      "Oscilloscope and logic analyzer",
+      "PCB design (KiCad)",
+      "Debugging with JTAG"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "LED Patterns and Button Input",
+     "level": "Beginner",
+     "result": "Arduino GPIO and debouncing",
+     "skills": [
+      "Microcontrollers",
+      "C"
+     ]
+    },
+    {
+     "title": "Digital Thermometer",
+     "level": "Beginner",
+     "result": "Sensor reading on an LCD",
+     "skills": [
+      "Microcontrollers",
+      "Embedded C"
+     ]
+    },
+    {
+     "title": "Smart Door Lock",
+     "level": "Intermediate",
+     "result": "Keypad + RFID lock with EEPROM storage",
+     "skills": [
+      "Embedded C",
+      "Microcontrollers"
+     ]
+    },
+    {
+     "title": "I2C Sensor Data Logger",
+     "level": "Intermediate",
+     "result": "Logs to an SD card with timestamps",
+     "skills": [
+      "Communication Protocols",
+      "Embedded C"
+     ]
+    },
+    {
+     "title": "Line-following Robot",
+     "level": "Intermediate",
+     "result": "PID motor control with IR sensors",
+     "skills": [
+      "Microcontrollers",
+      "C"
+     ]
+    },
+    {
+     "title": "FreeRTOS Weather Station",
+     "level": "Advanced",
+     "result": "Multi-task sensor hub with display",
+     "skills": [
+      "RTOS",
+      "Communication Protocols"
+     ]
+    },
+    {
+     "title": "CAN Bus Vehicle Dashboard",
+     "level": "Advanced",
+     "result": "Two nodes exchanging speed and temperature",
+     "skills": [
+      "Communication Protocols",
+      "Embedded C"
+     ]
+    },
+    {
+     "title": "Wearable Health Monitor",
+     "level": "Capstone",
+     "result": "Custom PCB, low-power firmware and mobile link",
+     "skills": [
+      "Embedded C",
+      "RTOS",
+      "Microcontrollers"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Embedded System Design with ARM",
+    "ARM Accredited Engineer (later)",
+    "Coursera – Introduction to Embedded Systems",
+    "CDAC PG-DESD (after graduation)"
+   ],
+   "roles": [
+    "Embedded Firmware Intern",
+    "Electronics Hardware Intern",
+    "IoT Firmware Intern"
+   ]
+  },
+  {
+   "id": "vlsi",
+   "name": "VLSI Design Engineer",
+   "icon": "🧩",
+   "description": "Design and verify the chips inside every electronic device.",
+   "branches": [
+    "ece",
+    "ee"
+   ],
+   "core": [
+    "ece"
+   ],
+   "languages": [
+    "Verilog",
+    "SystemVerilog",
+    "TCL",
+    "Python"
+   ],
+   "skills": [
+    "Digital Electronics",
+    "Verilog",
+    "CMOS",
+    "Static Timing Analysis",
+    "SystemVerilog",
+    "Linux",
+    "Python"
+   ],
+   "skillWeights": {
+    "Digital Electronics": 20,
+    "Verilog": 25,
+    "CMOS": 15,
+    "Static Timing Analysis": 10,
+    "SystemVerilog": 15,
+    "Linux": 5,
+    "Python": 10
+   },
+   "modules": [
+    {
+     "title": "Digital Design",
+     "topics": [
+      "Combinational and sequential logic",
+      "FSM design",
+      "Timing basics"
+     ]
+    },
+    {
+     "title": "Verilog HDL",
+     "topics": [
+      "RTL coding",
+      "Testbenches",
+      "Simulation with ModelSim/Icarus"
+     ]
+    },
+    {
+     "title": "CMOS and Analog Basics",
+     "topics": [
+      "MOSFET operation",
+      "CMOS inverter",
+      "Layout basics (Magic/Cadence)"
+     ]
+    },
+    {
+     "title": "Computer Architecture",
+     "topics": [
+      "Pipelining",
+      "Memory hierarchy",
+      "RISC-V basics"
+     ]
+    },
+    {
+     "title": "Verification",
+     "topics": [
+      "SystemVerilog",
+      "UVM introduction",
+      "Functional coverage"
+     ]
+    },
+    {
+     "title": "Physical Design",
+     "topics": [
+      "Synthesis",
+      "Static timing analysis",
+      "Place and route flow"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "4-bit ALU in Verilog",
+     "level": "Beginner",
+     "result": "RTL design with a testbench",
+     "skills": [
+      "Verilog",
+      "Digital Electronics"
+     ]
+    },
+    {
+     "title": "Traffic Light Controller FSM",
+     "level": "Beginner",
+     "result": "FSM simulated on waveforms",
+     "skills": [
+      "Verilog"
+     ]
+    },
+    {
+     "title": "UART Transmitter/Receiver",
+     "level": "Intermediate",
+     "result": "Synthesizable UART on FPGA",
+     "skills": [
+      "Verilog",
+      "Digital Electronics"
+     ]
+    },
+    {
+     "title": "Synchronous FIFO",
+     "level": "Intermediate",
+     "result": "FIFO with full/empty flags and testbench",
+     "skills": [
+      "Verilog",
+      "SystemVerilog"
+     ]
+    },
+    {
+     "title": "CMOS Inverter Layout",
+     "level": "Intermediate",
+     "result": "Layout and DRC/LVS in open-source tools",
+     "skills": [
+      "CMOS"
+     ]
+    },
+    {
+     "title": "5-stage RISC-V Pipeline",
+     "level": "Advanced",
+     "result": "Pipelined CPU core with hazard handling",
+     "skills": [
+      "Verilog",
+      "Digital Electronics"
+     ]
+    },
+    {
+     "title": "UVM Testbench for APB",
+     "level": "Advanced",
+     "result": "Constrained-random verification",
+     "skills": [
+      "SystemVerilog"
+     ]
+    },
+    {
+     "title": "Tape-out Ready Design (OpenLane)",
+     "level": "Capstone",
+     "result": "RTL to GDSII with timing closure",
+     "skills": [
+      "Verilog",
+      "Static Timing Analysis",
+      "Linux"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Digital IC Design",
+    "VLSI System Design (VSD) workshops",
+    "Coursera – FPGA Design for Embedded Systems",
+    "Maven Silicon / internship programmes"
+   ],
+   "roles": [
+    "RTL Design Intern",
+    "Verification Intern",
+    "Physical Design Intern"
+   ]
+  },
+  {
+   "id": "iot",
+   "name": "IoT Engineer",
+   "icon": "📡",
+   "description": "Connect sensors and devices to the cloud to build smart systems.",
+   "branches": [
+    "ece",
+    "ee",
+    "cs"
+   ],
+   "core": [
+    "ece"
+   ],
+   "languages": [
+    "C",
+    "Python",
+    "JavaScript"
+   ],
+   "skills": [
+    "Microcontrollers",
+    "Sensors",
+    "Python",
+    "Networking",
+    "Cloud",
+    "Communication Protocols",
+    "Embedded C"
+   ],
+   "skillWeights": {
+    "Microcontrollers": 20,
+    "Sensors": 15,
+    "Python": 15,
+    "Networking": 15,
+    "Cloud": 15,
+    "Communication Protocols": 10,
+    "Embedded C": 10
+   },
+   "modules": [
+    {
+     "title": "Electronics and Sensors",
+     "topics": [
+      "Sensor types and interfacing",
+      "Power supplies",
+      "Breadboarding"
+     ]
+    },
+    {
+     "title": "Microcontrollers",
+     "topics": [
+      "Arduino and ESP32",
+      "Wi-Fi and BLE",
+      "Deep sleep"
+     ]
+    },
+    {
+     "title": "IoT Protocols",
+     "topics": [
+      "MQTT",
+      "HTTP/REST",
+      "LoRa and Zigbee"
+     ]
+    },
+    {
+     "title": "Cloud and Dashboards",
+     "topics": [
+      "AWS IoT / ThingSpeak",
+      "Node-RED",
+      "Time-series databases"
+     ]
+    },
+    {
+     "title": "Edge Computing",
+     "topics": [
+      "Raspberry Pi",
+      "Edge ML (TinyML)",
+      "OTA updates"
+     ]
+    },
+    {
+     "title": "IoT Security",
+     "topics": [
+      "Device authentication",
+      "TLS on devices",
+      "Secure firmware updates"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Smart Plant Watering",
+     "level": "Beginner",
+     "result": "Soil-moisture based pump control",
+     "skills": [
+      "Microcontrollers",
+      "Sensors"
+     ]
+    },
+    {
+     "title": "Room Monitor on ThingSpeak",
+     "level": "Beginner",
+     "result": "Temperature and humidity on a cloud chart",
+     "skills": [
+      "Sensors",
+      "Cloud"
+     ]
+    },
+    {
+     "title": "Home Automation with ESP32",
+     "level": "Intermediate",
+     "result": "Control appliances from a phone",
+     "skills": [
+      "Microcontrollers",
+      "Networking"
+     ]
+    },
+    {
+     "title": "MQTT Smart Parking",
+     "level": "Intermediate",
+     "result": "Parking slot availability in real time",
+     "skills": [
+      "Communication Protocols",
+      "Python"
+     ]
+    },
+    {
+     "title": "Air Quality Index Station",
+     "level": "Intermediate",
+     "result": "PM2.5 sensor with alerts",
+     "skills": [
+      "Sensors",
+      "Cloud"
+     ]
+    },
+    {
+     "title": "Smart Energy Meter",
+     "level": "Advanced",
+     "result": "Power measurement with a web dashboard",
+     "skills": [
+      "Microcontrollers",
+      "Cloud",
+      "Python"
+     ]
+    },
+    {
+     "title": "TinyML Gesture Recognition",
+     "level": "Advanced",
+     "result": "On-device ML on a microcontroller",
+     "skills": [
+      "Embedded C",
+      "Python"
+     ]
+    },
+    {
+     "title": "Smart Campus IoT Platform",
+     "level": "Capstone",
+     "result": "Many sensors, a backend and a dashboard",
+     "skills": [
+      "Microcontrollers",
+      "Cloud",
+      "Networking",
+      "Communication Protocols"
+     ]
+    }
+   ],
+   "certifications": [
+    "Cisco Introduction to IoT",
+    "NPTEL – Introduction to Internet of Things",
+    "AWS IoT Core training",
+    "Coursera – IoT Specialization (UC Irvine)"
+   ],
+   "roles": [
+    "IoT Intern",
+    "Embedded IoT Intern",
+    "Hardware Prototyping Intern"
+   ]
+  },
+  {
+   "id": "telecom",
+   "name": "Telecom & Network Engineer",
+   "icon": "📶",
+   "description": "Build and run the networks behind mobile, internet and 5G.",
+   "branches": [
+    "ece"
+   ],
+   "core": [
+    "ece"
+   ],
+   "languages": [
+    "Python",
+    "Bash",
+    "MATLAB"
+   ],
+   "skills": [
+    "Networking",
+    "Communication Systems",
+    "Signal Processing",
+    "Linux",
+    "Python",
+    "Routing & Switching",
+    "MATLAB"
+   ],
+   "skillWeights": {
+    "Networking": 25,
+    "Communication Systems": 20,
+    "Signal Processing": 10,
+    "Linux": 10,
+    "Python": 10,
+    "Routing & Switching": 20,
+    "MATLAB": 5
+   },
+   "modules": [
+    {
+     "title": "Signals and Systems",
+     "topics": [
+      "Fourier analysis",
+      "Sampling",
+      "Filters"
+     ]
+    },
+    {
+     "title": "Communication Systems",
+     "topics": [
+      "Analog and digital modulation",
+      "Noise and BER",
+      "Channel coding"
+     ]
+    },
+    {
+     "title": "Computer Networks",
+     "topics": [
+      "OSI and TCP/IP",
+      "IP addressing and subnetting",
+      "Routing protocols (OSPF, BGP)"
+     ]
+    },
+    {
+     "title": "Wireless and Mobile",
+     "topics": [
+      "Cellular concepts",
+      "4G LTE and 5G NR",
+      "Antennas and RF basics"
+     ]
+    },
+    {
+     "title": "Network Engineering",
+     "topics": [
+      "Cisco switching and VLANs",
+      "Network automation with Python",
+      "SDN basics"
+     ]
+    },
+    {
+     "title": "Optical and Transport",
+     "topics": [
+      "Fibre optics",
+      "DWDM",
+      "Network monitoring"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Subnet Calculator",
+     "level": "Beginner",
+     "result": "Python tool for IP planning",
+     "skills": [
+      "Networking",
+      "Python"
+     ]
+    },
+    {
+     "title": "Modulation Simulator",
+     "level": "Beginner",
+     "result": "AM/FM/QPSK plots in MATLAB",
+     "skills": [
+      "Communication Systems",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Campus Network Design",
+     "level": "Intermediate",
+     "result": "VLANs and routing in Packet Tracer",
+     "skills": [
+      "Routing & Switching",
+      "Networking"
+     ]
+    },
+    {
+     "title": "BER vs SNR Analysis",
+     "level": "Intermediate",
+     "result": "Simulated digital link performance",
+     "skills": [
+      "Communication Systems",
+      "Signal Processing"
+     ]
+    },
+    {
+     "title": "Network Monitoring Tool",
+     "level": "Intermediate",
+     "result": "Ping/SNMP dashboard",
+     "skills": [
+      "Python",
+      "Linux"
+     ]
+    },
+    {
+     "title": "Network Automation with Netmiko",
+     "level": "Advanced",
+     "result": "Push configs to many routers",
+     "skills": [
+      "Python",
+      "Routing & Switching"
+     ]
+    },
+    {
+     "title": "5G NR Link Simulation",
+     "level": "Advanced",
+     "result": "Physical-layer simulation with MATLAB toolbox",
+     "skills": [
+      "MATLAB",
+      "Communication Systems"
+     ]
+    },
+    {
+     "title": "SDN Load-Balancer",
+     "level": "Capstone",
+     "result": "Mininet + controller app with traffic tests",
+     "skills": [
+      "Networking",
+      "Python",
+      "Linux"
+     ]
+    }
+   ],
+   "certifications": [
+    "Cisco CCNA",
+    "NPTEL – Principles of Digital Communication",
+    "Juniper JNCIA-Junos",
+    "Nokia / Ericsson 5G courses"
+   ],
+   "roles": [
+    "Network Engineer Intern",
+    "RF/Telecom Intern",
+    "NOC Intern"
+   ]
+  },
+  {
+   "id": "power",
+   "name": "Power Systems Engineer",
+   "icon": "⚡",
+   "description": "Plan, protect and operate electricity generation and grids.",
+   "branches": [
+    "ee"
+   ],
+   "core": [
+    "ee"
+   ],
+   "languages": [
+    "MATLAB",
+    "Python"
+   ],
+   "skills": [
+    "Power Systems",
+    "Electrical Machines",
+    "Power Electronics",
+    "MATLAB",
+    "Protection & Switchgear",
+    "AutoCAD Electrical",
+    "ETAP"
+   ],
+   "skillWeights": {
+    "Power Systems": 25,
+    "Electrical Machines": 15,
+    "Power Electronics": 10,
+    "MATLAB": 10,
+    "Protection & Switchgear": 20,
+    "AutoCAD Electrical": 10,
+    "ETAP": 10
+   },
+   "modules": [
+    {
+     "title": "Circuit Fundamentals",
+     "topics": [
+      "Network theorems",
+      "AC circuits and phasors",
+      "Three-phase systems"
+     ]
+    },
+    {
+     "title": "Electrical Machines",
+     "topics": [
+      "Transformers",
+      "Induction and synchronous machines",
+      "Machine testing"
+     ]
+    },
+    {
+     "title": "Power Systems",
+     "topics": [
+      "Transmission lines",
+      "Load flow analysis",
+      "Fault analysis"
+     ]
+    },
+    {
+     "title": "Protection",
+     "topics": [
+      "Relays and circuit breakers",
+      "Earthing",
+      "Switchgear design"
+     ]
+    },
+    {
+     "title": "Simulation Tools",
+     "topics": [
+      "MATLAB/Simulink",
+      "ETAP / PSCAD",
+      "AutoCAD Electrical"
+     ]
+    },
+    {
+     "title": "Grid Operations",
+     "topics": [
+      "SCADA and EMS",
+      "Smart grids",
+      "Electricity regulations in India"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Three-phase Load Calculator",
+     "level": "Beginner",
+     "result": "Spreadsheet/MATLAB tool for load sizing",
+     "skills": [
+      "MATLAB",
+      "Power Systems"
+     ]
+    },
+    {
+     "title": "House Wiring Layout",
+     "level": "Beginner",
+     "result": "Single-line diagram and wiring plan",
+     "skills": [
+      "AutoCAD Electrical"
+     ]
+    },
+    {
+     "title": "Transformer Efficiency Study",
+     "level": "Intermediate",
+     "result": "Open/short-circuit test analysis",
+     "skills": [
+      "Electrical Machines"
+     ]
+    },
+    {
+     "title": "Load Flow of a 5-bus System",
+     "level": "Intermediate",
+     "result": "Newton-Raphson in MATLAB",
+     "skills": [
+      "Power Systems",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Overcurrent Relay Coordination",
+     "level": "Intermediate",
+     "result": "Relay settings for a feeder",
+     "skills": [
+      "Protection & Switchgear"
+     ]
+    },
+    {
+     "title": "Substation Design",
+     "level": "Advanced",
+     "result": "33/11 kV substation layout and protection",
+     "skills": [
+      "Power Systems",
+      "AutoCAD Electrical"
+     ]
+    },
+    {
+     "title": "Fault Analysis in ETAP",
+     "level": "Advanced",
+     "result": "Short-circuit study with report",
+     "skills": [
+      "ETAP",
+      "Power Systems"
+     ]
+    },
+    {
+     "title": "Smart Grid Demand Response Model",
+     "level": "Capstone",
+     "result": "Simulation of load shifting and savings",
+     "skills": [
+      "Power Systems",
+      "MATLAB",
+      "Power Electronics"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Power System Analysis",
+    "ETAP certification course",
+    "MATLAB Onramp + Simulink Onramp",
+    "GATE EE preparation"
+   ],
+   "roles": [
+    "Electrical Design Intern",
+    "Power Plant / Substation Trainee",
+    "Grid Operations Intern"
+   ]
+  },
+  {
+   "id": "ev",
+   "name": "Electric Vehicle Engineer",
+   "icon": "🚗",
+   "description": "Design batteries, motors and controllers for electric vehicles.",
+   "branches": [
+    "ee",
+    "me",
+    "ece"
+   ],
+   "core": [
+    "ee"
+   ],
+   "languages": [
+    "MATLAB",
+    "Python",
+    "C"
+   ],
+   "skills": [
+    "Power Electronics",
+    "Battery Systems",
+    "Electrical Machines",
+    "MATLAB",
+    "Embedded C",
+    "Vehicle Dynamics",
+    "Control Systems"
+   ],
+   "skillWeights": {
+    "Power Electronics": 20,
+    "Battery Systems": 20,
+    "Electrical Machines": 15,
+    "MATLAB": 15,
+    "Embedded C": 10,
+    "Vehicle Dynamics": 10,
+    "Control Systems": 10
+   },
+   "modules": [
+    {
+     "title": "EV Fundamentals",
+     "topics": [
+      "EV architecture",
+      "Drive cycles",
+      "Indian EV policy (FAME)"
+     ]
+    },
+    {
+     "title": "Batteries",
+     "topics": [
+      "Li-ion chemistry",
+      "Battery pack design",
+      "Battery management systems (BMS)"
+     ]
+    },
+    {
+     "title": "Motors and Drives",
+     "topics": [
+      "BLDC and PMSM motors",
+      "Motor controllers",
+      "Field-oriented control"
+     ]
+    },
+    {
+     "title": "Power Electronics",
+     "topics": [
+      "DC-DC converters",
+      "Inverters",
+      "Chargers and charging standards"
+     ]
+    },
+    {
+     "title": "Modelling and Control",
+     "topics": [
+      "MATLAB/Simulink vehicle model",
+      "Control systems",
+      "Regenerative braking"
+     ]
+    },
+    {
+     "title": "Embedded and Testing",
+     "topics": [
+      "Embedded C for BMS",
+      "CAN communication",
+      "Thermal management and testing"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "EV Range Calculator",
+     "level": "Beginner",
+     "result": "Range estimate from battery and drive cycle",
+     "skills": [
+      "MATLAB",
+      "Battery Systems"
+     ]
+    },
+    {
+     "title": "Battery Pack Sizing Sheet",
+     "level": "Beginner",
+     "result": "Cells in series/parallel for a scooter",
+     "skills": [
+      "Battery Systems"
+     ]
+    },
+    {
+     "title": "BLDC Motor Speed Control",
+     "level": "Intermediate",
+     "result": "PWM control with Arduino",
+     "skills": [
+      "Electrical Machines",
+      "Embedded C"
+     ]
+    },
+    {
+     "title": "Buck-Boost Converter Simulation",
+     "level": "Intermediate",
+     "result": "Simulink model with efficiency study",
+     "skills": [
+      "Power Electronics",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Simple BMS",
+     "level": "Intermediate",
+     "result": "Cell voltage monitoring and balancing",
+     "skills": [
+      "Battery Systems",
+      "Embedded C"
+     ]
+    },
+    {
+     "title": "Full Vehicle Model in Simulink",
+     "level": "Advanced",
+     "result": "Motor, battery and vehicle dynamics",
+     "skills": [
+      "MATLAB",
+      "Vehicle Dynamics"
+     ]
+    },
+    {
+     "title": "Regenerative Braking Controller",
+     "level": "Advanced",
+     "result": "Control strategy with simulation results",
+     "skills": [
+      "Control Systems",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Electric Two-wheeler Conversion",
+     "level": "Capstone",
+     "result": "Convert/prototype an e-bike with BMS and telemetry",
+     "skills": [
+      "Battery Systems",
+      "Power Electronics",
+      "Embedded C"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Electric Vehicles Part 1",
+    "MATLAB Simulink Onramp",
+    "SAE India e-BAJA / Formula Bharat participation",
+    "Coursera – Electric Vehicles and Mobility"
+   ],
+   "roles": [
+    "EV Powertrain Intern",
+    "Battery Engineering Intern",
+    "Electrical Design Intern"
+   ]
+  },
+  {
+   "id": "automation",
+   "name": "Control & Automation Engineer",
+   "icon": "🏭",
+   "description": "Automate factories and plants with PLCs, SCADA and control systems.",
+   "branches": [
+    "ee",
+    "ece",
+    "me"
+   ],
+   "core": [
+    "ee"
+   ],
+   "languages": [
+    "Ladder Logic",
+    "Structured Text",
+    "Python"
+   ],
+   "skills": [
+    "PLC",
+    "SCADA",
+    "Control Systems",
+    "Sensors",
+    "Industrial Networking",
+    "MATLAB",
+    "Electrical Machines"
+   ],
+   "skillWeights": {
+    "PLC": 25,
+    "SCADA": 20,
+    "Control Systems": 20,
+    "Sensors": 10,
+    "Industrial Networking": 10,
+    "MATLAB": 10,
+    "Electrical Machines": 5
+   },
+   "modules": [
+    {
+     "title": "Control Theory",
+     "topics": [
+      "Transfer functions",
+      "PID control",
+      "Stability"
+     ]
+    },
+    {
+     "title": "Sensors and Actuators",
+     "topics": [
+      "Transducers",
+      "Motors and drives",
+      "Pneumatics and hydraulics"
+     ]
+    },
+    {
+     "title": "PLC Programming",
+     "topics": [
+      "Ladder logic",
+      "Timers, counters, sequences",
+      "Siemens / Allen-Bradley basics"
+     ]
+    },
+    {
+     "title": "SCADA and HMI",
+     "topics": [
+      "HMI screens",
+      "Alarms and trends",
+      "Data logging"
+     ]
+    },
+    {
+     "title": "Industrial Networks",
+     "topics": [
+      "Modbus",
+      "Profibus/Profinet",
+      "OPC UA"
+     ]
+    },
+    {
+     "title": "Industry 4.0",
+     "topics": [
+      "IIoT",
+      "Digital twins",
+      "Predictive maintenance"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Traffic Light in Ladder Logic",
+     "level": "Beginner",
+     "result": "PLC simulation",
+     "skills": [
+      "PLC"
+     ]
+    },
+    {
+     "title": "Tank Level Control",
+     "level": "Beginner",
+     "result": "PID loop in Simulink",
+     "skills": [
+      "Control Systems",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Bottle Filling Line",
+     "level": "Intermediate",
+     "result": "PLC sequence with sensors",
+     "skills": [
+      "PLC",
+      "Sensors"
+     ]
+    },
+    {
+     "title": "Conveyor Sorting System",
+     "level": "Intermediate",
+     "result": "Colour sorting with PLC and HMI",
+     "skills": [
+      "PLC",
+      "SCADA"
+     ]
+    },
+    {
+     "title": "Motor Speed PID Tuning",
+     "level": "Intermediate",
+     "result": "Tuned controller with test results",
+     "skills": [
+      "Control Systems",
+      "Electrical Machines"
+     ]
+    },
+    {
+     "title": "SCADA for a Water Plant",
+     "level": "Advanced",
+     "result": "HMI with alarms and reports",
+     "skills": [
+      "SCADA",
+      "Industrial Networking"
+     ]
+    },
+    {
+     "title": "Modbus Data Gateway",
+     "level": "Advanced",
+     "result": "PLC data to a cloud dashboard",
+     "skills": [
+      "Industrial Networking",
+      "Sensors"
+     ]
+    },
+    {
+     "title": "Mini Smart Factory Cell",
+     "level": "Capstone",
+     "result": "PLC + SCADA + IIoT predictive maintenance",
+     "skills": [
+      "PLC",
+      "SCADA",
+      "Control Systems",
+      "Industrial Networking"
+     ]
+    }
+   ],
+   "certifications": [
+    "Siemens SITRAIN PLC basics",
+    "NPTEL – Industrial Automation and Control",
+    "Rockwell Automation training",
+    "ISA CAP (later)"
+   ],
+   "roles": [
+    "Automation Intern",
+    "Instrumentation Intern",
+    "Plant Maintenance Trainee"
+   ]
+  },
+  {
+   "id": "renewable",
+   "name": "Renewable Energy Engineer",
+   "icon": "🌞",
+   "description": "Design solar, wind and storage systems for a cleaner grid.",
+   "branches": [
+    "ee",
+    "me",
+    "civil"
+   ],
+   "core": [
+    "ee"
+   ],
+   "languages": [
+    "MATLAB",
+    "Python",
+    "Excel"
+   ],
+   "skills": [
+    "Solar PV Design",
+    "Power Electronics",
+    "Power Systems",
+    "Energy Auditing",
+    "PVsyst",
+    "AutoCAD",
+    "Excel"
+   ],
+   "skillWeights": {
+    "Solar PV Design": 25,
+    "Power Electronics": 15,
+    "Power Systems": 15,
+    "Energy Auditing": 15,
+    "PVsyst": 15,
+    "AutoCAD": 5,
+    "Excel": 10
+   },
+   "modules": [
+    {
+     "title": "Energy Basics",
+     "topics": [
+      "Energy sources and economics",
+      "Electricity tariffs",
+      "Climate goals and policies"
+     ]
+    },
+    {
+     "title": "Solar PV",
+     "topics": [
+      "Solar resource",
+      "PV modules and inverters",
+      "System sizing"
+     ]
+    },
+    {
+     "title": "Design Tools",
+     "topics": [
+      "PVsyst",
+      "AutoCAD layouts",
+      "Shadow analysis"
+     ]
+    },
+    {
+     "title": "Wind and Storage",
+     "topics": [
+      "Wind turbines",
+      "Battery storage",
+      "Hybrid systems"
+     ]
+    },
+    {
+     "title": "Grid Integration",
+     "topics": [
+      "Net metering",
+      "Power quality",
+      "Inverter standards"
+     ]
+    },
+    {
+     "title": "Energy Management",
+     "topics": [
+      "Energy audits",
+      "Financial analysis (LCOE, payback)",
+      "Project execution"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Home Solar Sizing Sheet",
+     "level": "Beginner",
+     "result": "Rooftop system size and cost",
+     "skills": [
+      "Solar PV Design",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Energy Audit of a Hostel",
+     "level": "Beginner",
+     "result": "Consumption study with savings ideas",
+     "skills": [
+      "Energy Auditing"
+     ]
+    },
+    {
+     "title": "Rooftop Plant in PVsyst",
+     "level": "Intermediate",
+     "result": "10 kW design with yield report",
+     "skills": [
+      "PVsyst",
+      "Solar PV Design"
+     ]
+    },
+    {
+     "title": "MPPT Simulation",
+     "level": "Intermediate",
+     "result": "Perturb & observe in Simulink",
+     "skills": [
+      "Power Electronics"
+     ]
+    },
+    {
+     "title": "Solar Plant Layout",
+     "level": "Intermediate",
+     "result": "Array layout and cable routing",
+     "skills": [
+      "AutoCAD",
+      "Solar PV Design"
+     ]
+    },
+    {
+     "title": "Solar + Battery Microgrid Model",
+     "level": "Advanced",
+     "result": "Hybrid system with dispatch logic",
+     "skills": [
+      "Power Systems",
+      "Power Electronics"
+     ]
+    },
+    {
+     "title": "Campus Net-zero Plan",
+     "level": "Advanced",
+     "result": "Audit, solar design and financial case",
+     "skills": [
+      "Energy Auditing",
+      "Excel"
+     ]
+    },
+    {
+     "title": "1 MW Solar DPR",
+     "level": "Capstone",
+     "result": "Detailed project report with design, BOQ and finance",
+     "skills": [
+      "Solar PV Design",
+      "PVsyst",
+      "Power Systems"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Solar Photovoltaics",
+    "PVsyst training",
+    "BEE Certified Energy Auditor (later)",
+    "Suryamitra Skill Development Programme"
+   ],
+   "roles": [
+    "Solar Design Intern",
+    "Energy Analyst Intern",
+    "Project Engineering Intern"
+   ]
+  },
+  {
+   "id": "design",
+   "name": "Mechanical Design Engineer",
+   "icon": "📐",
+   "description": "Design and analyze products and machine parts with CAD/CAE.",
+   "branches": [
+    "me"
+   ],
+   "core": [
+    "me"
+   ],
+   "languages": [
+    "Python",
+    "MATLAB"
+   ],
+   "skills": [
+    "AutoCAD",
+    "SolidWorks",
+    "CATIA",
+    "GD&T",
+    "ANSYS",
+    "Strength of Materials",
+    "Machine Design"
+   ],
+   "skillWeights": {
+    "AutoCAD": 10,
+    "SolidWorks": 20,
+    "CATIA": 10,
+    "GD&T": 15,
+    "ANSYS": 15,
+    "Strength of Materials": 15,
+    "Machine Design": 15
+   },
+   "modules": [
+    {
+     "title": "Engineering Drawing",
+     "topics": [
+      "Orthographic projections",
+      "Sections and assemblies",
+      "AutoCAD 2D"
+     ]
+    },
+    {
+     "title": "3D CAD",
+     "topics": [
+      "SolidWorks part modelling",
+      "Assemblies and drawings",
+      "Sheet metal and surfacing"
+     ]
+    },
+    {
+     "title": "Mechanics",
+     "topics": [
+      "Strength of materials",
+      "Theory of machines",
+      "Material selection"
+     ]
+    },
+    {
+     "title": "Machine Design",
+     "topics": [
+      "Shafts, gears, bearings",
+      "Fatigue and failure theories",
+      "Design for manufacturing"
+     ]
+    },
+    {
+     "title": "Analysis (CAE)",
+     "topics": [
+      "FEA with ANSYS",
+      "Meshing and boundary conditions",
+      "CFD basics"
+     ]
+    },
+    {
+     "title": "Industry Practice",
+     "topics": [
+      "GD&T",
+      "Tolerance stack-up",
+      "Product lifecycle (PLM)"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "2D Drawings of Machine Parts",
+     "level": "Beginner",
+     "result": "AutoCAD drawings with dimensions",
+     "skills": [
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "3D Model of a Bench Vice",
+     "level": "Beginner",
+     "result": "Parts, assembly and exploded view",
+     "skills": [
+      "SolidWorks"
+     ]
+    },
+    {
+     "title": "Gearbox Design",
+     "level": "Intermediate",
+     "result": "Gear calculations and CAD assembly",
+     "skills": [
+      "Machine Design",
+      "SolidWorks"
+     ]
+    },
+    {
+     "title": "Bracket Stress Analysis",
+     "level": "Intermediate",
+     "result": "FEA with mesh convergence",
+     "skills": [
+      "ANSYS",
+      "Strength of Materials"
+     ]
+    },
+    {
+     "title": "GD&T Drawing Package",
+     "level": "Intermediate",
+     "result": "Production drawings with tolerances",
+     "skills": [
+      "GD&T",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Car Body Surfacing",
+     "level": "Advanced",
+     "result": "Surface model in CATIA",
+     "skills": [
+      "CATIA"
+     ]
+    },
+    {
+     "title": "Topology-optimized Part",
+     "level": "Advanced",
+     "result": "Lightweight design with validation",
+     "skills": [
+      "ANSYS",
+      "SolidWorks"
+     ]
+    },
+    {
+     "title": "Design and Fabricate a Product",
+     "level": "Capstone",
+     "result": "Concept to prototype with drawings and analysis",
+     "skills": [
+      "SolidWorks",
+      "ANSYS",
+      "GD&T",
+      "Machine Design"
+     ]
+    }
+   ],
+   "certifications": [
+    "CSWA – Certified SolidWorks Associate",
+    "NPTEL – Machine Design",
+    "Autodesk AutoCAD Certified User",
+    "ANSYS Innovation Courses"
+   ],
+   "roles": [
+    "Design Engineer Intern",
+    "CAD Intern",
+    "R&D Intern"
+   ]
+  },
+  {
+   "id": "manufacturing",
+   "name": "Manufacturing & Production Engineer",
+   "icon": "🏗️",
+   "description": "Plan and improve how products are made in factories.",
+   "branches": [
+    "me"
+   ],
+   "core": [
+    "me"
+   ],
+   "languages": [
+    "Excel",
+    "Python"
+   ],
+   "skills": [
+    "Manufacturing Processes",
+    "CNC",
+    "Lean / Six Sigma",
+    "Quality Control",
+    "AutoCAD",
+    "Excel",
+    "Industrial Engineering"
+   ],
+   "skillWeights": {
+    "Manufacturing Processes": 25,
+    "CNC": 15,
+    "Lean / Six Sigma": 20,
+    "Quality Control": 15,
+    "AutoCAD": 5,
+    "Excel": 10,
+    "Industrial Engineering": 10
+   },
+   "modules": [
+    {
+     "title": "Manufacturing Processes",
+     "topics": [
+      "Casting, forming, welding",
+      "Machining",
+      "Additive manufacturing"
+     ]
+    },
+    {
+     "title": "CNC and CAM",
+     "topics": [
+      "G-code",
+      "CAM software",
+      "Tool selection"
+     ]
+    },
+    {
+     "title": "Metrology and Quality",
+     "topics": [
+      "Measurement instruments",
+      "SPC and control charts",
+      "ISO 9001"
+     ]
+    },
+    {
+     "title": "Industrial Engineering",
+     "topics": [
+      "Time and motion study",
+      "Plant layout",
+      "Production planning"
+     ]
+    },
+    {
+     "title": "Lean and Six Sigma",
+     "topics": [
+      "5S, Kaizen, Kanban",
+      "DMAIC",
+      "Value stream mapping"
+     ]
+    },
+    {
+     "title": "Smart Manufacturing",
+     "topics": [
+      "ERP/MES basics",
+      "Industry 4.0",
+      "Supply chain basics"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Process Sheet for a Shaft",
+     "level": "Beginner",
+     "result": "Operation sequence and machining times",
+     "skills": [
+      "Manufacturing Processes"
+     ]
+    },
+    {
+     "title": "5S Audit of the College Workshop",
+     "level": "Beginner",
+     "result": "Audit with before/after photos",
+     "skills": [
+      "Lean / Six Sigma"
+     ]
+    },
+    {
+     "title": "CNC Program for a Part",
+     "level": "Intermediate",
+     "result": "G-code with simulation",
+     "skills": [
+      "CNC"
+     ]
+    },
+    {
+     "title": "Control Chart Study",
+     "level": "Intermediate",
+     "result": "SPC on measured samples",
+     "skills": [
+      "Quality Control",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Plant Layout Redesign",
+     "level": "Intermediate",
+     "result": "Layout to cut material movement",
+     "skills": [
+      "Industrial Engineering",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Value Stream Map",
+     "level": "Advanced",
+     "result": "Current vs future state for a line",
+     "skills": [
+      "Lean / Six Sigma"
+     ]
+    },
+    {
+     "title": "3D-printed Jig and Fixture",
+     "level": "Advanced",
+     "result": "Designed and tested fixture",
+     "skills": [
+      "Manufacturing Processes",
+      "CNC"
+     ]
+    },
+    {
+     "title": "Six Sigma Green Belt Project",
+     "level": "Capstone",
+     "result": "DMAIC project with measurable savings",
+     "skills": [
+      "Lean / Six Sigma",
+      "Quality Control",
+      "Excel"
+     ]
+    }
+   ],
+   "certifications": [
+    "Lean Six Sigma Green Belt",
+    "NPTEL – Manufacturing Processes",
+    "Autodesk Fusion 360 CAM",
+    "ISO 9001 Internal Auditor"
+   ],
+   "roles": [
+    "Production Trainee",
+    "Quality Engineering Intern",
+    "Process Engineering Intern"
+   ]
+  },
+  {
+   "id": "automotive",
+   "name": "Automotive Engineer",
+   "icon": "🏎️",
+   "description": "Design, test and improve cars, bikes and their systems.",
+   "branches": [
+    "me",
+    "ee"
+   ],
+   "core": [
+    "me"
+   ],
+   "languages": [
+    "MATLAB",
+    "Python"
+   ],
+   "skills": [
+    "Vehicle Dynamics",
+    "IC Engines",
+    "SolidWorks",
+    "ANSYS",
+    "MATLAB",
+    "Automotive Electronics",
+    "Manufacturing Processes"
+   ],
+   "skillWeights": {
+    "Vehicle Dynamics": 20,
+    "IC Engines": 15,
+    "SolidWorks": 15,
+    "ANSYS": 15,
+    "MATLAB": 15,
+    "Automotive Electronics": 10,
+    "Manufacturing Processes": 10
+   },
+   "modules": [
+    {
+     "title": "Automobile Basics",
+     "topics": [
+      "Vehicle layout",
+      "Chassis and body",
+      "Transmission"
+     ]
+    },
+    {
+     "title": "Powertrain",
+     "topics": [
+      "IC engines",
+      "Fuel systems and emissions",
+      "Hybrid and electric drives"
+     ]
+    },
+    {
+     "title": "Vehicle Dynamics",
+     "topics": [
+      "Suspension and steering",
+      "Braking",
+      "Tyres and handling"
+     ]
+    },
+    {
+     "title": "CAD and CAE",
+     "topics": [
+      "SolidWorks/CATIA",
+      "FEA and crash basics",
+      "CFD for aerodynamics"
+     ]
+    },
+    {
+     "title": "Automotive Electronics",
+     "topics": [
+      "ECUs and sensors",
+      "CAN bus",
+      "ADAS basics"
+     ]
+    },
+    {
+     "title": "Testing and Standards",
+     "topics": [
+      "Vehicle testing",
+      "Homologation (ARAI)",
+      "Quality standards (IATF)"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Engine Performance Calculator",
+     "level": "Beginner",
+     "result": "Power, torque and efficiency from test data",
+     "skills": [
+      "IC Engines",
+      "MATLAB"
+     ]
+    },
+    {
+     "title": "Go-kart Frame Model",
+     "level": "Beginner",
+     "result": "3D CAD of a kart chassis",
+     "skills": [
+      "SolidWorks"
+     ]
+    },
+    {
+     "title": "Suspension Geometry Study",
+     "level": "Intermediate",
+     "result": "Kinematics analysis",
+     "skills": [
+      "Vehicle Dynamics"
+     ]
+    },
+    {
+     "title": "Brake Disc Thermal Analysis",
+     "level": "Intermediate",
+     "result": "FEA of braking heat",
+     "skills": [
+      "ANSYS"
+     ]
+    },
+    {
+     "title": "Car Aerodynamics CFD",
+     "level": "Intermediate",
+     "result": "Drag study of a simple body",
+     "skills": [
+      "ANSYS"
+     ]
+    },
+    {
+     "title": "Vehicle Dynamics Model",
+     "level": "Advanced",
+     "result": "Simulink half-car model",
+     "skills": [
+      "MATLAB",
+      "Vehicle Dynamics"
+     ]
+    },
+    {
+     "title": "CAN-based Dashboard",
+     "level": "Advanced",
+     "result": "Read ECU data and display it",
+     "skills": [
+      "Automotive Electronics"
+     ]
+    },
+    {
+     "title": "SAE BAJA / Supra Vehicle",
+     "level": "Capstone",
+     "result": "Design, build and compete with a team",
+     "skills": [
+      "Vehicle Dynamics",
+      "SolidWorks",
+      "ANSYS",
+      "Manufacturing Processes"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Fundamentals of Automotive Systems",
+    "CSWA – SolidWorks",
+    "MATLAB Simulink Onramp",
+    "SAEINDIA competition participation"
+   ],
+   "roles": [
+    "Automotive Design Intern",
+    "Vehicle Testing Intern",
+    "Powertrain Intern"
+   ]
+  },
+  {
+   "id": "robotics",
+   "name": "Robotics Engineer",
+   "icon": "🦾",
+   "description": "Build robots that sense, think and move.",
+   "branches": [
+    "me",
+    "ece",
+    "ee",
+    "cs"
+   ],
+   "core": [
+    "me"
+   ],
+   "languages": [
+    "Python",
+    "C++"
+   ],
+   "skills": [
+    "ROS",
+    "Python",
+    "C++",
+    "Control Systems",
+    "Kinematics",
+    "Sensors",
+    "SolidWorks"
+   ],
+   "skillWeights": {
+    "ROS": 20,
+    "Python": 15,
+    "C++": 15,
+    "Control Systems": 15,
+    "Kinematics": 15,
+    "Sensors": 10,
+    "SolidWorks": 10
+   },
+   "modules": [
+    {
+     "title": "Robot Basics",
+     "topics": [
+      "Types of robots",
+      "Actuators and sensors",
+      "Microcontrollers"
+     ]
+    },
+    {
+     "title": "Kinematics and Dynamics",
+     "topics": [
+      "Forward and inverse kinematics",
+      "Jacobians",
+      "Trajectory planning"
+     ]
+    },
+    {
+     "title": "Programming",
+     "topics": [
+      "Python and C++",
+      "Linux",
+      "ROS 2 basics"
+     ]
+    },
+    {
+     "title": "Control",
+     "topics": [
+      "PID control",
+      "State-space",
+      "Motion control"
+     ]
+    },
+    {
+     "title": "Perception",
+     "topics": [
+      "Computer vision with OpenCV",
+      "LiDAR and SLAM",
+      "Sensor fusion"
+     ]
+    },
+    {
+     "title": "Autonomy",
+     "topics": [
+      "Path planning (A*, RRT)",
+      "Navigation stack",
+      "Simulation in Gazebo"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Obstacle-avoiding Robot",
+     "level": "Beginner",
+     "result": "Ultrasonic sensor robot",
+     "skills": [
+      "Sensors",
+      "C++"
+     ]
+    },
+    {
+     "title": "2-DOF Arm in CAD",
+     "level": "Beginner",
+     "result": "Model and simulate a simple arm",
+     "skills": [
+      "SolidWorks",
+      "Kinematics"
+     ]
+    },
+    {
+     "title": "Line Follower with PID",
+     "level": "Intermediate",
+     "result": "Tuned PID for smooth tracking",
+     "skills": [
+      "Control Systems",
+      "Sensors"
+     ]
+    },
+    {
+     "title": "Robotic Arm Inverse Kinematics",
+     "level": "Intermediate",
+     "result": "IK solver with a servo arm",
+     "skills": [
+      "Kinematics",
+      "Python"
+     ]
+    },
+    {
+     "title": "ROS Turtlebot Navigation",
+     "level": "Intermediate",
+     "result": "Map and navigate in Gazebo",
+     "skills": [
+      "ROS",
+      "Python"
+     ]
+    },
+    {
+     "title": "Object Sorting Arm with Vision",
+     "level": "Advanced",
+     "result": "OpenCV detection + pick and place",
+     "skills": [
+      "Python",
+      "ROS",
+      "Kinematics"
+     ]
+    },
+    {
+     "title": "SLAM Mobile Robot",
+     "level": "Advanced",
+     "result": "Real robot mapping with LiDAR",
+     "skills": [
+      "ROS",
+      "C++",
+      "Sensors"
+     ]
+    },
+    {
+     "title": "Autonomous Delivery Robot",
+     "level": "Capstone",
+     "result": "Campus delivery robot with navigation",
+     "skills": [
+      "ROS",
+      "Control Systems",
+      "Python",
+      "C++"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Robotics",
+    "ROS 2 for Beginners (The Construct)",
+    "Coursera – Modern Robotics (Northwestern)",
+    "e-Yantra Robotics Competition"
+   ],
+   "roles": [
+    "Robotics Intern",
+    "Automation Intern",
+    "R&D Intern"
+   ]
+  },
+  {
+   "id": "thermal",
+   "name": "HVAC & Thermal Engineer",
+   "icon": "❄️",
+   "description": "Design heating, cooling and energy systems for buildings and industry.",
+   "branches": [
+    "me"
+   ],
+   "core": [
+    "me"
+   ],
+   "languages": [
+    "Excel",
+    "MATLAB"
+   ],
+   "skills": [
+    "Thermodynamics",
+    "Heat Transfer",
+    "Fluid Mechanics",
+    "HVAC Design",
+    "AutoCAD",
+    "ANSYS",
+    "Excel"
+   ],
+   "skillWeights": {
+    "Thermodynamics": 20,
+    "Heat Transfer": 15,
+    "Fluid Mechanics": 15,
+    "HVAC Design": 25,
+    "AutoCAD": 10,
+    "ANSYS": 5,
+    "Excel": 10
+   },
+   "modules": [
+    {
+     "title": "Thermal Sciences",
+     "topics": [
+      "Thermodynamics",
+      "Heat transfer",
+      "Fluid mechanics"
+     ]
+    },
+    {
+     "title": "Refrigeration and AC",
+     "topics": [
+      "Refrigeration cycles",
+      "Psychrometry",
+      "Air-conditioning systems"
+     ]
+    },
+    {
+     "title": "HVAC Design",
+     "topics": [
+      "Heat load calculation",
+      "Duct design",
+      "Chilled water systems"
+     ]
+    },
+    {
+     "title": "Tools",
+     "topics": [
+      "AutoCAD MEP / Revit MEP",
+      "HAP / E20 load sheets",
+      "CFD basics"
+     ]
+    },
+    {
+     "title": "Energy Efficiency",
+     "topics": [
+      "Energy audits",
+      "Green buildings (IGBC, LEED)",
+      "Building codes (ECBC)"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Psychrometric Calculator",
+     "level": "Beginner",
+     "result": "Excel tool for air properties",
+     "skills": [
+      "Thermodynamics",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Heat Exchanger Sizing",
+     "level": "Beginner",
+     "result": "LMTD method calculations",
+     "skills": [
+      "Heat Transfer"
+     ]
+    },
+    {
+     "title": "Classroom Heat Load",
+     "level": "Intermediate",
+     "result": "E20 load calculation",
+     "skills": [
+      "HVAC Design"
+     ]
+    },
+    {
+     "title": "Duct Layout for an Office",
+     "level": "Intermediate",
+     "result": "Duct sizing and AutoCAD drawing",
+     "skills": [
+      "HVAC Design",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Room Airflow CFD",
+     "level": "Intermediate",
+     "result": "Comfort study with CFD",
+     "skills": [
+      "ANSYS",
+      "Fluid Mechanics"
+     ]
+    },
+    {
+     "title": "Chiller Plant Design",
+     "level": "Advanced",
+     "result": "Plant sizing and schematic",
+     "skills": [
+      "HVAC Design",
+      "Thermodynamics"
+     ]
+    },
+    {
+     "title": "Green Building Energy Model",
+     "level": "Advanced",
+     "result": "Savings from efficient HVAC",
+     "skills": [
+      "HVAC Design",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Complete HVAC Design of a Building",
+     "level": "Capstone",
+     "result": "Loads, equipment, ducting and BOQ",
+     "skills": [
+      "HVAC Design",
+      "AutoCAD",
+      "Heat Transfer"
+     ]
+    }
+   ],
+   "certifications": [
+    "ISHRAE HVAC certification",
+    "NPTEL – Refrigeration and Air Conditioning",
+    "IGBC Accredited Professional",
+    "Autodesk Revit MEP"
+   ],
+   "roles": [
+    "HVAC Design Intern",
+    "MEP Intern",
+    "Energy Audit Intern"
+   ]
+  },
+  {
+   "id": "structural",
+   "name": "Structural Engineer",
+   "icon": "🏢",
+   "description": "Design safe buildings, bridges and structures.",
+   "branches": [
+    "civil"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Excel",
+    "Python"
+   ],
+   "skills": [
+    "Structural Analysis",
+    "RCC Design",
+    "Steel Design",
+    "STAAD.Pro",
+    "ETABS",
+    "AutoCAD",
+    "IS Codes"
+   ],
+   "skillWeights": {
+    "Structural Analysis": 20,
+    "RCC Design": 20,
+    "Steel Design": 10,
+    "STAAD.Pro": 15,
+    "ETABS": 15,
+    "AutoCAD": 10,
+    "IS Codes": 10
+   },
+   "modules": [
+    {
+     "title": "Mechanics",
+     "topics": [
+      "Engineering mechanics",
+      "Strength of materials",
+      "Building materials"
+     ]
+    },
+    {
+     "title": "Structural Analysis",
+     "topics": [
+      "Determinate structures",
+      "Indeterminate structures",
+      "Matrix methods"
+     ]
+    },
+    {
+     "title": "Concrete Design",
+     "topics": [
+      "IS 456",
+      "Beams, slabs, columns, footings",
+      "Limit state design"
+     ]
+    },
+    {
+     "title": "Steel Design",
+     "topics": [
+      "IS 800",
+      "Connections",
+      "Trusses"
+     ]
+    },
+    {
+     "title": "Software",
+     "topics": [
+      "AutoCAD drafting",
+      "STAAD.Pro",
+      "ETABS and SAFE"
+     ]
+    },
+    {
+     "title": "Advanced Topics",
+     "topics": [
+      "Earthquake design (IS 1893)",
+      "Prestressed concrete",
+      "Bridge basics"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Beam Design Spreadsheet",
+     "level": "Beginner",
+     "result": "IS 456 beam design in Excel",
+     "skills": [
+      "RCC Design",
+      "IS Codes"
+     ]
+    },
+    {
+     "title": "House Plan Drafting",
+     "level": "Beginner",
+     "result": "Plan, elevation and section",
+     "skills": [
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Truss Analysis in STAAD",
+     "level": "Intermediate",
+     "result": "Roof truss with load cases",
+     "skills": [
+      "STAAD.Pro",
+      "Steel Design"
+     ]
+    },
+    {
+     "title": "G+2 Residential Building",
+     "level": "Intermediate",
+     "result": "Analysis and design report",
+     "skills": [
+      "STAAD.Pro",
+      "RCC Design"
+     ]
+    },
+    {
+     "title": "Slab and Footing Design",
+     "level": "Intermediate",
+     "result": "Hand calculations + drawings",
+     "skills": [
+      "RCC Design",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "G+10 Building in ETABS",
+     "level": "Advanced",
+     "result": "Seismic analysis and design",
+     "skills": [
+      "ETABS",
+      "IS Codes"
+     ]
+    },
+    {
+     "title": "Steel Industrial Shed",
+     "level": "Advanced",
+     "result": "Portal frame design with connections",
+     "skills": [
+      "Steel Design",
+      "STAAD.Pro"
+     ]
+    },
+    {
+     "title": "Bridge Design Project",
+     "level": "Capstone",
+     "result": "Concept, analysis and drawings for a RCC bridge",
+     "skills": [
+      "Structural Analysis",
+      "RCC Design",
+      "STAAD.Pro"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Design of Reinforced Concrete Structures",
+    "Bentley STAAD.Pro certification",
+    "CSI ETABS training",
+    "GATE CE preparation"
+   ],
+   "roles": [
+    "Structural Design Intern",
+    "Site Engineer Intern",
+    "Design Consultancy Intern"
+   ]
+  },
+  {
+   "id": "construction",
+   "name": "Construction & Site Engineer",
+   "icon": "👷",
+   "description": "Plan and run construction projects on site — on time and on budget.",
+   "branches": [
+    "civil"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Excel"
+   ],
+   "skills": [
+    "Construction Management",
+    "Estimation & Costing",
+    "Surveying",
+    "Primavera",
+    "AutoCAD",
+    "Concrete Technology",
+    "Project Management"
+   ],
+   "skillWeights": {
+    "Construction Management": 20,
+    "Estimation & Costing": 20,
+    "Surveying": 10,
+    "Primavera": 15,
+    "AutoCAD": 10,
+    "Concrete Technology": 10,
+    "Project Management": 15
+   },
+   "modules": [
+    {
+     "title": "Building Materials",
+     "topics": [
+      "Cement, concrete, steel",
+      "Mix design",
+      "Quality tests"
+     ]
+    },
+    {
+     "title": "Surveying",
+     "topics": [
+      "Levelling and contouring",
+      "Total station",
+      "GPS surveying"
+     ]
+    },
+    {
+     "title": "Estimation and Costing",
+     "topics": [
+      "BOQ preparation",
+      "Rate analysis",
+      "Billing"
+     ]
+    },
+    {
+     "title": "Construction Practice",
+     "topics": [
+      "Formwork and scaffolding",
+      "Safety on site",
+      "Quality control"
+     ]
+    },
+    {
+     "title": "Project Planning",
+     "topics": [
+      "CPM and PERT",
+      "MS Project / Primavera P6",
+      "Resource planning"
+     ]
+    },
+    {
+     "title": "Contracts and Management",
+     "topics": [
+      "Tendering",
+      "Contracts (FIDIC basics)",
+      "Site management"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Building Material Test Report",
+     "level": "Beginner",
+     "result": "Lab tests on cement and aggregate",
+     "skills": [
+      "Concrete Technology"
+     ]
+    },
+    {
+     "title": "Campus Contour Survey",
+     "level": "Beginner",
+     "result": "Levelling survey with contour map",
+     "skills": [
+      "Surveying",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Estimate of a Two-storey House",
+     "level": "Intermediate",
+     "result": "Detailed BOQ and costing",
+     "skills": [
+      "Estimation & Costing"
+     ]
+    },
+    {
+     "title": "Concrete Mix Design",
+     "level": "Intermediate",
+     "result": "M25 mix design and testing",
+     "skills": [
+      "Concrete Technology"
+     ]
+    },
+    {
+     "title": "Project Schedule in Primavera",
+     "level": "Intermediate",
+     "result": "Schedule with critical path",
+     "skills": [
+      "Primavera",
+      "Project Management"
+     ]
+    },
+    {
+     "title": "Site Safety Plan",
+     "level": "Advanced",
+     "result": "Safety plan for a building site",
+     "skills": [
+      "Construction Management"
+     ]
+    },
+    {
+     "title": "Tender Document Preparation",
+     "level": "Advanced",
+     "result": "Complete tender package",
+     "skills": [
+      "Estimation & Costing",
+      "Project Management"
+     ]
+    },
+    {
+     "title": "Construction Project Execution Plan",
+     "level": "Capstone",
+     "result": "Schedule, cost, quality and safety for a real project",
+     "skills": [
+      "Construction Management",
+      "Primavera",
+      "Estimation & Costing"
+     ]
+    }
+   ],
+   "certifications": [
+    "Oracle Primavera P6 certification",
+    "PMI CAPM",
+    "NPTEL – Construction Methods and Equipment Management",
+    "NICMAR / RICS short courses"
+   ],
+   "roles": [
+    "Site Engineer Intern",
+    "Planning Engineer Intern",
+    "Quantity Surveyor Intern"
+   ]
+  },
+  {
+   "id": "bim",
+   "name": "BIM / Revit Engineer",
+   "icon": "🏛️",
+   "description": "Model buildings digitally and coordinate design teams with BIM.",
+   "branches": [
+    "civil",
+    "me"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Dynamo",
+    "Python"
+   ],
+   "skills": [
+    "Revit",
+    "BIM",
+    "AutoCAD",
+    "Navisworks",
+    "Building Design",
+    "Estimation & Costing",
+    "Dynamo"
+   ],
+   "skillWeights": {
+    "Revit": 25,
+    "BIM": 20,
+    "AutoCAD": 10,
+    "Navisworks": 15,
+    "Building Design": 15,
+    "Estimation & Costing": 5,
+    "Dynamo": 10
+   },
+   "modules": [
+    {
+     "title": "Drafting",
+     "topics": [
+      "AutoCAD 2D",
+      "Building drawings",
+      "Drawing standards"
+     ]
+    },
+    {
+     "title": "Revit Architecture",
+     "topics": [
+      "Walls, floors, roofs",
+      "Families",
+      "Sheets and schedules"
+     ]
+    },
+    {
+     "title": "Revit Structure and MEP",
+     "topics": [
+      "Structural modelling",
+      "MEP basics",
+      "Linked models"
+     ]
+    },
+    {
+     "title": "Coordination",
+     "topics": [
+      "Navisworks clash detection",
+      "Common data environment",
+      "ISO 19650 basics"
+     ]
+    },
+    {
+     "title": "4D/5D BIM",
+     "topics": [
+      "Scheduling with the model",
+      "Quantity take-off",
+      "Cost estimation"
+     ]
+    },
+    {
+     "title": "Automation",
+     "topics": [
+      "Dynamo scripting",
+      "Python in Revit",
+      "Rendering and walkthroughs"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "House Floor Plans",
+     "level": "Beginner",
+     "result": "AutoCAD plans and sections",
+     "skills": [
+      "AutoCAD",
+      "Building Design"
+     ]
+    },
+    {
+     "title": "Revit Model of a House",
+     "level": "Beginner",
+     "result": "3D model with sheets",
+     "skills": [
+      "Revit"
+     ]
+    },
+    {
+     "title": "Custom Revit Families",
+     "level": "Intermediate",
+     "result": "Parametric doors and furniture",
+     "skills": [
+      "Revit"
+     ]
+    },
+    {
+     "title": "Hostel Building BIM",
+     "level": "Intermediate",
+     "result": "Architecture + structure model",
+     "skills": [
+      "Revit",
+      "BIM"
+     ]
+    },
+    {
+     "title": "Quantity Take-off",
+     "level": "Intermediate",
+     "result": "Schedules for BOQ",
+     "skills": [
+      "Revit",
+      "Estimation & Costing"
+     ]
+    },
+    {
+     "title": "Clash Detection Report",
+     "level": "Advanced",
+     "result": "Navisworks coordination report",
+     "skills": [
+      "Navisworks",
+      "BIM"
+     ]
+    },
+    {
+     "title": "Dynamo Automation Script",
+     "level": "Advanced",
+     "result": "Automate repetitive Revit tasks",
+     "skills": [
+      "Dynamo"
+     ]
+    },
+    {
+     "title": "Complete BIM of a Commercial Building",
+     "level": "Capstone",
+     "result": "Arch + struct + MEP + 4D schedule",
+     "skills": [
+      "Revit",
+      "BIM",
+      "Navisworks",
+      "Building Design"
+     ]
+    }
+   ],
+   "certifications": [
+    "Autodesk Certified Professional – Revit",
+    "Autodesk Navisworks training",
+    "BIM Fundamentals (ISO 19650)",
+    "NPTEL – BIM basics"
+   ],
+   "roles": [
+    "BIM Modeller Intern",
+    "Revit Intern",
+    "Design Coordination Intern"
+   ]
+  },
+  {
+   "id": "transport",
+   "name": "Transportation & Urban Planning Engineer",
+   "icon": "🛣️",
+   "description": "Plan roads, traffic and cities that move people efficiently.",
+   "branches": [
+    "civil"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Python",
+    "Excel"
+   ],
+   "skills": [
+    "Transportation Engineering",
+    "Highway Design",
+    "Traffic Engineering",
+    "AutoCAD Civil 3D",
+    "GIS",
+    "Surveying",
+    "Excel"
+   ],
+   "skillWeights": {
+    "Transportation Engineering": 20,
+    "Highway Design": 20,
+    "Traffic Engineering": 20,
+    "AutoCAD Civil 3D": 15,
+    "GIS": 10,
+    "Surveying": 10,
+    "Excel": 5
+   },
+   "modules": [
+    {
+     "title": "Transportation Basics",
+     "topics": [
+      "Modes of transport",
+      "Highway materials",
+      "Pavement types"
+     ]
+    },
+    {
+     "title": "Highway Design",
+     "topics": [
+      "Geometric design (IRC)",
+      "Pavement design",
+      "Drainage"
+     ]
+    },
+    {
+     "title": "Traffic Engineering",
+     "topics": [
+      "Traffic surveys",
+      "Intersection design",
+      "Signal timing"
+     ]
+    },
+    {
+     "title": "Tools",
+     "topics": [
+      "AutoCAD Civil 3D",
+      "GIS for planning",
+      "Traffic simulation (VISSIM/SUMO)"
+     ]
+    },
+    {
+     "title": "Urban Planning",
+     "topics": [
+      "Land use",
+      "Public transport planning",
+      "Smart city projects"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Traffic Volume Survey",
+     "level": "Beginner",
+     "result": "Count study at a college junction",
+     "skills": [
+      "Traffic Engineering",
+      "Excel"
+     ]
+    },
+    {
+     "title": "Road Material Tests",
+     "level": "Beginner",
+     "result": "Aggregate and bitumen lab tests",
+     "skills": [
+      "Highway Design"
+     ]
+    },
+    {
+     "title": "Intersection Redesign",
+     "level": "Intermediate",
+     "result": "Improved junction with signal timing",
+     "skills": [
+      "Traffic Engineering"
+     ]
+    },
+    {
+     "title": "Flexible Pavement Design",
+     "level": "Intermediate",
+     "result": "IRC:37 based design",
+     "skills": [
+      "Highway Design"
+     ]
+    },
+    {
+     "title": "Road Alignment in Civil 3D",
+     "level": "Intermediate",
+     "result": "Plan and profile of a road",
+     "skills": [
+      "AutoCAD Civil 3D"
+     ]
+    },
+    {
+     "title": "Traffic Simulation in SUMO",
+     "level": "Advanced",
+     "result": "Compare scenarios for a corridor",
+     "skills": [
+      "Traffic Engineering",
+      "Transportation Engineering"
+     ]
+    },
+    {
+     "title": "Bus Route Optimization with GIS",
+     "level": "Advanced",
+     "result": "GIS analysis of routes and stops",
+     "skills": [
+      "GIS",
+      "Transportation Engineering"
+     ]
+    },
+    {
+     "title": "Smart Mobility Plan for a Town",
+     "level": "Capstone",
+     "result": "Surveys, models and a mobility plan",
+     "skills": [
+      "Transportation Engineering",
+      "Traffic Engineering",
+      "GIS"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Transportation Engineering",
+    "Autodesk Civil 3D certification",
+    "PTV VISSIM training",
+    "Indian Roads Congress codes study"
+   ],
+   "roles": [
+    "Highway Design Intern",
+    "Traffic Engineering Intern",
+    "Urban Planning Intern"
+   ]
+  },
+  {
+   "id": "environmental",
+   "name": "Environmental Engineer",
+   "icon": "🌿",
+   "description": "Protect water, air and land through engineering solutions.",
+   "branches": [
+    "civil"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Python",
+    "Excel"
+   ],
+   "skills": [
+    "Environmental Engineering",
+    "Water Treatment",
+    "Wastewater Treatment",
+    "GIS",
+    "Environmental Impact Assessment",
+    "AutoCAD",
+    "Excel"
+   ],
+   "skillWeights": {
+    "Environmental Engineering": 20,
+    "Water Treatment": 20,
+    "Wastewater Treatment": 20,
+    "GIS": 10,
+    "Environmental Impact Assessment": 15,
+    "AutoCAD": 5,
+    "Excel": 10
+   },
+   "modules": [
+    {
+     "title": "Environmental Science",
+     "topics": [
+      "Ecology",
+      "Pollution types",
+      "Environmental laws in India"
+     ]
+    },
+    {
+     "title": "Water Supply",
+     "topics": [
+      "Water quality",
+      "Treatment processes",
+      "Distribution networks"
+     ]
+    },
+    {
+     "title": "Wastewater",
+     "topics": [
+      "Sewer design",
+      "STP/ETP processes",
+      "Sludge management"
+     ]
+    },
+    {
+     "title": "Air and Solid Waste",
+     "topics": [
+      "Air pollution control",
+      "Solid waste management",
+      "Hazardous waste"
+     ]
+    },
+    {
+     "title": "Assessment and Tools",
+     "topics": [
+      "Environmental impact assessment",
+      "GIS mapping",
+      "Water modelling (EPANET)"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Water Quality Testing",
+     "level": "Beginner",
+     "result": "Lab analysis of campus water",
+     "skills": [
+      "Water Treatment"
+     ]
+    },
+    {
+     "title": "Campus Waste Audit",
+     "level": "Beginner",
+     "result": "Waste segregation study",
+     "skills": [
+      "Environmental Engineering"
+     ]
+    },
+    {
+     "title": "Water Distribution Network",
+     "level": "Intermediate",
+     "result": "EPANET model for a colony",
+     "skills": [
+      "Water Treatment"
+     ]
+    },
+    {
+     "title": "Sewage Treatment Plant Design",
+     "level": "Intermediate",
+     "result": "STP sizing for a hostel",
+     "skills": [
+      "Wastewater Treatment",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "Air Quality Mapping",
+     "level": "Intermediate",
+     "result": "GIS map of AQI readings",
+     "skills": [
+      "GIS",
+      "Environmental Engineering"
+     ]
+    },
+    {
+     "title": "Rainwater Harvesting Plan",
+     "level": "Advanced",
+     "result": "Design for the campus",
+     "skills": [
+      "Water Treatment",
+      "AutoCAD"
+     ]
+    },
+    {
+     "title": "EIA Report",
+     "level": "Advanced",
+     "result": "Impact assessment for a proposed project",
+     "skills": [
+      "Environmental Impact Assessment"
+     ]
+    },
+    {
+     "title": "Zero-waste Campus Plan",
+     "level": "Capstone",
+     "result": "Water, waste and energy plan with costs",
+     "skills": [
+      "Environmental Engineering",
+      "Wastewater Treatment",
+      "GIS"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL – Water and Wastewater Engineering",
+    "ISO 14001 awareness",
+    "EPANET / SWMM training",
+    "GATE CE / ES preparation"
+   ],
+   "roles": [
+    "Environmental Engineering Intern",
+    "Water Treatment Intern",
+    "Sustainability Intern"
+   ]
+  },
+  {
+   "id": "gis",
+   "name": "GIS & Remote Sensing Analyst",
+   "icon": "🗺️",
+   "description": "Analyze maps and satellite data for planning and decisions.",
+   "branches": [
+    "civil"
+   ],
+   "core": [
+    "civil"
+   ],
+   "languages": [
+    "Python",
+    "SQL"
+   ],
+   "skills": [
+    "GIS",
+    "QGIS",
+    "Remote Sensing",
+    "Python",
+    "SQL",
+    "Surveying",
+    "Data Visualization"
+   ],
+   "skillWeights": {
+    "GIS": 25,
+    "QGIS": 15,
+    "Remote Sensing": 20,
+    "Python": 15,
+    "SQL": 10,
+    "Surveying": 5,
+    "Data Visualization": 10
+   },
+   "modules": [
+    {
+     "title": "Mapping Basics",
+     "topics": [
+      "Coordinate systems",
+      "Map projections",
+      "Cartography"
+     ]
+    },
+    {
+     "title": "QGIS / ArcGIS",
+     "topics": [
+      "Vector and raster data",
+      "Geoprocessing",
+      "Map layouts"
+     ]
+    },
+    {
+     "title": "Remote Sensing",
+     "topics": [
+      "Satellite sensors",
+      "Image classification",
+      "NDVI and indices"
+     ]
+    },
+    {
+     "title": "Spatial Databases",
+     "topics": [
+      "PostGIS",
+      "Spatial SQL",
+      "Web maps (Leaflet)"
+     ]
+    },
+    {
+     "title": "Python for GIS",
+     "topics": [
+      "GeoPandas",
+      "Rasterio",
+      "Google Earth Engine"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Campus Map in QGIS",
+     "level": "Beginner",
+     "result": "Digitized buildings and roads",
+     "skills": [
+      "QGIS",
+      "GIS"
+     ]
+    },
+    {
+     "title": "Population Density Map",
+     "level": "Beginner",
+     "result": "Choropleth map of districts",
+     "skills": [
+      "GIS",
+      "Data Visualization"
+     ]
+    },
+    {
+     "title": "Land Use Classification",
+     "level": "Intermediate",
+     "result": "Classify a satellite image",
+     "skills": [
+      "Remote Sensing"
+     ]
+    },
+    {
+     "title": "NDVI Crop Health Study",
+     "level": "Intermediate",
+     "result": "Vegetation change over seasons",
+     "skills": [
+      "Remote Sensing",
+      "Python"
+     ]
+    },
+    {
+     "title": "Flood Risk Map",
+     "level": "Intermediate",
+     "result": "DEM-based risk zones",
+     "skills": [
+      "GIS",
+      "QGIS"
+     ]
+    },
+    {
+     "title": "PostGIS Facility Finder",
+     "level": "Advanced",
+     "result": "Nearest hospital web map",
+     "skills": [
+      "SQL",
+      "Python",
+      "GIS"
+     ]
+    },
+    {
+     "title": "Urban Growth with Earth Engine",
+     "level": "Advanced",
+     "result": "20-year city expansion analysis",
+     "skills": [
+      "Remote Sensing",
+      "Python"
+     ]
+    },
+    {
+     "title": "Smart City GIS Dashboard",
+     "level": "Capstone",
+     "result": "Web GIS with multiple data layers",
+     "skills": [
+      "GIS",
+      "Python",
+      "SQL",
+      "Data Visualization"
+     ]
+    }
+   ],
+   "certifications": [
+    "ISRO IIRS e-learning courses",
+    "Esri ArcGIS training",
+    "Google Earth Engine tutorials",
+    "NPTEL – Remote Sensing and GIS"
+   ],
+   "roles": [
+    "GIS Intern",
+    "Remote Sensing Intern",
+    "Survey Mapping Intern"
+   ]
+  },
+  {
+   "id": "gate",
+   "name": "GATE / PSU Engineer",
+   "icon": "🏛️",
+   "description": "Crack GATE for M.Tech at IITs or jobs in PSUs like NTPC, BHEL, ONGC and IOCL.",
+   "branches": [
+    "ece",
+    "ee",
+    "me",
+    "civil",
+    "cs"
+   ],
+   "core": [],
+   "languages": [
+    "Core subjects",
+    "Aptitude"
+   ],
+   "skills": [
+    "Engineering Mathematics",
+    "Aptitude",
+    "Core Subjects",
+    "Problem Solving",
+    "Communication",
+    "Excel"
+   ],
+   "skillWeights": {
+    "Engineering Mathematics": 25,
+    "Aptitude": 15,
+    "Core Subjects": 35,
+    "Problem Solving": 15,
+    "Communication": 10
+   },
+   "modules": [
+    {
+     "title": "Engineering Mathematics",
+     "topics": [
+      "Linear algebra and calculus",
+      "Probability",
+      "Numerical methods"
+     ]
+    },
+    {
+     "title": "Core Subjects – Part 1",
+     "topics": [
+      "First half of your branch syllabus",
+      "Standard textbooks",
+      "Topic-wise notes"
+     ]
+    },
+    {
+     "title": "Core Subjects – Part 2",
+     "topics": [
+      "Second half of your branch syllabus",
+      "Previous year questions",
+      "Formula sheets"
+     ]
+    },
+    {
+     "title": "General Aptitude",
+     "topics": [
+      "Quantitative aptitude",
+      "Verbal ability",
+      "Reasoning"
+     ]
+    },
+    {
+     "title": "Test Practice",
+     "topics": [
+      "Topic tests",
+      "Full-length mocks",
+      "Error analysis"
+     ]
+    },
+    {
+     "title": "PSU Process",
+     "topics": [
+      "PSU notifications via GATE",
+      "Interviews and group discussions",
+      "Document preparation"
+     ]
+    }
+   ],
+   "projects": [
+    {
+     "title": "Subject Formula Notebook",
+     "level": "Beginner",
+     "result": "Hand-made short notes for every subject",
+     "skills": [
+      "Core Subjects"
+     ]
+    },
+    {
+     "title": "PYQ Analysis Sheet",
+     "level": "Beginner",
+     "result": "Topic-wise weightage of 10 years of papers",
+     "skills": [
+      "Excel",
+      "Problem Solving"
+     ]
+    },
+    {
+     "title": "Mini Project in a Core Subject",
+     "level": "Intermediate",
+     "result": "Small lab/simulation project to deepen understanding",
+     "skills": [
+      "Core Subjects"
+     ]
+    },
+    {
+     "title": "Weekly Test Tracker",
+     "level": "Intermediate",
+     "result": "Spreadsheet of scores and weak topics",
+     "skills": [
+      "Excel",
+      "Aptitude"
+     ]
+    },
+    {
+     "title": "Teach-back Videos",
+     "level": "Intermediate",
+     "result": "Explain 10 hard topics on video",
+     "skills": [
+      "Communication",
+      "Core Subjects"
+     ]
+    },
+    {
+     "title": "Full Mock Series",
+     "level": "Advanced",
+     "result": "20 full-length mocks with analysis",
+     "skills": [
+      "Aptitude",
+      "Engineering Mathematics"
+     ]
+    },
+    {
+     "title": "Final Year Core Project",
+     "level": "Advanced",
+     "result": "Strong branch project for PSU interviews",
+     "skills": [
+      "Core Subjects",
+      "Problem Solving"
+     ]
+    },
+    {
+     "title": "GATE Attempt + PSU Applications",
+     "level": "Capstone",
+     "result": "Exam, score card and PSU interview prep",
+     "skills": [
+      "Core Subjects",
+      "Aptitude",
+      "Communication"
+     ]
+    }
+   ],
+   "certifications": [
+    "NPTEL courses in core subjects (with exam)",
+    "GATE previous year papers",
+    "Made Easy / ACE mock tests",
+    "ESE (IES) preliminary preparation"
+   ],
+   "roles": [
+    "PSU Summer Trainee",
+    "Research Intern at IIT/NIT",
+    "Core Industry Intern"
+   ]
+  }
+ ]
+}

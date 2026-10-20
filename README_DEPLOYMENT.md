@@ -34,6 +34,21 @@ Ollama runs only on your own laptop, so the website on Render needs a cloud mode
 - **Groq (recommended, free):** go to <https://console.groq.com/keys>, then **Create API Key**, and copy the `gsk_...` key.
 - **Gemini (alternative):** go to <https://aistudio.google.com/apikey>, create a key, and set `AI_PROVIDER=gemini`.
 
+## Step 2b. Set up free emails with Brevo
+
+CareerVerse sends an email when a student **registers**, **logs in**, **asks for a password reset**
+and **changes the password**. Render's free plan blocks normal email (SMTP) ports, so the app sends
+through **Brevo's HTTPS API** instead (free: 300 emails a day).
+
+1. Sign up at <https://www.brevo.com> (free plan).
+2. Go to **Senders, Domains & Dedicated IPs → Senders → Add a sender**. Use the Gmail address
+   you want emails to come from (e.g. `careerverse.glbitm@gmail.com`) and click the confirmation link Brevo emails you.
+3. Go to **SMTP & API → API Keys → Generate a new API key**, then copy the `xkeysib-...` key.
+4. On Render, add `BREVO_API_KEY` (the key) and `MAIL_FROM` (the verified sender address).
+
+> On your laptop you can use Gmail instead: set `mail.username` and a Gmail **App Password** in
+> `db.properties`. When `BREVO_API_KEY` is set, Brevo is always used.
+
 ## Step 3. Put the code on GitHub from VS Code
 
 The folder you received is already connected to
@@ -82,7 +97,8 @@ many small edits, switch GitDoc off, finish the edits, then switch it back on.
 | `AI_PROVIDER` | `groq` |
 | `GROQ_API_KEY` | your `gsk_...` key |
 | `APP_URL` | your Render address, e.g. `https://careerverse-ai.onrender.com` (you can add it after the first deploy) |
-| `MAIL_USERNAME` / `MAIL_PASSWORD` | Gmail address and a Gmail **App Password** (optional) |
+| `BREVO_API_KEY` | your Brevo API key (`xkeysib-...`) |
+| `MAIL_FROM` | the sender address you verified in Brevo |
 
 4. Click **Deploy**. The first build takes about 5–8 minutes. When the logs show
    `CareerVerse: database tables are ready.`, open the `.onrender.com` link.
@@ -113,7 +129,8 @@ Open the existing service, go to **Environment**, add `AI_PROVIDER`, `GROQ_API_K
 | LeetCode says "No user called …" | Use the username from your profile link `leetcode.com/u/<username>`, not your display name or email. |
 | LeetCode stats don't refresh | LeetCode sometimes blocks automated requests. The page keeps showing your last saved data; try **Refresh** later. |
 | First page load is slow | The Render free plan sleeps after 15 minutes without visitors. The first visit wakes it up, which takes about 50 seconds. |
-| Reset-password email not sent | Use a Gmail App Password. Some free hosting plans block outgoing email ports; the rest of the site still works. |
+| Emails not arriving | Check `BREVO_API_KEY` and `MAIL_FROM` (it must be a **verified** sender in Brevo). Look in Spam/Promotions. Render logs show `CareerVerse email ... failed` with the reason. |
+| Logs say `Connection timed out` to smtp.gmail.com | Render's free plan blocks SMTP. Use Brevo (Step 2b). |
 | Aiven free service powered off | Aiven can power off free services that sit idle. Open the Aiven console and click **Power on**. |
 
 ## Environment variables reference
@@ -127,7 +144,8 @@ Open the existing service, go to **Environment**, add `AI_PROVIDER`, `GROQ_API_K
 | `GEMINI_API_KEY`, `GEMINI_MODEL` | Gemini chatbot (default model `gemini-2.5-flash`) |
 | `OLLAMA_URL`, `OLLAMA_MODEL` | Local Ollama (laptop only) |
 | `APP_URL` | Public address used in password-reset links |
-| `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD` | Email sending |
+| `BREVO_API_KEY`, `MAIL_FROM`, `MAIL_FROM_NAME` | Emails through Brevo (works on Render free) |
+| `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD` | Emails through SMTP/Gmail (laptop or paid Render) |
 | `JAVA_OPTS` | Memory limits for the free Render plan (already set in `render.yaml`) |
 
 Never write real passwords or keys into `db.properties`, `render.yaml` or any other file in GitHub.

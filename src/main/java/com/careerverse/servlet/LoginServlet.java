@@ -1,6 +1,9 @@
 package com.careerverse.servlet;
 
 import com.careerverse.dao.UserDAO;
+import com.careerverse.service.EmailService;
+import com.careerverse.service.EmailTemplates;
+import com.careerverse.util.RequestInfo;
 import com.careerverse.util.PasswordUtil;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -41,6 +44,11 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = req.getSession(true);
             session.setAttribute("userId", user.id());
             session.setAttribute("userName", user.name());
+
+            // Security email: tells the student about every new login.
+            String[] mail = EmailTemplates.loginAlert(user.name(), EmailTemplates.now(),
+                    RequestInfo.device(req), RequestInfo.ip(req), RequestInfo.appUrl(req));
+            EmailService.sendAsync(user.email(), user.name(), mail[0], mail[1], mail[2]);
 
             res.sendRedirect("app/dashboard.jsp");
 

@@ -36,12 +36,11 @@ services:
       # Public website address, used in password-reset emails (e.g. https://careerverse-ai.onrender.com)
       - key: APP_URL
         sync: false
-      # Email (optional) - Gmail with an App Password
-      - key: MAIL_HOST
-        value: smtp.gmail.com
-      - key: MAIL_PORT
-        value: "587"
-      - key: MAIL_USERNAME
+      # Email - Brevo (free, works on Render free plan; SMTP ports are blocked there)
+      - key: BREVO_API_KEY
         sync: false
-      - key: MAIL_PASSWORD
+      # The sender address you verified in Brevo, e.g. careerverse.glbitm@gmail.com
+      - key: MAIL_FROM
         sync: false
+      - key: MAIL_FROM_NAME
+        value: CareerVerse AI

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" import="com.careerverse.util.Html" %>
 <!doctype html>
 <html>
 <head>
@@ -16,7 +16,13 @@
       <p class="text-muted">Enter your registered email. If it exists, we will send a reset link.</p>
 
       <% if (request.getParameter("sent") != null) { %>
-        <div class="alert alert-success">If the account exists, a reset email has been sent.</div>
+        <div class="alert alert-success">
+          If this email is registered, a reset link is on its way. It works for 15 minutes.
+          Check your <b>Spam / Promotions</b> folder if you don't see it.
+        </div>
+      <% } %>
+      <% if (request.getParameter("error") != null) { %>
+        <div class="alert alert-danger"><%=Html.esc(request.getParameter("error"))%></div>
       <% } %>
 
       <form action="forgot-password" method="post">

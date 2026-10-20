@@ -58,7 +58,8 @@ public class LeetCodeServlet extends HttpServlet {
 
             String careerId = request.getParameter("career");
             if (careerId == null || CareerData.get(careerId) == null) {
-                List<Map<String, Object>> recs = CareerEngine.recommend(StudentContext.latestAptitude(userId), skills);
+                List<Map<String, Object>> recs = CareerEngine.recommend(StudentContext.latestAptitude(userId), skills,
+                        String.valueOf(profile.getOrDefault("branch", "")));
                 careerId = recs.isEmpty() ? "software" : String.valueOf(recs.get(0).get("id"));
             }
 

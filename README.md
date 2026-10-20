@@ -13,9 +13,14 @@ LeetCode practice tracker with streaks.
 
 ## Features
 - Registration, login, logout confirmation, forgot/reset password by email (BCrypt hashes, 15-minute tokens)
-- Student profile: branch, year, year-wise CGPA, multi-select skills and interests
-- Aptitude test and weighted career matching for 12 careers
-- Skill-gap analysis, career-specific roadmap, projects and simulator, career report
+- Emails on register, every login (with device and IP), password-reset link and password change (Brevo or Gmail)
+- Student profile: branch, year, year-wise CGPA, skills and interests that change with the branch
+- 32 careers across CSE/IT, ECE, EE, ME and Civil – each student sees the careers of their own branch
+  (e.g. VLSI and Embedded for ECE, Structural and BIM for Civil, plus GATE/PSU for core branches)
+- Aptitude test and weighted career matching, with a bonus for core careers of the branch
+- **Semester-wise roadmap** from the current semester until Semester 8: modules to learn, 8 graded
+  projects per career (Beginner → Capstone), certifications, internship and placement milestones
+- Skill-gap analysis, career simulator and career report
 - **CareerVerse AI chatbot** that knows the student's profile, top careers and LeetCode progress
 - **LeetCode Practice page**
   - link a public LeetCode username (never a password)
@@ -32,13 +37,15 @@ src/main/java/com/careerverse/
   config/   DB.java (connections + settings), SchemaInitializer.java (creates tables on start)
   dao/      UserDAO, ProfileDAO, LeetCodeDAO
   filter/   AuthFilter (protects /app/*)
-  model/    CareerData (12 careers, skills, roadmaps)
-  service/  CareerEngine, AIService, StudentContext, LeetCodeClient, PracticeCatalog,
-            StreakCalculator, EmailService
+  model/    CareerData (loads resources/careers.json – 32 careers)
+  service/  CareerEngine (matching + semester roadmap), AIService, StudentContext, LeetCodeClient,
+            PracticeCatalog, StreakCalculator, EmailService, EmailTemplates
   servlet/  one servlet per URL (login, register, profile, ai, leetcode ...)
-  util/     PasswordUtil, TokenUtil, Html
+  util/     PasswordUtil, TokenUtil, Html, RequestInfo
+src/main/resources/careers.json   all career data – edit this to add careers or projects
 src/main/webapp/
   app/dashboard.jsp   single-page dashboard
+  js/catalog.js       branch groups and skill lists
   js/app.js           dashboard logic + chatbot
   js/practice.js      LeetCode practice page
   css/app.css, css/auth.css, login/register/reset pages

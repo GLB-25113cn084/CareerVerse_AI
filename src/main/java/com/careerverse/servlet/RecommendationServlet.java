@@ -97,7 +97,8 @@ public class RecommendationServlet extends HttpServlet {
             List<Map<String, Object>> recommendations =
                     CareerEngine.recommend(
                             aptitude,
-                            userSkills
+                            userSkills,
+                            String.valueOf(profile.getOrDefault("branch", ""))
                     );
 
             sendJson(

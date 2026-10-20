@@ -405,7 +405,19 @@
                                 </option>
 
                                 <option>
+                                    Electrical & Electronics Engineering
+                                </option>
+
+                                <option>
+                                    Electronics & Instrumentation Engineering
+                                </option>
+
+                                <option>
                                     Mechanical Engineering
+                                </option>
+
+                                <option>
+                                    Automobile Engineering
                                 </option>
 
                                 <option>
@@ -609,9 +621,11 @@
                     Career Recommendations
                 </h2>
 
-                <p class="text-muted">
-                    CareerVerse includes large, specialized and smaller career paths.
+                <p class="text-muted mb-1">
+                    Careers are chosen for your branch – core careers of your branch come first.
                 </p>
+
+                <p class="small mb-3" id="careerBranchNote"></p>
 
                 <div
                     id="careerGrid"
@@ -650,11 +664,12 @@
             <section id="roadmap" class="page">
 
                 <h2>
-                    Career-specific Learning Roadmap
+                    Semester-wise Learning Roadmap
                 </h2>
 
                 <p class="text-muted">
-                    Languages, skills, projects and hiring preparation change according to the career.
+                    A plan from your current semester until the end of final year: what to learn,
+                    what to build, which certifications to earn and when to apply for internships and placements.
                 </p>
 
                 <select
@@ -942,6 +957,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/catalog.js"></script>
 
 <script src="../js/app.js"></script>
 

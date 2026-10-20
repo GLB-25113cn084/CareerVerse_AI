@@ -251,25 +251,41 @@ async function loadHomeStreak() {
     }
 }
 
-/** Adds the LeetCode target of each stage under the matching roadmap card. */
+/**
+ * Adds LeetCode practice targets to the semester roadmap.
+ * The 4 practice levels (Foundation → Hiring Prep) are spread over the remaining semesters.
+ * Core engineering careers (civil, mechanical ...) don't get LeetCode targets.
+ */
 async function addRoadmapTargets(careerId) {
     try {
         const data = await api('api/leetcode?cached=1&career=' + encodeURIComponent(careerId));
+        if (data.practice && data.practice.codingCareer === false) return;
+
         const cards = $$('#roadmapResults .road');
-        (data.targets || []).forEach((stage, i) => {
-            if (!cards[i]) return;
+        const targets = data.targets || [];
+        if (!cards.length || !targets.length) return;
+
+        const byCard = new Map();
+        targets.forEach((stage, k) => {
+            const cardIndex = Math.min(cards.length - 1, Math.floor(k * cards.length / targets.length));
+            if (!byCard.has(cardIndex)) byCard.set(cardIndex, []);
+            byCard.get(cardIndex).push(stage);
+        });
+
+        byCard.forEach((stages, cardIndex) => {
             const box = document.createElement('div');
             box.className = 'road-lc mt-3';
-            box.innerHTML = `
-                <div class="d-flex justify-content-between align-items-center">
-                    <b>💻 LeetCode target</b>
+            box.innerHTML = stages.map(stage => `
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                    <b>💻 LeetCode – ${escapeHtml(stage.stage)}</b>
                     <small>${data.linked ? stage.percent + '% done' : '<a href="#" data-goto-practice>Link LeetCode</a>'}</small>
                 </div>
                 ${stage.targets.map(t => `
                     <small class="d-flex justify-content-between mt-1"><span>${escapeHtml(t.label)}</span><span>${t.done} / ${t.goal}</span></small>
                     <div class="progress progress-thin"><div class="progress-bar metric-${escapeHtml(t.metric)}" style="width:${t.percent}%"></div></div>`).join('')}
-                <small class="text-muted d-block mt-1">≈ ${stage.problemsPerWeek} problems a week, on ${stage.weeklyDays} days</small>`;
-            cards[i].appendChild(box);
+                <small class="text-muted d-block mt-1">Practise on about ${stage.weeklyDays} days a week</small>`).join('');
+            const checkpoint = cards[cardIndex].querySelector('.road-checkpoint');
+            cards[cardIndex].insertBefore(box, checkpoint || null);
         });
         $$('[data-goto-practice]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); showPage('practice'); }));
     } catch (error) {

@@ -83,35 +83,55 @@ public class PracticeCatalog {
         e("Merge Strings Alternately", "merge-strings-alternately"), e("Roman to Integer", "roman-to-integer"),
         e("Two Sum", "two-sum"), e("Valid Palindrome", "valid-palindrome")));
 
-    private static final Map<String, Section> EXTRA = Map.of(
-        "software", new Section("Hard Interview Classics", List.of(
+    private static final Map<String, Section> EXTRA = Map.ofEntries(
+        Map.entry("software", new Section("Hard Interview Classics", List.of(
             h("Merge k Sorted Lists", "merge-k-sorted-lists"),
             h("Median of Two Sorted Arrays", "median-of-two-sorted-arrays"),
-            h("Word Ladder", "word-ladder"), m("LRU Cache", "lru-cache"))),
-        "aiml", new Section("Math & Matrices (for ML)", List.of(
+            h("Word Ladder", "word-ladder"), m("LRU Cache", "lru-cache")))),
+        Map.entry("aiml", new Section("Math & Matrices (for ML)", List.of(
             e("Sqrt(x)", "sqrtx"), m("Pow(x, n)", "powx-n"), m("Rotate Image", "rotate-image"),
-            m("Spiral Matrix", "spiral-matrix"), m("Set Matrix Zeroes", "set-matrix-zeroes"))),
-        "web", new Section("Design Problems", List.of(
+            m("Spiral Matrix", "spiral-matrix"), m("Set Matrix Zeroes", "set-matrix-zeroes")))),
+        Map.entry("web", new Section("Design Problems", List.of(
             e("Design HashMap", "design-hashmap"), m("LRU Cache", "lru-cache"),
-            m("Time Based Key-Value Store", "time-based-key-value-store"))),
-        "mobile", new Section("Design Problems", List.of(
+            m("Time Based Key-Value Store", "time-based-key-value-store")))),
+        Map.entry("mobile", new Section("Design Problems", List.of(
             e("Design HashMap", "design-hashmap"), m("LRU Cache", "lru-cache"),
-            m("Time Based Key-Value Store", "time-based-key-value-store"))),
-        "cyber", new Section("Bits & Encoding", List.of(
+            m("Time Based Key-Value Store", "time-based-key-value-store")))),
+        Map.entry("cyber", new Section("Bits & Encoding", List.of(
             e("Number of 1 Bits", "number-of-1-bits"), e("Reverse Bits", "reverse-bits"),
             e("Single Number", "single-number"), e("Counting Bits", "counting-bits"),
-            m("Sum of Two Integers", "sum-of-two-integers"))),
-        "devops", new Section("Shell (Bash) Problems", List.of(
+            m("Sum of Two Integers", "sum-of-two-integers")))),
+        Map.entry("devops", new Section("Shell (Bash) Problems", List.of(
             e("Tenth Line", "tenth-line"), e("Valid Phone Numbers", "valid-phone-numbers"),
             m("Word Frequency", "word-frequency"), m("Transpose File", "transpose-file"),
-            m("Task Scheduler", "task-scheduler"))),
-        "cloud", new Section("Shell (Bash) Problems", List.of(
+            m("Task Scheduler", "task-scheduler")))),
+        Map.entry("cloud", new Section("Shell (Bash) Problems", List.of(
             e("Tenth Line", "tenth-line"), e("Valid Phone Numbers", "valid-phone-numbers"),
-            m("Word Frequency", "word-frequency"), m("Task Scheduler", "task-scheduler"))),
-        "qa", new Section("Edge-case Thinking", List.of(
+            m("Word Frequency", "word-frequency"), m("Task Scheduler", "task-scheduler")))),
+        Map.entry("qa", new Section("Edge-case Thinking", List.of(
             e("Plus One", "plus-one"), e("Roman to Integer", "roman-to-integer"),
-            m("String to Integer (atoi)", "string-to-integer-atoi"), h("Valid Number", "valid-number"))),
-        "product", new Section("Logic Warm-ups", LOGIC.problems())
+            m("String to Integer (atoi)", "string-to-integer-atoi"), h("Valid Number", "valid-number")))),
+        Map.entry("product", new Section("Logic Warm-ups", LOGIC.problems())),
+        Map.entry("embedded", new Section("Bits & Low-level Logic", List.of(
+            e("Number of 1 Bits", "number-of-1-bits"), e("Reverse Bits", "reverse-bits"),
+            e("Power of Two", "power-of-two"), e("Single Number", "single-number"),
+            m("Sum of Two Integers", "sum-of-two-integers")))),
+        Map.entry("vlsi", new Section("Bits & Low-level Logic", List.of(
+            e("Number of 1 Bits", "number-of-1-bits"), e("Reverse Bits", "reverse-bits"),
+            e("Power of Two", "power-of-two"), e("Single Number", "single-number"),
+            m("Sum of Two Integers", "sum-of-two-integers")))),
+        Map.entry("iot", new Section("Bits & Low-level Logic", List.of(
+            e("Number of 1 Bits", "number-of-1-bits"), e("Reverse Bits", "reverse-bits"),
+            e("Power of Two", "power-of-two"), e("Single Number", "single-number"),
+            m("Sum of Two Integers", "sum-of-two-integers")))),
+        Map.entry("telecom", new Section("Bits & Low-level Logic", List.of(
+            e("Number of 1 Bits", "number-of-1-bits"), e("Reverse Bits", "reverse-bits"),
+            e("Power of Two", "power-of-two"), e("Single Number", "single-number"),
+            m("Sum of Two Integers", "sum-of-two-integers")))),
+        Map.entry("robotics", new Section("Geometry & Search", List.of(
+            m("Rotate Image", "rotate-image"), m("Spiral Matrix", "spiral-matrix"),
+            m("Shortest Path in Binary Matrix", "shortest-path-in-binary-matrix"),
+            m("Rotting Oranges", "rotting-oranges"))))
     );
 
     /* ---------------- targets ---------------- */
@@ -150,10 +170,17 @@ public class PracticeCatalog {
     public static String track(String careerId) {
         if (careerId == null) return "dsa";
         return switch (careerId) {
-            case "data", "product" -> "sql";
+            case "data", "product", "gis" -> "sql";
             case "uiux", "technical-writer" -> "light";
-            default -> "dsa";
+            case "software", "aiml", "web", "cyber", "mobile", "devops", "cloud", "qa",
+                 "embedded", "vlsi", "iot", "telecom", "robotics" -> "dsa";
+            default -> "light"; // core engineering careers: short logic warm-ups only
         };
+    }
+
+    /** Careers where LeetCode practice is part of the job preparation. */
+    public static boolean isCodingCareer(String careerId) {
+        return !"light".equals(track(careerId)) || "uiux".equals(careerId) || "technical-writer".equals(careerId);
     }
 
     public static List<StageTarget> targets(String careerId) {
@@ -181,7 +208,7 @@ public class PracticeCatalog {
             case "data" -> List.of(new Plan("Top SQL 50", "top-sql-50"),
                     new Plan("Introduction to Pandas", "introduction-to-pandas"),
                     new Plan("30 Days of Pandas", "30-days-of-pandas"));
-            case "product" -> List.of(new Plan("Top SQL 50", "top-sql-50"), new Plan("LeetCode 75", "leetcode-75"));
+            case "product", "gis" -> List.of(new Plan("Top SQL 50", "top-sql-50"), new Plan("LeetCode 75", "leetcode-75"));
             case "web", "mobile" -> List.of(new Plan("LeetCode 75", "leetcode-75"),
                     new Plan("30 Days of JavaScript", "30-days-of-javascript"));
             case "uiux", "technical-writer" -> List.of(new Plan("LeetCode 75", "leetcode-75"));
@@ -194,6 +221,7 @@ public class PracticeCatalog {
     public static JsonObject practiceJson(String careerId, Set<String> solvedSlugs) {
         JsonObject out = new JsonObject();
         out.addProperty("track", track(careerId));
+        out.addProperty("codingCareer", isCodingCareer(careerId));
         JsonArray sections = new JsonArray();
         for (Section s : sections(careerId)) {
             JsonObject so = new JsonObject();

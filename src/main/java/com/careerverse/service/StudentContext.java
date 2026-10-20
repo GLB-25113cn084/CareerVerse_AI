@@ -83,7 +83,7 @@ public class StudentContext {
                 sb.append("Skills: not filled in yet\n");
             }
 
-            List<Map<String, Object>> recs = CareerEngine.recommend(latestAptitude(userId), skills);
+            List<Map<String, Object>> recs = CareerEngine.recommend(latestAptitude(userId), skills, branch);
             sb.append("Top career matches from CareerVerse: ");
             for (int i = 0; i < Math.min(3, recs.size()); i++) {
                 sb.append(recs.get(i).get("name")).append(" (").append(recs.get(i).get("match")).append("%)");

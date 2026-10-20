@@ -7,56 +7,10 @@ let chart = null;
 let topCareerId = null;
 let chatHistory = [];
 
-const skills = [
-    'Java',
-    'Python',
-    'JavaScript',
-    'SQL',
-    'HTML',
-    'CSS',
-    'Bootstrap',
-    'DSA',
-    'OOP',
-    'REST APIs',
-    'Git',
-    'Testing',
-    'Statistics',
-    'Linear Algebra',
-    'Machine Learning',
-    'Pandas',
-    'NumPy',
-    'Excel',
-    'Power BI',
-    'Data Visualization',
-    'Figma',
-    'Design Thinking',
-    'User Research',
-    'Prototyping',
-    'Kotlin',
-    'Flutter',
-    'Dart',
-    'APIs',
-    'SQLite',
-    'Linux',
-    'Networking',
-    'Cybersecurity',
-    'Cryptography',
-    'Web Security',
-    'Docker',
-    'CI/CD',
-    'Cloud',
-    'Bash',
-    'Databases',
-    'Analytics',
-    'Research',
-    'Communication',
-    'Product Thinking',
-    'Selenium',
-    'API Testing',
-    'Technical Writing',
-    'Markdown',
-    'API Documentation'
-];
+/*
+ * Skill lists depend on the branch - see js/catalog.js.
+ */
+const skills = SKILLS_BY_BRANCH.all;
 
 const interests = [
     'Software Development',
@@ -73,7 +27,17 @@ const interests = [
     'Technical Writing',
     'Research',
     'Problem Solving',
-    'Entrepreneurship'
+    'Entrepreneurship',
+    'Electronics & Embedded',
+    'VLSI / Chip Design',
+    'IoT & Robotics',
+    'Power & Energy',
+    'Electric Vehicles',
+    'Core Mechanical Design',
+    'Manufacturing',
+    'Construction & Infrastructure',
+    'Environment & Sustainability',
+    'Government Jobs / GATE'
 ];
 
 
@@ -619,6 +583,48 @@ function renderCGPA(
 
 
 /* =========================================================
+   BRANCH CHANGE -> SHOW THAT BRANCH'S SKILLS
+   ========================================================= */
+
+$('#branch')?.addEventListener(
+    'change',
+    () => {
+
+        /*
+         * Keep whatever the student has already ticked.
+         */
+        const checked = {};
+
+        $$('#skillMenu input[type="checkbox"]:checked')
+            .forEach(input => {
+
+                const level =
+                    input
+                        .closest('label')
+                        ?.querySelector('.skill-level')
+                        ?.value;
+
+                checked[input.value] =
+                    Number(level || 3);
+            });
+
+        fillMulti(
+            '#skillMenu',
+            '#skillBtn',
+            skillsForBranch(
+                $('#branch').value,
+                Object.keys(checked)
+            ),
+            Object.keys(checked),
+            checked
+        );
+
+        addSkillLevelInfo();
+    }
+);
+
+
+/* =========================================================
    LOAD PROFILE
    ========================================================= */
 
@@ -683,7 +689,10 @@ async function loadProfile() {
         fillMulti(
             '#skillMenu',
             '#skillBtn',
-            skills,
+            skillsForBranch(
+                profile.branch,
+                selectedSkills
+            ),
             selectedSkills,
             selectedLevels
         );
@@ -882,6 +891,13 @@ $('#saveProfile')?.addEventListener(
             profile =
                 result.profile ||
                 profile;
+
+
+            /*
+             * Branch may have changed, so reload the career list.
+             */
+            careers = [];
+            topCareerId = null;
 
 
             message.textContent =
@@ -1173,6 +1189,25 @@ async function renderCareers() {
         await loadCareers();
 
 
+        /*
+         * Tell the student which branch the list is for.
+         */
+        const group =
+            branchGroup(profile.branch);
+
+        $('#careerBranchNote').innerHTML =
+            group === 'all'
+                ? 'Showing <b>all careers</b>. Select your branch in <a href="#" data-goto="profile">Student Profile</a> to see the careers for your branch.'
+                : `Showing <b>${careers.length} careers</b> for <b>${escapeHtml(BRANCH_LABELS[group])}</b>. Change your branch in <a href="#" data-goto="profile">Student Profile</a>.`;
+
+        $$('#careerBranchNote [data-goto]').forEach(a =>
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                showPage(a.dataset.goto);
+            })
+        );
+
+
         $('#careerGrid').innerHTML =
             careers.map(
                 career => `
@@ -1187,6 +1222,7 @@ async function renderCareers() {
 
                             <h5>
                                 ${escapeHtml(career.name)}
+                                ${career.core ? '<span class="badge core-badge ms-1">Core for your branch</span>' : ''}
                             </h5>
 
                             <p class="text-muted small">
@@ -1196,7 +1232,7 @@ async function renderCareers() {
                             <div>
 
                                 <b>
-                                    Languages:
+                                    Languages / tools:
                                 </b>
 
                                 ${career.languages
@@ -1212,6 +1248,7 @@ async function renderCareers() {
                                 </b>
 
                                 ${career.projects
+                                    .slice(0, 4)
                                     .map(
                                         p =>
                                             escapeHtml(
@@ -1219,6 +1256,10 @@ async function renderCareers() {
                                             )
                                     )
                                     .join(' · ')}
+
+                                <small class="text-muted">
+                                    (+${Math.max(0, career.projects.length - 4)} more in the roadmap)
+                                </small>
 
                             </div>
 
@@ -1538,100 +1579,127 @@ async function loadRoadmap() {
                 encodeURIComponent(id)
             );
 
+        const stages =
+            data.roadmap || [];
 
-        $('#roadmapResults').innerHTML =
-            data.roadmap.map(
-                (stage, index) => `
+        const first =
+            stages[0];
 
-                    <div class="road">
+        const last =
+            stages[stages.length - 1];
 
-                        <h5>
-
-                            ${index + 1}.
-                            ${escapeHtml(
-                                stage.title
-                            )}
-
-                            <span class="badge text-bg-light">
-
-                                ${escapeHtml(
-                                    stage.duration
-                                )}
-
-                            </span>
-
-                        </h5>
+        const totalProjects =
+            stages.reduce(
+                (sum, stage) => sum + (stage.projects || []).length,
+                0
+            );
 
 
-                        <p>
-                            ${escapeHtml(
-                                stage.goal
-                            )}
-                        </p>
+        /*
+         * Summary + clickable semester timeline.
+         */
+        const summary = `
+            <div class="road-summary card p-3 mb-3">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+                    <div>
+                        <b>${escapeHtml(data.career.icon)} ${escapeHtml(data.career.name)}</b>
+                        <small class="d-block text-muted">
+                            Your plan from Semester ${first?.semester ?? '—'} to Semester ${last?.semester ?? 8}
+                            (${stages.length} semester${stages.length === 1 ? '' : 's'}) ·
+                            ${totalProjects} projects ·
+                            update your current year in Student Profile to change it
+                        </small>
+                    </div>
+                    <div class="sem-timeline">
+                        ${stages.map(stage => `
+                            <a href="#sem${stage.semester}" class="sem-dot ${stage.current ? 'now' : ''}"
+                               title="${escapeHtml(stage.title)} · ${escapeHtml(stage.phase)}">
+                                S${stage.semester}
+                            </a>`).join('')}
+                    </div>
+                </div>
+            </div>`;
 
 
-                        <b>
-                            Languages/tools:
-                        </b>
+        const cards =
+            stages.map(stage => `
 
-                        ${stage.languages
-                            .map(escapeHtml)
-                            .join(', ')}
+                <div class="road ${stage.current ? 'road-current' : ''}" id="sem${stage.semester}">
 
-
-                        <ul>
-
-                            ${stage.tasks
-                                .map(
-                                    task =>
-                                        `
-                                            <li>
-                                                ${escapeHtml(
-                                                    task
-                                                )}
-                                            </li>
-                                        `
-                                )
-                                .join('')}
-
-                        </ul>
-
-
-                        <b>
-                            Hiring checkpoint:
-                        </b>
-
-                        ${escapeHtml(
-                            stage.checkpoint
-                        )}
-
-
-                        <div class="mt-2">
-
-                            <b>
-                                Projects:
-                            </b>
-
-                            ${stage.projects
-                                .map(
-                                    project =>
-                                        `
-                                            ${escapeHtml(
-                                                project.title
-                                            )}
-                                            (${escapeHtml(
-                                                project.level
-                                            )})
-                                        `
-                                )
-                                .join(' · ')}
-
+                    <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
+                        <div>
+                            <h5 class="mb-1">
+                                ${escapeHtml(stage.title)}
+                                ${stage.current ? '<span class="badge text-bg-primary ms-1">You are here</span>' : ''}
+                            </h5>
+                            <span class="badge phase-badge">${escapeHtml(stage.phase)}</span>
+                            <span class="badge text-bg-light">${escapeHtml(stage.duration)}</span>
                         </div>
-
                     </div>
 
-                `
-            ).join('');
+                    <p class="mt-2 mb-2">
+                        <b>Goal:</b> ${escapeHtml(stage.goal)}
+                    </p>
+
+                    ${(stage.modules || []).length ? `
+                        <div class="road-block">
+                            <div class="road-label">📚 Learn</div>
+                            ${stage.modules.map(module => `
+                                <div class="road-module">
+                                    <b>${escapeHtml(module.title)}</b>
+                                    <div class="topic-chips">
+                                        ${module.topics.map(t => `<span>${escapeHtml(t)}</span>`).join('')}
+                                    </div>
+                                </div>`).join('')}
+                        </div>` : ''}
+
+                    ${(stage.projects || []).length ? `
+                        <div class="road-block">
+                            <div class="road-label">🛠️ Build</div>
+                            <div class="road-projects">
+                                ${stage.projects.map(project => `
+                                    <div class="road-project">
+                                        <div class="d-flex justify-content-between gap-2">
+                                            <b>${escapeHtml(project.title)}</b>
+                                            <span class="badge level-badge ${escapeHtml(String(project.level).toLowerCase())}">
+                                                ${escapeHtml(project.level)}
+                                            </span>
+                                        </div>
+                                        <small class="d-block text-muted">${escapeHtml(project.result)}</small>
+                                        <small class="d-block mt-1">
+                                            ${(project.skills || []).map(escapeHtml).join(' · ')}
+                                        </small>
+                                    </div>`).join('')}
+                            </div>
+                        </div>` : ''}
+
+                    ${(stage.certifications || []).length ? `
+                        <div class="road-block">
+                            <div class="road-label">🎓 Certify</div>
+                            ${stage.certifications.map(c => `<span class="cert-chip">${escapeHtml(c)}</span>`).join('')}
+                        </div>` : ''}
+
+                    <div class="road-block">
+                        <div class="road-label">🚩 Milestones</div>
+                        <ul class="mb-0">
+                            ${(stage.tasks || []).map(task => `<li>${escapeHtml(task)}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="road-checkpoint">
+                        <b>✅ Checkpoint:</b> ${escapeHtml(stage.checkpoint)}
+                    </div>
+
+                    <small class="text-muted d-block mt-2">
+                        <b>Languages / tools:</b> ${(stage.languages || []).map(escapeHtml).join(', ')}
+                    </small>
+
+                </div>
+            `).join('');
+
+
+        $('#roadmapResults').innerHTML =
+            summary + cards;
 
 
         addRoadmapTargets(id);
