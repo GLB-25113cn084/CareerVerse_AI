@@ -2662,12 +2662,28 @@ $('#chatDeleteAll')?.addEventListener('click', async () => {
 
 /* ---------- opening the chat window ---------- */
 
-function openAI() {
+/*
+ * Opens the chat window and continues your most recent chat
+ * (or the one already on screen). Use "New chat" to start fresh.
+ */
+async function openAI() {
     const modal = document.getElementById('aiModal');
     if (!modal) return;
-    if (!$('#chatMessages').children.length) newChat();
-    loadChatList();
+
     bootstrap.Modal.getOrCreateInstance(modal).show();
+    await loadChatList();
+
+    const chatOnScreen = currentChatId || $('#chatMessages .user-msg');
+    if (!chatOnScreen) {
+        const latest = [...chatList]
+            .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))[0];
+        if (latest) {
+            await openChat(latest.id);
+        } else {
+            newChat();
+        }
+    }
+
     setTimeout(() => $('#chatInput')?.focus(), 300);
 }
 
@@ -2708,26 +2724,43 @@ $('#chatInput')?.addEventListener('input', event => {
 
 
 /* =========================================================
-   AI SEARCH BOX (top bar) – starts a new chat with the question
+   AI SEARCH BOX (top bar)
+   Clicking it opens the chat window (continuing your last chat).
+   Anything already typed there is moved into the chat box.
    ========================================================= */
 
-$('#askAI')?.addEventListener('click', () => {
-    const question = $('#aiQuery').value.trim();
-    if (!question) return;
-    openAI();
-    newChat();
-    ask(question);
-    $('#aiQuery').value = '';
-});
+async function openAIFromTopBar(sendNow = false) {
+    const top = $('#aiQuery');
+    const text = (top?.value || '').trim();
+    if (top) {
+        top.value = '';
+        top.blur();
+    }
+
+    await openAI();
+
+    if (text) {
+        if (sendNow) {
+            ask(text);
+        } else {
+            $('#chatInput').value = text;
+            $('#chatInput').focus();
+        }
+    }
+}
+
+$('#aiQuery')?.addEventListener('click', () => openAIFromTopBar(false));
 
 $('#aiQuery')?.addEventListener('keydown', event => {
     if (event.key === 'Enter') {
         event.preventDefault();
-        $('#askAI').click();
+        openAIFromTopBar(true);
     }
 });
 
-$('#openAI')?.addEventListener('click', openAI);
+$('#askAI')?.addEventListener('click', () => openAIFromTopBar(true));
+
+$('#openAI')?.addEventListener('click', () => openAI());
 
 
 /* =========================================================
