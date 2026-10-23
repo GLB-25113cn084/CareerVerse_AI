@@ -865,77 +865,53 @@
 
 
 <!-- AI MODAL -->
-<div
-    class="modal fade"
-    id="aiModal"
->
+<div class="modal fade" id="aiModal" tabindex="-1" aria-labelledby="aiTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-lg-down">
+        <div class="modal-content chat-shell">
 
-    <div class="modal-dialog modal-lg">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h5 class="mb-0">
-                    ✦ CareerVerse AI
-                    <small class="d-block text-muted fs-6 fw-normal">Your personal career mentor</small>
-                </h5>
-
-                <button
-                    id="chatClear"
-                    class="btn btn-sm btn-outline-secondary ms-auto me-2"
-                    type="button"
-                >
-                    New chat
+            <!-- left: saved chats -->
+            <aside class="chat-side" id="chatSide">
+                <button type="button" class="btn btn-primary w-100 mb-2" id="chatNew">＋ New chat</button>
+                <input type="search" class="form-control form-control-sm mb-2" id="chatSearch"
+                       placeholder="Search chats…" autocomplete="off">
+                <div class="chat-list" id="chatList"></div>
+                <button type="button" class="btn btn-link btn-sm text-danger mt-2 p-0" id="chatDeleteAll">
+                    Delete all chats
                 </button>
+            </aside>
 
-                <button
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                ></button>
+            <!-- right: conversation -->
+            <section class="chat-main">
+                <div class="chat-head">
+                    <button type="button" class="btn btn-sm btn-outline-secondary d-lg-none me-2" id="chatSideToggle"
+                            aria-label="Show chats">☰</button>
+                    <div class="flex-grow-1 min-w-0">
+                        <h5 class="mb-0 text-truncate" id="aiTitle">✦ CareerVerse AI</h5>
+                        <small class="text-muted">Your personal career mentor</small>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-outline-secondary me-2 d-none" id="chatRenameTop">Rename</button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-            </div>
+                <div id="chatMessages" class="chat"></div>
 
-
-            <div class="modal-body">
-
-                <div
-                    id="chatMessages"
-                    class="chat"
-                ></div>
-
-
-                <div id="chatSuggestions" class="chat-suggestions mt-3">
+                <div id="chatSuggestions" class="chat-suggestions">
                     <button type="button" class="chip">What should I learn next for my top career?</button>
                     <button type="button" class="chip">Suggest a project for my resume</button>
                     <button type="button" class="chip">Which LeetCode topics should I practise this week?</button>
                     <button type="button" class="chip">How do I prepare for internship interviews?</button>
                 </div>
 
-                <div class="input-group mt-3">
-
-                    <input
-                        id="chatInput"
-                        maxlength="2000"
-                        class="form-control"
-                        placeholder="Ask anything about careers, skills, projects, interviews…"
-                    >
-
-                    <button
-                        id="chatSend"
-                        class="btn btn-primary"
-                    >
-                        Send
-                    </button>
-
+                <div class="chat-compose">
+                    <textarea id="chatInput" class="form-control" rows="1" maxlength="2000"
+                              placeholder="Ask anything about careers, skills, projects, interviews…"></textarea>
+                    <button id="chatSend" class="btn btn-primary" type="button">Send</button>
                 </div>
-
-            </div>
+                <small class="chat-hint">Enter to send · Shift+Enter for a new line · chats are saved automatically</small>
+            </section>
 
         </div>
-
     </div>
-
 </div>
 
 

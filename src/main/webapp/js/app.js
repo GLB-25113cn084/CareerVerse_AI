@@ -2330,8 +2330,14 @@ async function loadReport() {
     }
 }
 /* =========================================================
-   AI CHATBOT
+   AI CHATBOT  (saved chats, like ChatGPT)
+   Server: /app/api/ai (ask) and /app/api/chats (list, open, rename, pin, delete)
    ========================================================= */
+
+let chatList = [];          // saved chats shown in the sidebar
+let currentChatId = null;   // chat that is open (null = new chat)
+let chatBusy = false;
+
 
 /*
  * Turns the AI's plain-text answer into safe HTML.
@@ -2340,9 +2346,7 @@ async function loadReport() {
  */
 function formatAnswer(text) {
 
-    const lines =
-        escapeHtml(text).split('\n');
-
+    const lines = escapeHtml(text).split('\n');
     let html = '';
     let list = null;
 
@@ -2352,311 +2356,378 @@ function formatAnswer(text) {
             .replace(/`([^`]+)`/g, '<code>$1</code>');
 
     for (const raw of lines) {
-
         const line = raw.trim();
         const bullet = line.match(/^[-*•]\s+(.*)/);
         const numbered = line.match(/^\d+[.)]\s+(.*)/);
         const heading = line.match(/^#{1,4}\s+(.*)/);
 
         if (bullet || numbered) {
-
             const type = bullet ? 'ul' : 'ol';
-
             if (list !== type) {
                 if (list) html += `</${list}>`;
                 html += `<${type}>`;
                 list = type;
             }
-
             html += `<li>${inline((bullet || numbered)[1])}</li>`;
             continue;
         }
-
         if (list) {
             html += `</${list}>`;
             list = null;
         }
-
         if (heading) {
             html += `<p class="mb-1"><b>${inline(heading[1])}</b></p>`;
         } else if (line) {
             html += `<p class="mb-1">${inline(line)}</p>`;
         }
     }
-
-    if (list) {
-        html += `</${list}>`;
-    }
-
+    if (list) html += `</${list}>`;
     return html;
 }
 
 
-function addChatMessage(role, html) {
+/* ---------- sidebar ---------- */
 
-    const box =
-        $('#chatMessages');
-
-    const div =
-        document.createElement('div');
-
-    div.className =
-        'msg ' + (role === 'user' ? 'user-msg' : 'ai-msg');
-
-    div.innerHTML =
-        html;
-
-    box.appendChild(div);
-
-    box.scrollTop =
-        box.scrollHeight;
-
-    return div;
+function chatGroup(chat) {
+    if (chat.pinned) return '📌 Pinned';
+    const days = Math.floor((Date.now() - new Date(chat.updatedAt).getTime()) / 86400000);
+    if (days < 1 && new Date(chat.updatedAt).getDate() === new Date().getDate()) return 'Today';
+    if (days < 2) return 'Yesterday';
+    if (days < 7) return 'Previous 7 days';
+    if (days < 30) return 'Previous 30 days';
+    return 'Older';
 }
 
-
-function resetChat() {
-
-    chatHistory = [];
-
-    $('#chatMessages').innerHTML = '';
-
-    addChatMessage(
-        'assistant',
-        formatAnswer(
-            'Hi! I am **CareerVerse AI**. I already know your profile, skills and career matches, ' +
-            'so ask me anything about careers, skills, projects, interviews or LeetCode practice.'
-        )
-    );
-
-    $('#chatSuggestions')?.classList.remove('d-none');
+async function loadChatList() {
+    try {
+        chatList = await api('api/chats');
+    } catch (error) {
+        console.error('Could not load chats:', error);
+        chatList = [];
+    }
+    renderChatList();
 }
 
+function renderChatList() {
+    const box = $('#chatList');
+    if (!box) return;
 
-let chatBusy = false;
+    const q = ($('#chatSearch')?.value || '').trim().toLowerCase();
+    const chats = chatList.filter(c => !q || c.title.toLowerCase().includes(q));
 
-async function ask(question) {
-
-    const box =
-        $('#chatMessages');
-
-    if (!box || chatBusy) {
+    if (!chats.length) {
+        box.innerHTML = `<div class="chat-empty">${q ? 'No chats match your search.' : 'No saved chats yet.<br>Ask something to start one.'}</div>`;
         return;
     }
 
-    if (!box.children.length) {
-        resetChat();
+    let html = '';
+    let lastGroup = '';
+    for (const chat of chats) {
+        const group = chatGroup(chat);
+        if (group !== lastGroup) {
+            html += `<div class="chat-group">${group}</div>`;
+            lastGroup = group;
+        }
+        html += `
+            <div class="chat-item ${chat.id === currentChatId ? 'active' : ''}" data-id="${chat.id}" title="${escapeHtml(chat.title)}">
+                <span class="chat-item-title">${escapeHtml(chat.title)}</span>
+                <span class="chat-item-actions">
+                    <button type="button" data-act="pin" title="${chat.pinned ? 'Unpin' : 'Pin'}">${chat.pinned ? '📍' : '📌'}</button>
+                    <button type="button" data-act="rename" title="Rename">✏️</button>
+                    <button type="button" data-act="delete" title="Delete">🗑️</button>
+                </span>
+            </div>`;
     }
+    box.innerHTML = html;
+}
 
-    chatBusy = true;
+/* One click handler for the whole list (open, pin, rename, delete). */
+$('#chatList')?.addEventListener('click', async event => {
+    const item = event.target.closest('.chat-item');
+    if (!item) return;
+    const id = Number(item.dataset.id);
+    const act = event.target.closest('button')?.dataset.act;
 
-    $('#chatSend').disabled = true;
+    if (act === 'pin') return togglePin(id);
+    if (act === 'rename') return renameChat(id);
+    if (act === 'delete') return deleteChat(id);
+    openChat(id);
+});
 
-    $('#chatSuggestions')?.classList.add('d-none');
-
-
-    addChatMessage(
-        'user',
-        escapeHtml(question)
-    );
-
-
-    /*
-     * "Typing" bubble that is replaced by the answer.
-     */
-    const reply =
-        addChatMessage(
-            'assistant',
-            '<span class="typing"><i></i><i></i><i></i></span>'
-        );
+$('#chatSearch')?.addEventListener('input', renderChatList);
 
 
+/* ---------- messages ---------- */
+
+function addChatMessage(role, html) {
+    const box = $('#chatMessages');
+    const div = document.createElement('div');
+    div.className = 'msg ' + (role === 'user' ? 'user-msg' : 'ai-msg');
+    div.innerHTML = html;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+    return div;
+}
+
+/* AI message with Copy (and Regenerate on the latest answer). */
+function addAnswer(text) {
+    $$('#chatMessages .regen-btn').forEach(b => b.remove());
+    const div = addChatMessage('assistant', formatAnswer(text));
+    const bar = document.createElement('div');
+    bar.className = 'msg-actions';
+    bar.innerHTML = `
+        <button type="button" class="copy-btn">📋 Copy</button>
+        <button type="button" class="regen-btn">↻ Regenerate</button>`;
+    bar.querySelector('.copy-btn').onclick = async e => {
+        try {
+            await navigator.clipboard.writeText(text);
+            e.target.textContent = '✓ Copied';
+            setTimeout(() => (e.target.textContent = '📋 Copy'), 1500);
+        } catch {
+            e.target.textContent = 'Copy failed';
+        }
+    };
+    bar.querySelector('.regen-btn').onclick = regenerate;
+    div.appendChild(bar);
+    return div;
+}
+
+function showWelcome() {
+    $('#chatMessages').innerHTML = '';
+    addChatMessage('assistant', formatAnswer(
+        'Hi! I am **CareerVerse AI**. I already know your profile, skills and career matches, ' +
+        'so ask me anything about careers, skills, projects, interviews or LeetCode practice.'));
+    $('#chatSuggestions')?.classList.remove('d-none');
+}
+
+function setChatTitle(title) {
+    $('#aiTitle').textContent = title ? title : '✦ CareerVerse AI';
+    $('#chatRenameTop')?.classList.toggle('d-none', !currentChatId);
+}
+
+function newChat() {
+    currentChatId = null;
+    setChatTitle(null);
+    showWelcome();
+    renderChatList();
+    $('#chatSide')?.classList.remove('open');
+    $('#chatInput')?.focus();
+}
+
+async function openChat(id) {
+    if (chatBusy) return;
     try {
-
-        const result =
-            await api(
-                'api/ai',
-                {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        query: question,
-                        history: chatHistory.slice(-8)
-                    })
-                }
-            );
-
-        const answer =
-            result.answer ||
-            'I could not generate an answer right now.';
-
-        reply.innerHTML =
-            formatAnswer(answer);
-
-        chatHistory.push(
-            { role: 'user', content: question },
-            { role: 'assistant', content: answer }
-        );
-
+        const chat = await api('api/chats?id=' + id);
+        currentChatId = chat.id;
+        setChatTitle(chat.title);
+        $('#chatMessages').innerHTML = '';
+        $('#chatSuggestions')?.classList.add('d-none');
+        chat.messages.forEach(m => {
+            if (m.role === 'user') addChatMessage('user', escapeHtml(m.content));
+            else addAnswer(m.content);
+        });
+        if (!chat.messages.length) showWelcome();
+        renderChatList();
+        $('#chatSide')?.classList.remove('open');
     } catch (error) {
+        alert(error.message || 'Could not open this chat.');
+    }
+}
 
-        console.error(
-            'AI request failed:',
-            error
-        );
 
-        reply.classList.add('ai-error');
+/* ---------- asking ---------- */
 
-        reply.textContent =
-            error.message ||
-            'CareerVerse AI is unavailable right now. Please try again in a moment.';
+/* Calls /app/api/ai. Uses fetch directly so the chat id is kept even when the AI fails. */
+async function callAI(body) {
+    const response = await fetch('api/ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+    });
+    let data = {};
+    try { data = await response.json(); } catch { /* not JSON */ }
 
+    if (data.conversationId && data.conversationId !== currentChatId) {
+        currentChatId = data.conversationId;
+        setChatTitle(data.title);
+        loadChatList();
+    }
+    if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+    return data;
+}
+
+async function sendToAI(body, replyBubble) {
+    chatBusy = true;
+    $('#chatSend').disabled = true;
+    try {
+        const result = await callAI(body);
+        replyBubble.remove();
+        addAnswer(result.answer || 'I could not generate an answer right now.');
+        // Move this chat to the top of the list.
+        const chat = chatList.find(c => c.id === currentChatId);
+        if (chat) {
+            chat.updatedAt = new Date().toISOString();
+            chatList.sort((a, b) => (b.pinned - a.pinned) || (new Date(b.updatedAt) - new Date(a.updatedAt)));
+            renderChatList();
+        }
+    } catch (error) {
+        console.error('AI request failed:', error);
+        replyBubble.classList.add('ai-error');
+        replyBubble.textContent = error.message || 'CareerVerse AI is unavailable right now. Please try again.';
     } finally {
-
         chatBusy = false;
-
         $('#chatSend').disabled = false;
-
-        box.scrollTop =
-            box.scrollHeight;
-
+        $('#chatMessages').scrollTop = $('#chatMessages').scrollHeight;
         $('#chatInput')?.focus();
     }
 }
 
+async function ask(question) {
+    if (!$('#chatMessages') || chatBusy || !question.trim()) return;
+    if (!$('#chatMessages').children.length) showWelcome();
 
-function openAI() {
+    $('#chatSuggestions')?.classList.add('d-none');
+    addChatMessage('user', escapeHtml(question));
+    const reply = addChatMessage('assistant', '<span class="typing"><i></i><i></i><i></i></span>');
 
-    const modal =
-        document.getElementById(
-            'aiModal'
-        );
+    await sendToAI({ query: question, conversationId: currentChatId }, reply);
+}
 
-    if (!modal) {
-        return;
-    }
-
-    if (!$('#chatMessages').children.length) {
-        resetChat();
-    }
-
-    bootstrap.Modal
-        .getOrCreateInstance(modal)
-        .show();
-
-    setTimeout(
-        () => {
-            $('#chatInput')?.focus();
-        },
-        300
-    );
+async function regenerate() {
+    if (chatBusy || !currentChatId) return;
+    const answers = $$('#chatMessages .ai-msg');
+    const last = answers[answers.length - 1];
+    if (last) last.remove();
+    const reply = addChatMessage('assistant', '<span class="typing"><i></i><i></i><i></i></span>');
+    await sendToAI({ conversationId: currentChatId, regenerate: true }, reply);
 }
 
 
-$('#chatClear')?.addEventListener(
-    'click',
-    resetChat
-);
+/* ---------- rename / pin / delete ---------- */
 
+async function chatAction(body) {
+    return api('api/chats', { method: 'POST', body: JSON.stringify(body) });
+}
 
-$$('#chatSuggestions .chip').forEach(
-    chip => {
-        chip.addEventListener(
-            'click',
-            () => ask(chip.textContent.trim())
-        );
+async function renameChat(id) {
+    const chat = chatList.find(c => c.id === id);
+    const title = prompt('Rename chat', chat ? chat.title : '');
+    if (title === null || !title.trim()) return;
+    try {
+        await chatAction({ action: 'rename', id, title: title.trim() });
+        if (chat) chat.title = title.trim().slice(0, 120);
+        if (id === currentChatId) setChatTitle(title.trim());
+        renderChatList();
+    } catch (error) {
+        alert(error.message);
     }
-);
+}
+
+async function togglePin(id) {
+    const chat = chatList.find(c => c.id === id);
+    if (!chat) return;
+    try {
+        await chatAction({ action: 'pin', id, pinned: !chat.pinned });
+        await loadChatList();
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
+async function deleteChat(id) {
+    const chat = chatList.find(c => c.id === id);
+    if (!confirm(`Delete "${chat ? chat.title : 'this chat'}"? This cannot be undone.`)) return;
+    try {
+        await chatAction({ action: 'delete', id });
+        chatList = chatList.filter(c => c.id !== id);
+        if (id === currentChatId) newChat();
+        else renderChatList();
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
+$('#chatDeleteAll')?.addEventListener('click', async () => {
+    if (!chatList.length) return;
+    if (!confirm('Delete ALL your saved chats? This cannot be undone.')) return;
+    try {
+        await chatAction({ action: 'deleteAll' });
+        chatList = [];
+        newChat();
+    } catch (error) {
+        alert(error.message);
+    }
+});
+
+
+/* ---------- opening the chat window ---------- */
+
+function openAI() {
+    const modal = document.getElementById('aiModal');
+    if (!modal) return;
+    if (!$('#chatMessages').children.length) newChat();
+    loadChatList();
+    bootstrap.Modal.getOrCreateInstance(modal).show();
+    setTimeout(() => $('#chatInput')?.focus(), 300);
+}
+
+$('#chatNew')?.addEventListener('click', newChat);
+$('#chatRenameTop')?.addEventListener('click', () => currentChatId && renameChat(currentChatId));
+$('#chatSideToggle')?.addEventListener('click', () => $('#chatSide')?.classList.toggle('open'));
+
+$$('#chatSuggestions .chip').forEach(chip => {
+    chip.addEventListener('click', () => ask(chip.textContent.trim()));
+});
+
+
+/* ---------- input box ---------- */
+
+function sendFromInput() {
+    const input = $('#chatInput');
+    const question = input.value.trim();
+    if (!question || chatBusy) return;
+    input.value = '';
+    input.style.height = '';
+    ask(question);
+}
+
+$('#chatSend')?.addEventListener('click', sendFromInput);
+
+/* Enter sends, Shift+Enter makes a new line; the box grows as you type. */
+$('#chatInput')?.addEventListener('keydown', event => {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendFromInput();
+    }
+});
+$('#chatInput')?.addEventListener('input', event => {
+    const box = event.target;
+    box.style.height = 'auto';
+    box.style.height = Math.min(box.scrollHeight, 160) + 'px';
+});
 
 
 /* =========================================================
-   AI SEARCH BOX
+   AI SEARCH BOX (top bar) – starts a new chat with the question
    ========================================================= */
 
-$('#askAI')?.addEventListener(
-    'click',
-    () => {
+$('#askAI')?.addEventListener('click', () => {
+    const question = $('#aiQuery').value.trim();
+    if (!question) return;
+    openAI();
+    newChat();
+    ask(question);
+    $('#aiQuery').value = '';
+});
 
-        const question =
-            $('#aiQuery')
-                .value
-                .trim();
-
-
-        if (question) {
-
-            openAI();
-
-            ask(question);
-
-
-            $('#aiQuery').value =
-                '';
-
-        }
-
+$('#aiQuery')?.addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        $('#askAI').click();
     }
-);
+});
 
-
-/* =========================================================
-   OPEN AI FROM MENU
-   ========================================================= */
-
-$('#openAI')?.addEventListener(
-    'click',
-    openAI
-);
-
-
-/* =========================================================
-   CHAT SEND
-   ========================================================= */
-
-$('#chatSend')?.addEventListener(
-    'click',
-    () => {
-
-        const question =
-            $('#chatInput')
-                .value
-                .trim();
-
-
-        if (question) {
-
-            ask(question);
-
-
-            $('#chatInput').value =
-                '';
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   CHAT ENTER KEY
-   ========================================================= */
-
-$('#chatInput')?.addEventListener(
-    'keydown',
-    event => {
-
-        if (
-            event.key ===
-            'Enter'
-        ) {
-
-            event.preventDefault();
-
-            $('#chatSend').click();
-
-        }
-
-    }
-);
+$('#openAI')?.addEventListener('click', openAI);
 
 
 /* =========================================================
