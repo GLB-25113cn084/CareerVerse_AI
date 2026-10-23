@@ -12,7 +12,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/app.css?v=3">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script>
@@ -934,11 +934,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="../js/catalog.js"></script>
+<script src="../js/catalog.js?v=3"></script>
 
-<script src="../js/app.js"></script>
+<script src="../js/app.js?v=3"></script>
 
-<script src="../js/practice.js"></script>
+<script src="../js/practice.js?v=3"></script>
 
 </body>
 </html>
