@@ -140,7 +140,7 @@ Open the existing service, go to **Environment**, add `AI_PROVIDER`, `GROQ_API_K
 | `DB_URL` | Aiven Service URI (`mysql://...`) or a JDBC URL (`jdbc:mysql://host:port/defaultdb?sslMode=REQUIRED`) |
 | `DB_USER`, `DB_PASSWORD` | Only needed with a JDBC URL |
 | `AI_PROVIDER` | `groq`, `gemini` or `ollama` (empty = choose automatically from the keys that are set) |
-| `GROQ_API_KEY`, `GROQ_MODEL` | Groq chatbot (default model `llama-3.3-70b-versatile`) |
+| `GROQ_API_KEY`, `GROQ_MODEL` | Groq chatbot (default model `openai/gpt-oss-120b`) |
 | `GEMINI_API_KEY`, `GEMINI_MODEL` | Gemini chatbot (default model `gemini-2.5-flash`) |
 | `OLLAMA_URL`, `OLLAMA_MODEL` | Local Ollama (laptop only) |
 | `APP_URL` | Public address used in password-reset links |

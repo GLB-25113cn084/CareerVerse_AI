@@ -114,12 +114,14 @@ public class AIQueryServlet extends HttpServlet {
 
         } catch (Exception e) {
             System.err.println("CareerVerse AI error: " + e.getMessage());
-            String hint = switch (AIService.provider()) {
+            String hint = e instanceof java.sql.SQLException
+                    ? "The chat could not be saved (database error) – check the Render logs."
+                    : switch (AIService.provider()) {
                 case "ollama" -> "No cloud AI key is set. On Render add GROQ_API_KEY (free from console.groq.com).";
                 case "groq" -> "The Groq AI service did not respond. Check GROQ_API_KEY on Render.";
                 case "gemini" -> "The Gemini AI service did not respond. Check GEMINI_API_KEY on Render.";
                 default -> "Check the AI_PROVIDER setting.";
-            };
+                    };
             Map<String, Object> error = new LinkedHashMap<>();
             error.put("error", "CareerVerse AI is unavailable right now. " + hint);
             if (conversationId != null) error.put("conversationId", conversationId);

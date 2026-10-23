@@ -61,7 +61,7 @@ public class AIService {
             case "groq" -> openAiCompatible(
                     "https://api.groq.com/openai/v1/chat/completions",
                     DB.prop("groq.api.key"),
-                    DB.prop("groq.model", "llama-3.3-70b-versatile"),
+                    DB.prop("groq.model", "openai/gpt-oss-120b"),
                     system, history, question);
             case "gemini" -> gemini(system, history, question);
             case "ollama" -> ollama(system, history, question);
@@ -84,7 +84,8 @@ public class AIService {
         body.addProperty("model", model);
         body.add("messages", messages);
         body.addProperty("temperature", 0.6);
-        body.addProperty("max_tokens", 700);
+        body.addProperty("max_tokens", 1500);
+        if (model.startsWith("openai/gpt-oss")) body.addProperty("reasoning_effort", "low");
 
         HttpRequest req = HttpRequest.newBuilder(URI.create(url))
                 .timeout(Duration.ofSeconds(60))
