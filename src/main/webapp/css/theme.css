@@ -1,0 +1,258 @@
+/* =========================================================
+   CareerVerse AI - "Nebula" colour theme
+   Loaded AFTER app.css, so it only changes colours.
+   To try other colours, change the values in :root below.
+   ========================================================= */
+
+:root,
+[data-bs-theme="dark"] {
+    --cv-bg: #0d0a18;
+    --cv-bg-2: #141026;
+    --cv-surface: rgba(30, 23, 54, 0.82);
+    --cv-surface-solid: #1e1736;
+    --cv-surface-2: #271e45;
+    --cv-line: rgba(255, 255, 255, 0.09);
+    --cv-text: #f1ecfb;
+    --cv-muted: #a99fc9;
+    --cv-rose: #ff5e8a;
+    --cv-amber: #ffb547;
+    --cv-mint: #2ee6c5;
+    --cv-violet: #9b6bff;
+    --cv-grad: linear-gradient(135deg, #ff5e8a 0%, #ff8f5e 55%, #ffc24d 100%);
+    --cv-grad-soft: linear-gradient(135deg, rgba(255, 94, 138, 0.18), rgba(255, 181, 71, 0.10));
+
+    --navy: #0a0814;
+    --indigo: #ff5e8a;
+    --line: var(--cv-line);
+    --muted: var(--cv-muted);
+
+    --bs-body-bg: var(--cv-bg);
+    --bs-body-color: var(--cv-text);
+    --bs-secondary-color: var(--cv-muted);
+    --bs-tertiary-bg: var(--cv-surface-2);
+    --bs-border-color: var(--cv-line);
+    --bs-link-color: #ff8fb0;
+    --bs-link-hover-color: #ffc24d;
+    --bs-link-color-rgb: 255, 143, 176;
+    --bs-primary: #ff5e8a;
+    --bs-primary-rgb: 255, 94, 138;
+    --bs-emphasis-color: #ffffff;
+}
+
+/* ---------- page background ---------- */
+html,
+body {
+    background:
+        radial-gradient(900px 520px at 105% -10%, rgba(155, 107, 255, 0.28), transparent 60%),
+        radial-gradient(800px 480px at -10% 105%, rgba(46, 230, 197, 0.14), transparent 60%),
+        radial-gradient(700px 400px at 50% 50%, rgba(255, 94, 138, 0.07), transparent 70%),
+        var(--cv-bg) !important;
+    background-attachment: fixed !important;
+    color: var(--cv-text) !important;
+}
+
+::selection { background: rgba(255, 94, 138, 0.45); color: #fff; }
+
+h1, h2, h3, h4, h5, h6, b, strong, .fw-bold, .fw-semibold { color: var(--cv-text); }
+
+.text-muted, .text-secondary, small.text-muted { color: var(--cv-muted) !important; }
+
+/* ---------- sidebar ---------- */
+.sidebar {
+    background: linear-gradient(180deg, #120d22 0%, #0a0814 100%) !important;
+    border-right: 1px solid var(--cv-line);
+    box-shadow: 6px 0 30px rgba(0, 0, 0, 0.45) !important;
+}
+.brand span, .sidebar .brand span {
+    background: var(--cv-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent !important;
+}
+.navbtn { color: #b9b0d6 !important; }
+.navbtn:hover { background: rgba(255, 255, 255, 0.06) !important; color: #fff !important; }
+.navbtn.active {
+    background: var(--cv-grad-soft) !important;
+    color: #fff !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 94, 138, 0.25);
+}
+.navbtn.active::before { background: var(--cv-grad) !important; }
+.logout-btn { color: #e9e3f8 !important; }
+
+/* ---------- top bar & search ---------- */
+.topbar {
+    background: rgba(13, 10, 24, 0.72) !important;
+    border-bottom: 1px solid var(--cv-line) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+.searchbox { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid var(--cv-line) !important; }
+.searchbox:focus-within {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 94, 138, 0.6) !important;
+    box-shadow: 0 0 0 4px rgba(255, 94, 138, 0.15) !important;
+}
+.searchbox input { background: transparent !important; color: var(--cv-text) !important; }
+.searchbox input::placeholder { color: var(--cv-muted); }
+.searchbox button { background: var(--cv-grad) !important; color: #1a0f1f !important; font-weight: 800; }
+.profile-btn, .profile-btn span { color: var(--cv-text); }
+.profile-btn span:last-child { background: var(--cv-grad) !important; color: #1a0f1f !important; }
+
+/* ---------- hero banner ---------- */
+.hero {
+    background:
+        radial-gradient(600px 300px at 90% 0%, rgba(255, 194, 77, 0.35), transparent 60%),
+        linear-gradient(120deg, #2a1046 0%, #6a1f63 50%, #c2365f 100%) !important;
+    box-shadow: 0 25px 60px rgba(194, 54, 95, 0.30) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.hero::before { background: radial-gradient(circle, rgba(46, 230, 197, 0.35), transparent 70%) !important; }
+.hero::after { background: radial-gradient(circle, rgba(255, 194, 77, 0.40), transparent 70%) !important; }
+.hero p { color: #ffe3ec !important; }
+.hero .btn-light { background: #fff !important; color: #2a1046 !important; border: 0; }
+
+/* ---------- cards & stat tiles ---------- */
+.card, .stat, .road, .sim-stage, .modal-content, .dropdown-menu, .multi-menu, .list-group-item {
+    background: var(--cv-surface) !important;
+    border: 1px solid var(--cv-line) !important;
+    color: var(--cv-text) !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.card .card, .card .road, .road-project { background: rgba(255, 255, 255, 0.035) !important; box-shadow: none !important; }
+.stat:hover, .stat-link:hover {
+    box-shadow: 0 20px 50px rgba(255, 94, 138, 0.18) !important;
+    border-color: rgba(255, 94, 138, 0.35) !important;
+}
+.stat b { color: #fff !important; }
+.stat-icon { background: rgba(255, 255, 255, 0.07) !important; }
+.sim-stage { border-left: 4px solid var(--cv-rose) !important; }
+
+#topCareers > div { border-bottom: 1px solid var(--cv-line) !important; }
+#topCareers > div:hover { background: rgba(255, 255, 255, 0.04) !important; }
+#topCareers > div b { color: var(--cv-amber) !important; }
+
+/* ---------- buttons ---------- */
+.btn-primary {
+    background: var(--cv-grad) !important;
+    border: 0 !important;
+    color: #1a0f1f !important;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(255, 94, 138, 0.30);
+}
+.btn-primary:hover, .btn-primary:focus { filter: brightness(1.08); color: #1a0f1f !important; }
+.btn-outline-primary { color: #ff8fb0 !important; border-color: rgba(255, 94, 138, 0.55) !important; background: transparent !important; }
+.btn-outline-primary:hover { background: rgba(255, 94, 138, 0.14) !important; color: #fff !important; }
+.btn-outline-secondary, .btn-light:not(.hero .btn-light) {
+    color: var(--cv-text) !important;
+    border-color: var(--cv-line) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+.btn-outline-secondary:hover { background: rgba(255, 255, 255, 0.10) !important; }
+.bg-primary { background: var(--cv-grad) !important; color: #1a0f1f !important; }
+.text-primary { color: #ff8fb0 !important; }
+.text-bg-light, .bg-light, .bg-white { background: rgba(255, 255, 255, 0.07) !important; color: var(--cv-text) !important; }
+
+/* ---------- form fields ---------- */
+.form-control, .form-select, .skill-level {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--cv-line) !important;
+    color: var(--cv-text) !important;
+}
+.form-control::placeholder { color: #7f76a3; }
+.form-control:focus, .form-select:focus, .skill-level:focus {
+    border-color: rgba(255, 94, 138, 0.6) !important;
+    box-shadow: 0 0 0 3px rgba(255, 94, 138, 0.18) !important;
+}
+.form-select option, .skill-level option { background: var(--cv-surface-solid); color: var(--cv-text); }
+.form-range::-webkit-slider-thumb { background: var(--cv-rose); }
+.form-range::-moz-range-thumb { background: var(--cv-rose); }
+.form-check-input:checked { background-color: var(--cv-rose); border-color: var(--cv-rose); }
+.multi-menu label:hover { background: rgba(255, 255, 255, 0.06) !important; }
+.skill-level-info {
+    background: rgba(155, 107, 255, 0.10) !important;
+    border: 1px solid rgba(155, 107, 255, 0.25) !important;
+    color: #d8d0f0 !important;
+}
+.skill-level-info strong { color: #fff !important; }
+
+/* ---------- tables ---------- */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--cv-text);
+    --bs-table-border-color: var(--cv-line);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.03);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- progress / skill gap bars ---------- */
+.gapbar, .progress { background: rgba(255, 255, 255, 0.08) !important; }
+.gapbar i, .progress-bar { background: linear-gradient(90deg, var(--cv-mint), var(--cv-amber), var(--cv-rose)) !important; }
+
+/* ---------- badges & chips ---------- */
+.chip { background: rgba(255, 94, 138, 0.10) !important; border: 1px solid rgba(255, 94, 138, 0.30) !important; color: #ffb3c8 !important; }
+.chip:hover { background: rgba(255, 94, 138, 0.20) !important; }
+.phase-badge { background: rgba(155, 107, 255, 0.18) !important; color: #cdb6ff !important; }
+.core-badge { background: rgba(46, 230, 197, 0.14) !important; color: var(--cv-mint) !important; }
+.topic-chips span { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid var(--cv-line) !important; color: #e3dcf5; }
+.cert-chip { background: rgba(255, 181, 71, 0.12) !important; border: 1px solid rgba(255, 181, 71, 0.35) !important; color: #ffd38a !important; }
+.level-badge.beginner, .diff-badge.easy { background: rgba(46, 230, 197, 0.14) !important; color: #5ff0d4 !important; }
+.level-badge.intermediate, .diff-badge.medium { background: rgba(255, 181, 71, 0.15) !important; color: #ffc76a !important; }
+.level-badge.advanced, .diff-badge.hard { background: rgba(255, 94, 138, 0.15) !important; color: #ff8fb0 !important; }
+.level-badge.capstone { background: rgba(155, 107, 255, 0.18) !important; color: #cdb6ff !important; }
+.diff-e { color: #2ee6c5 !important; }
+.diff-m { color: #ffb547 !important; }
+.diff-h { color: #ff5e8a !important; }
+
+/* ---------- semester roadmap ---------- */
+.road-current {
+    border: 1px solid rgba(255, 94, 138, 0.65) !important;
+    box-shadow: 0 0 0 1px rgba(255, 94, 138, 0.25), 0 18px 50px rgba(255, 94, 138, 0.18) !important;
+}
+.sem-dot { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid var(--cv-line) !important; color: var(--cv-text) !important; }
+.sem-dot.now { background: var(--cv-grad) !important; color: #1a0f1f !important; border-color: transparent !important; }
+.road-checkpoint { background: rgba(46, 230, 197, 0.08) !important; border: 1px solid rgba(46, 230, 197, 0.30) !important; }
+.road-label { color: var(--cv-muted) !important; }
+
+/* ---------- LeetCode practice ---------- */
+.lc-connect {
+    background: linear-gradient(135deg, rgba(255, 161, 22, 0.16) 0%, rgba(255, 255, 255, 0.03) 60%) !important;
+    border-left: 4px solid #ffa116 !important;
+}
+.lc-stage { border: 1px solid var(--cv-line) !important; background: rgba(255, 255, 255, 0.03); }
+.lc-stage.current { border-color: rgba(255, 94, 138, 0.6) !important; background: rgba(255, 94, 138, 0.08) !important; }
+.lc-stage.complete, .lc-problem.solved { background: rgba(46, 230, 197, 0.08) !important; border-color: rgba(46, 230, 197, 0.30) !important; }
+.lc-problem, .lc-recent { border-color: var(--cv-line) !important; }
+.lc-problem:hover { background: rgba(255, 161, 22, 0.08) !important; border-color: #ffa116 !important; }
+.heat-grid i, .heat-legend i { background: rgba(255, 255, 255, 0.07); }
+.h1 { background: #1f5c52 !important; }
+.h2 { background: #22917d !important; }
+.h3 { background: #2ac7a9 !important; }
+.h4 { background: #5ff0d4 !important; }
+.metric-sql { background: var(--cv-violet) !important; }
+
+/* ---------- AI chat ---------- */
+.modal-backdrop.show { opacity: 0.7; }
+.chat { background: rgba(0, 0, 0, 0.18) !important; }
+.chat-side { background: #0a0814 !important; border-right: 1px solid var(--cv-line); }
+.chat-side .form-control { background: rgba(255, 255, 255, 0.05) !important; border-color: var(--cv-line) !important; }
+.chat-item:hover { background: rgba(255, 255, 255, 0.06) !important; }
+.chat-item.active { background: var(--cv-grad-soft) !important; box-shadow: inset 0 0 0 1px rgba(255, 94, 138, 0.35); }
+.chat-head { border-bottom: 1px solid var(--cv-line) !important; }
+.user-msg { background: var(--cv-grad) !important; color: #1a0f1f !important; }
+.ai-msg { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid var(--cv-line) !important; color: var(--cv-text) !important; }
+.ai-msg code { background: rgba(255, 255, 255, 0.10) !important; color: #ffc76a; }
+.ai-error { background: rgba(255, 94, 138, 0.10) !important; border-color: rgba(255, 94, 138, 0.35) !important; color: #ffb3c8 !important; }
+.msg-actions button { background: rgba(255, 255, 255, 0.05) !important; border: 1px solid var(--cv-line) !important; color: var(--cv-muted) !important; }
+.msg-actions button:hover { background: rgba(255, 255, 255, 0.10) !important; color: #fff !important; }
+.typing i { background: var(--cv-rose) !important; }
+.btn-close { filter: invert(1) grayscale(1) brightness(1.6); }
+
+.logout-icon { background: rgba(255, 94, 138, 0.14) !important; }
+
+/* ---------- scrollbars ---------- */
+* { scrollbar-color: #3a2d63 transparent; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #3a2d63; border-radius: 10px; }
+::-webkit-scrollbar-track { background: transparent; }

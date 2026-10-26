@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!doctype html>
-<html>
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <title>CareerVerse AI</title>
@@ -12,13 +12,15 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="../css/app.css?v=4">
+        <link rel="stylesheet" href="../css/app.css?v=4">
+        <link rel="stylesheet" href="../css/theme.css?v=1">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script>
         Chart.defaults.font.family = "Inter, system-ui, sans-serif";
-        Chart.defaults.color = "#7b8598";
-        Chart.defaults.backgroundColor = "rgba(99, 102, 241, 0.8)";
+        Chart.defaults.color = "#a99fc9";
+        Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
+        Chart.defaults.backgroundColor = "rgba(255, 94, 138, 0.85)";
         Chart.defaults.elements.bar.borderRadius = 8;
         Chart.defaults.elements.bar.borderSkipped = false;
         Chart.defaults.plugins.legend.display = false;
@@ -937,6 +939,7 @@
 <script src="../js/catalog.js?v=4"></script>
 <script src="../js/app.js?v=4"></script>
 <script src="../js/practice.js?v=4"></script>
+<script src="../js/nav.js?v=1"></script>
 
 </body>
 </html>
