@@ -12,7 +12,7 @@
         rel="stylesheet"
     >
 
-        <link rel="stylesheet" href="../css/app.css?v=4">
+    <link rel="stylesheet" href="../css/app.css?v=4">
     <link rel="stylesheet" href="../css/theme.css?v=1" id="darkThemeCss">
     <link rel="stylesheet" href="../css/theme-light.css?v=1" id="lightThemeCss" disabled>
 
@@ -155,6 +155,28 @@
                         >
                             Ask CareerVerse AI
                         </button>
+                    </li>
+
+                                        <li>
+                        <div
+                            class="dropdown-item d-flex align-items-center justify-content-between gap-3 theme-row"
+                            id="themeRow"
+                            style="cursor: default;"
+                        >
+                            <label class="mb-0" for="themeSwitch" id="themeLabel" style="cursor: pointer;">
+                                🌙 Dark mode
+                            </label>
+                            <div class="form-check form-switch m-0">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    role="switch"
+                                    id="themeSwitch"
+                                    checked
+                                    style="cursor: pointer;"
+                                >
+                            </div>
+                        </div>
                     </li>
 
                     <li>
