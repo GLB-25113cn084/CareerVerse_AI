@@ -1,0 +1,138 @@
+/* =========================================================
+   CareerVerse AI - Light mode (warm theme)
+   The original light design, with the blue replaced by a
+   warm palette:  brown #A55704 · peach #F3D2AF · cream #F8EADC
+   Loaded AFTER app.css and only used when Light mode is on.
+   ========================================================= */
+
+:root {
+    --lt-brown: #a55704;
+    --lt-brown-dark: #7a3f02;
+    --lt-peach: #f3d2af;
+    --lt-cream: #f8eadc;
+    --lt-soft: #fdf4ea;
+    --lt-text: #2b1a0c;
+
+    --navy: #a55704;
+    --indigo: #a55704;
+    --line: #efdcc6;
+    --muted: #8a6f55;
+
+    --bs-link-color: #a55704;
+    --bs-link-color-rgb: 165, 87, 4;
+    --bs-link-hover-color: #7a3f02;
+    --bs-primary: #a55704;
+    --bs-primary-rgb: 165, 87, 4;
+}
+
+/* ---------- page ---------- */
+body {
+    background:
+        radial-gradient(1200px 500px at 100% -10%, #f3d2af 0%, transparent 60%),
+        radial-gradient(900px 400px at -10% 110%, #f8eadc 0%, transparent 55%),
+        #fdf8f2 !important;
+    color: var(--lt-text) !important;
+}
+
+/* ---------- sidebar ---------- */
+.sidebar {
+    background: linear-gradient(180deg, #a55704 0%, #7a3f02 100%) !important;
+    box-shadow: 4px 0 24px rgba(122, 63, 2, 0.25) !important;
+}
+.brand span, .sidebar .brand span { color: var(--lt-peach) !important; }
+.navbtn { color: #fde9d3 !important; }
+.navbtn:hover { background: rgba(255, 255, 255, 0.12) !important; color: #fff !important; }
+.navbtn.active {
+    background: linear-gradient(90deg, rgba(243, 210, 175, 0.40), rgba(243, 210, 175, 0.10)) !important;
+    color: #fff !important;
+}
+.navbtn.active::before { background: var(--lt-peach) !important; }
+.logout-btn { color: #fff !important; border-color: rgba(255, 255, 255, 0.35) !important; }
+
+/* ---------- top bar & search ---------- */
+.topbar { background: rgba(255, 250, 244, 0.9) !important; border-bottom: 1px solid var(--line) !important; }
+.searchbox { background: #fffaf4 !important; border: 1px solid var(--line) !important; }
+.searchbox:focus-within {
+    background: #fff !important;
+    border-color: #e0a96d !important;
+    box-shadow: 0 0 0 4px rgba(243, 210, 175, 0.55) !important;
+}
+.searchbox button { background: linear-gradient(135deg, #a55704, #c9732a) !important; color: #fff !important; }
+.profile-btn span:last-child { background: linear-gradient(135deg, #a55704, #e0a96d) !important; color: #fff !important; }
+
+/* ---------- hero banner ---------- */
+.hero {
+    background: linear-gradient(125deg, #7a3f02 0%, #a55704 55%, #d98c45 100%) !important;
+    box-shadow: 0 20px 45px rgba(165, 87, 4, 0.28) !important;
+    color: #fff !important;
+}
+.hero::before { background: radial-gradient(circle, rgba(243, 210, 175, 0.55), transparent 70%) !important; }
+.hero::after { background: radial-gradient(circle, rgba(255, 236, 214, 0.45), transparent 70%) !important; }
+.hero p { color: #fdebd8 !important; }
+.hero .btn-light { color: #7a3f02 !important; }
+
+/* ---------- cards ---------- */
+.stat, .card, .road, .sim-stage {
+    border-color: var(--line) !important;
+    box-shadow: 0 10px 30px rgba(122, 63, 2, 0.06) !important;
+}
+.stat:hover, .stat-link:hover { box-shadow: 0 18px 40px rgba(165, 87, 4, 0.14) !important; }
+.stat-icon { background: var(--lt-cream) !important; }
+.stat b { color: var(--lt-text) !important; }
+.sim-stage { border-left: 4px solid var(--lt-brown) !important; }
+#topCareers > div { border-bottom: 1px solid #f6ebdf !important; }
+#topCareers > div:hover { background: var(--lt-soft) !important; }
+#topCareers > div b { color: var(--lt-brown) !important; }
+
+/* ---------- buttons ---------- */
+.btn-primary { background: var(--lt-brown) !important; border-color: var(--lt-brown) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus { background: var(--lt-brown-dark) !important; border-color: var(--lt-brown-dark) !important; }
+.btn-outline-primary { color: var(--lt-brown) !important; border-color: var(--lt-brown) !important; }
+.btn-outline-primary:hover { background: var(--lt-brown) !important; color: #fff !important; }
+.bg-primary { background: var(--lt-brown) !important; }
+.text-primary { color: var(--lt-brown) !important; }
+.dropdown-menu { --bs-dropdown-link-active-bg: var(--lt-brown); }
+
+/* ---------- form fields ---------- */
+.form-control:focus, .form-select:focus, .skill-level:focus {
+    border-color: #e0a96d !important;
+    box-shadow: 0 0 0 3px rgba(243, 210, 175, 0.6) !important;
+}
+.form-range::-webkit-slider-thumb { background: var(--lt-brown); }
+.form-range::-moz-range-thumb { background: var(--lt-brown); }
+.form-check-input:checked { background-color: var(--lt-brown); border-color: var(--lt-brown); }
+.multi-menu label:hover { background: var(--lt-soft) !important; }
+.skill-level-info { background: var(--lt-soft) !important; border: 1px solid var(--lt-peach) !important; }
+.skill-level-info strong { color: var(--lt-brown-dark) !important; }
+
+/* ---------- bars, chips & badges ---------- */
+.gapbar i { background: linear-gradient(90deg, #e0a96d, #a55704) !important; }
+.chip { background: var(--lt-soft) !important; border: 1px solid var(--lt-peach) !important; color: var(--lt-brown-dark) !important; }
+.chip:hover { background: var(--lt-cream) !important; }
+.phase-badge { background: var(--lt-peach) !important; color: var(--lt-brown-dark) !important; }
+.level-badge.capstone { background: var(--lt-peach) !important; color: var(--lt-brown-dark) !important; }
+
+/* ---------- roadmap ---------- */
+.road-current { border: 2px solid var(--lt-brown) !important; box-shadow: 0 10px 30px rgba(165, 87, 4, 0.15) !important; }
+.sem-dot.now { background: var(--lt-brown) !important; border-color: var(--lt-brown) !important; color: #fff !important; }
+
+/* ---------- LeetCode ---------- */
+.lc-stage.current { border-color: var(--lt-brown) !important; background: var(--lt-soft) !important; }
+.metric-sql { background: var(--lt-brown) !important; }
+
+/* ---------- AI chat ---------- */
+.chat { background: #fdf8f2 !important; }
+.chat-side { background: #5c2f02 !important; color: #fbe7d2 !important; }
+.chat-side .form-control { background: #6e3a07 !important; border-color: #8a4803 !important; color: #fff !important; }
+.chat-side .form-control::placeholder, .chat-group, .chat-empty { color: #e8bf93 !important; }
+.chat-item:hover { background: #6e3a07 !important; }
+.chat-item.active { background: var(--lt-brown) !important; color: #fff !important; }
+.user-msg { background: var(--lt-brown) !important; color: #fff !important; }
+.typing i { background: #c58a4f !important; }
+
+/* ---------- theme switch row in the user menu ---------- */
+.theme-row .form-check-input:checked { background-color: var(--lt-brown); border-color: var(--lt-brown); }
+.theme-row .form-check-input:focus { border-color: #e0a96d; box-shadow: 0 0 0 3px rgba(243, 210, 175, 0.6); }
+.theme-row .form-check-input:focus:not(:checked) {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23e0a96d'/%3e%3c/svg%3e");
+}

@@ -13,18 +13,17 @@
     >
 
         <link rel="stylesheet" href="../css/app.css?v=4">
-        <link rel="stylesheet" href="../css/theme.css?v=1">
+    <link rel="stylesheet" href="../css/theme.css?v=1" id="darkThemeCss">
+    <link rel="stylesheet" href="../css/theme-light.css?v=1" id="lightThemeCss" disabled>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script>
         Chart.defaults.font.family = "Inter, system-ui, sans-serif";
-        Chart.defaults.color = "#a99fc9";
-        Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
-        Chart.defaults.backgroundColor = "rgba(255, 94, 138, 0.85)";
         Chart.defaults.elements.bar.borderRadius = 8;
         Chart.defaults.elements.bar.borderSkipped = false;
         Chart.defaults.plugins.legend.display = false;
     </script>
+    <script src="../js/theme.js?v=1"></script>
 </head>
 
 <body>
