@@ -32,8 +32,8 @@
         if (!window.Chart) {
             return;
         }
-        const bar = dark ? 'rgba(255, 94, 138, 0.85)' : 'rgba(165, 87, 4, 0.85)';
-        Chart.defaults.color = dark ? '#a99fc9' : '#7a5a3a';
+        const bar = dark ? 'rgba(255, 94, 138, 0.85)' : 'rgba(201, 115, 126, 0.80)';
+        Chart.defaults.color = dark ? '#a99fc9' : '#8e716b';
         Chart.defaults.borderColor = dark ? 'rgba(255, 255, 255, 0.08)' : 'rgba(165, 87, 4, 0.12)';
         Chart.defaults.backgroundColor = bar;
 

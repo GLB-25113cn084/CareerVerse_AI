@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="../css/app.css?v=4">
     <link rel="stylesheet" href="../css/theme.css?v=1" id="darkThemeCss">
-    <link rel="stylesheet" href="../css/theme-light.css?v=1" id="lightThemeCss" disabled>
+    <link rel="stylesheet" href="../css/theme-light.css?v=2" id="lightThemeCss" disabled>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <script>
@@ -23,7 +23,7 @@
         Chart.defaults.elements.bar.borderSkipped = false;
         Chart.defaults.plugins.legend.display = false;
     </script>
-    <script src="../js/theme.js?v=1"></script>
+    <script src="../js/theme.js?v=2"></script>
 </head>
 
 <body>
