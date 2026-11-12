@@ -4,6 +4,9 @@ import com.careerverse.config.DB;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import java.io.ByteArrayOutputStream;
+import java.util.Base64;
+
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
 import jakarta.mail.PasswordAuthentication;
@@ -50,8 +53,22 @@ public class EmailService {
 
     /** Which provider will be used: brevo, smtp or none. */
     public static String provider() {
-        if (!DB.prop("brevo.api.key").isEmpty()) return "brevo";
-        if (!DB.prop("mail.username").isEmpty() && !DB.prop("mail.password").isEmpty()) return "smtp";
+        if (!DB.prop("gmail.client.id").isEmpty()
+                && !DB.prop("gmail.client.secret").isEmpty()
+                && !DB.prop("gmail.refresh.token").isEmpty()
+                && !DB.prop("mail.username").isEmpty()) {
+            return "gmail-api";
+        }
+
+        if (!DB.prop("brevo.api.key").isEmpty()) {
+            return "brevo";
+        }
+
+        if (!DB.prop("mail.username").isEmpty()
+            && !DB.prop("mail.password").isEmpty()) {
+            return "smtp";
+        }
+
         return "none";
     }
 
